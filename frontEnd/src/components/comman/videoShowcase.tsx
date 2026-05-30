@@ -7,7 +7,7 @@ export default function VideoSection() {
   const [open, setOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
-  const videoId = "1196947679";
+  const videoId = "1196947679"; 
 
   return (
     <>
