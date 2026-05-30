@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), sans-serif;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 20px !important;
+    width: 40px !important;
+    height: 30px !important;
+  }
+}
+/* .swiper-button-prev::after,
+.swiper-button-next::after {
+  content: '◀' !important;
+  font-size: 25px !important;
+  color: #db750e !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px !important;
+  height: 40px;
+  line-height: 50px !important;
+   background-color: rgba(255, 255, 255, 0.9) !important; 
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(63, 52, 52, 0.1) !important;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+} */
+/* First Slider Pagination */
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background-color: #cccccc !important; /* Default gray bullets */
+  transition: background-color 0.3s, transform 0.3s !important;
+}
+
+/* Active Pagination Bullet */
+.swiper-pagination-bullet-active {
+  background-color: #ffa500 !important; /* Active orange bullet */
+  transform: scale(1.3); /* Slightly enlarge active bullet */
+}
+
+/* Hover Effect on Bullets */
+.swiper-pagination-bullet:hover {
+  background-color: #ffcc80 !important; /* Light orange on hover */
+}
+
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slideDown {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* === Swiper Custom Arrow Styling === */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #fb923c !important; /* arrow color */
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 14px !important;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px !important; /* smaller arrow symbol */
+  font-weight: 700;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #fb923c !important; /* orange hover */
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}

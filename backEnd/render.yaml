@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: nest-backend
+    env: node
+    repo: https://github.com/butaniSmit/MB_Saree
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 7777
