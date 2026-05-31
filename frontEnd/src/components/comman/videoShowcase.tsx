@@ -27,6 +27,7 @@ export default function VideoSection() {
 
           <iframe
             key={isMuted ? "muted" : "unmuted"}
+            onLoad={() => setLoading(false)}
             src={`https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=${
               isMuted ? 1 : 0
             }`}
