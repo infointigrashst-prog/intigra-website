@@ -31,7 +31,7 @@ const projects = [
     category: "Auto Mobile",
     description:
       "Premium powder-coated automotive parts with excellent finish, scratch resistance, and weather protection.",
-    imageUrl: "/images/products/automobile-1.jfif",
+    imageUrl: "/images/products/automobile-1.jpeg",
     dataAiHint: "automobile parts",
   },
   {
@@ -40,7 +40,7 @@ const projects = [
     category: "Agriculture",
     description:
       "Durable coatings for agricultural machinery and equipment designed to withstand harsh outdoor environments.",
-    imageUrl: "/images/products/agriculture-1.jfif",
+    imageUrl: "/images/products/agriculture-1.jpeg",
     dataAiHint: "agriculture equipment",
   },
   {
