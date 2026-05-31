@@ -12,7 +12,7 @@ export default function VideoSection() {
 useEffect(() => {
   const timer = setTimeout(() => {
     setLoading(false);
-  }, 200);
+  }, 500);
 
   return () => clearTimeout(timer);
 }, []);
