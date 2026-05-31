@@ -20,9 +20,11 @@ interface Product {
 const categories = [
   "All Cases",
   "Hydrant Valve",
-  "Forging",
-  "Boiler Parts",
-  "Valve Casting Parts",
+  "Auto Mobile",
+  "Agriculture",
+  "Casting Valve",
+  "Kitchen Ware",
+  "Bath Accessories",
 ];
 
 const products: Product[] = [
@@ -37,27 +39,60 @@ const products: Product[] = [
   },
   {
     id: 2,
-    name: "Forging",
+    name: "Auto Mobile Components",
     image: [
-      "/images/products/Flanges-madrec.jpg",
-      "/images/products/Flanges2-madrec.jpg",
+      "/images/products/automobile-1.jfif",
+      "/images/products/automobile.jpg",
+      "/images/products/automobile-2.jpg",
+      "/images/products/automobile-3.jfif",
     ],
-    category: "Forging",
+    category: "Auto Mobile",
   },
   {
     id: 3,
-    name: "Boiler Casting Parts",
-    image: ["/images/products/Boiler_Parts2-madrec.jpg"],
-    category: "Boiler Parts",
+    name: "Agriculture Equipment Parts",
+    image: [
+      "/images/products/agriculture-1.jfif",
+      "/images/products/agriculture.jpg",
+      "/images/products/agriculture-2.jpg",
+    ],
+    category: "Agriculture",
   },
   {
     id: 4,
-    name: "Valve Casting Parts",
+    name: "Casting Valve Parts",
     image: [
       "/images/products/Valve_Casting_Parts2-madrec.jpg",
       "/images/products/Valve_Casting_Parts3-madrec.jpg",
+      "/images/products/Valve_Casting_Parts4-madrec.jfif",
+      "/images/products/Valve_Casting_Parts4-madrec.jpeg",
+      "/images/products/Valve_Casting_Parts5-madrec.jpeg",
+      "/images/products/Valve_Casting_Parts6-madrec.jfif",
+      "/images/products/Valve_Casting_Parts7-madrec.jfif",
     ],
-    category: "Valve Casting Parts",
+    category: "Casting Valve",
+  },
+  {
+    id: 5,
+    name: "Kitchen Ware",
+    image: [
+      "/images/products/kitchen-ware.jpg",
+      "/images/products/kitchen-ware-2.jpg",
+      "/images/products/kitchen-ware-3.jfif",
+      "/images/products/kitchen-ware-4.jfif",
+    ],
+    category: "Kitchen Ware",
+  },
+  {
+    id: 6,
+    name: "Bath Accessories",
+    image: [
+      "/images/products/bath-accessories.jpg",
+      "/images/products/bath-accessories-2.jpg",
+      "/images/products/bath-accessories-3.jpg",
+      "/images/products/bath-accessories-4.jfif",
+    ],
+    category: "Bath Accessories",
   },
 ];
 
@@ -163,51 +198,58 @@ export default function ProductGallery() {
       {/* Modal */}
       {selectedProduct && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center
-                  bg-white/60 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4"
+          onClick={() => setSelectedProduct(null)} // Close when clicking the background
         >
-          <div className="relative w-11/12 md:w-3/4 lg:w-1/2 max-h-[90vh]">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedProduct(null)}
-              className="absolute -top-4 -right-4 z-50
-                   h-10 w-10 rounded-full
-                   bg-white text-gray-800 text-2xl font-bold
-                   shadow-lg hover:bg-orange-500 hover:text-white transition"
-            >
-              ×
-            </button>
+          <div
+            className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
+          >
+            {/* Header with Close Button */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 bg-white">
+              <h3 className="text-xl md:text-2xl font-bold text-orange-600">
+                {selectedProduct.name}
+              </h3>
+              <button
+                onClick={() => setSelectedProduct(null)}
+                className="h-10 w-10 rounded-full bg-gray-100 text-gray-600 text-2xl hover:bg-orange-500 hover:text-white transition-all flex items-center justify-center"
+              >
+                ×
+              </button>
+            </div>
 
-            {/* Image Slider */}
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay, Zoom]}
-              navigation
-              loop
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 3500 }}
-              zoom
-              className="w-full rounded-2xl"
-            >
-              {selectedProduct.image.map((img, idx) => (
-                <SwiperSlide key={idx}>
-                  <div className="swiper-zoom-container flex items-center justify-center">
-                    <Image
-                      src={img}
-                      alt={selectedProduct.name}
-                      width={800}
-                      height={600}
-                      className="object-contain max-h-[75vh] rounded-2xl"
-                      priority
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            {/* Image Slider Section */}
+            <div className="bg-gray-50 flex-grow">
+              <Swiper
+                modules={[Navigation, Pagination, Autoplay, Zoom]}
+                navigation
+                pagination={{ clickable: true }}
+                loop
+                autoplay={{ delay: 3500 }}
+                zoom
+                autoHeight={true} // Crucial: Shrinks the container for landscape images
+                className="w-full"
+              >
+                {selectedProduct.image.map((img, idx) => (
+                  <SwiperSlide key={idx}>
+                    <div className="swiper-zoom-container flex items-center justify-center">
+                      <Image
+                        src={img}
+                        alt={selectedProduct.name}
+                        width={1200}
+                        height={900}
+                        // Responsive height limits to keep the modal inside the viewport
+                        className="w-full h-auto max-h-[65vh] object-contain"
+                        priority
+                      />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
 
-            {/* Product Name */}
-            <h3 className="mt-5 text-center text-xl md:text-2xl font-semibold text-orange-600">
-              {selectedProduct.name}
-            </h3>
+            {/* Optional Footer/Padding to balance the look */}
+            <div className="h-4 bg-white" />
           </div>
         </div>
       )}

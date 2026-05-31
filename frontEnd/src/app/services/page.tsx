@@ -189,29 +189,42 @@ export default function ServicesPage() {
 
         <section className="py-5 bg-gradient-to-r from-orange-50 via-white to-yellow-50">
           <div className="container max-w-screen-xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl  font-bold font-headline text-primary text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary text-center mb-12">
               Types of Coatings We Offer
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                "Epoxy",
-                "Polyester",
-                "Hybrid (Epoxy-Polyester)",
-                "Polyurethane",
-                "Acrylic",
-                "Fluoropolymer",
-              ].map((coatingType) => (
+                {
+                  title: "Epoxy",
+                  desc: "Provides exceptional chemical resistance and durability for indoor parts. Excellent adhesion and hardness for industrial machinery and heavy-duty tools.",
+                },
+                {
+                  title: "Polyester",
+                  desc: "Perfect for outdoor applications with high UV resistance and color retention. Maintains a long-lasting finish on architectural elements and garden furniture.",
+                },
+                {
+                  title: "Hybrid (Epoxy-Polyester)",
+                  desc: "Combines the toughness of epoxy with the overbake resistance of polyester. A versatile choice for household appliances and general indoor metal products.",
+                },
+                {
+                  title: "Hammertone",
+                  desc: "Creates a unique decorative textured finish that effectively hides surface flaws. Offers a sophisticated, rugged look for electrical boxes and metal cabinets.",
+                },
+                {
+                  title: "Heat-Resistant Developed",
+                  desc: "Specifically engineered to withstand extreme temperatures without peeling or fading. Ideal for exhaust systems, grills, and high-heat industrial equipment.",
+                },
+              ].map((coating) => (
                 <Card
-                  key={coatingType}
+                  key={coating.title}
                   className="bg-white shadow-lg border-l-4 border-orange-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-xl"
                 >
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-primary">
-                      {coatingType}
+                      {coating.title}
                     </h3>
-                    <p className="mt-2 text-sm text-foreground/70">
-                      Ideal for industrial and commercial applications, offering
-                      protective and aesthetic benefits.
+                    <p className="mt-2 text-sm text-foreground/70 leading-relaxed">
+                      {coating.desc}
                     </p>
                   </CardContent>
                 </Card>

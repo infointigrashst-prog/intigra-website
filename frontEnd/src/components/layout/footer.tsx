@@ -73,7 +73,7 @@ export default function Footer() {
 
                <div className="mt-4 flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1JGgtxVfMZ/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -82,16 +82,7 @@ export default function Footer() {
                 <Facebook className="h-6 w-6" />
               </a>
               <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="text-white/70 hover:text-orange-400 transition-colors"
-              >
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/intigra_coatings?igsh=dmw4OHk2dThvcTB5"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

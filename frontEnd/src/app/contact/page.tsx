@@ -69,7 +69,7 @@ const contactDetails = [
   {
     icon: <Clock className="h-6 w-6 text-primary" />,
     label: "Business Hours",
-    value: "Mon - Fri: 9 AM - 5 PM",
+    value: "Thu - Thu: 9 AM - 7 PM",
   },
 ];
 

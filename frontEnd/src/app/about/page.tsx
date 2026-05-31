@@ -252,7 +252,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="py-10 bg-gray-50 relative">
+        {/* <section className="py-10 bg-gray-50 relative">
           <div className="container max-w-screen-xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl md:text-5xl font-bold font-headline text-center text-gray-900 mb-12">
               Meet Our Team
@@ -285,7 +285,7 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
     </CustomLayout>
   );

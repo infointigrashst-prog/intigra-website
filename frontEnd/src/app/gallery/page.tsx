@@ -16,18 +16,69 @@ import { useState } from "react";
 import CustomLayout from "@/components/layout/layout";
 
 const projects = [
-  { id: 1, title: "Custom Motorcycle Frame", category: "Automotive", description: "Vibrant candy blue finish on a custom chopper frame, providing exceptional durability and eye-catching appeal.", imageUrl: "https://placehold.co/600x400.png", dataAiHint: "motorcycle parts" },
-  { id: 2, title: "Industrial Machinery Components", category: "Industrial", description: "Heavy-duty textured black coating for machinery parts, offering superior resistance to wear and corrosion.", imageUrl: "https://placehold.co/600x400.png", dataAiHint: "machinery parts" },
-  { id: 3, title: "Outdoor Patio Furniture Set", category: "Architectural", description: "Weather-resistant satin white finish for a set of metal patio furniture, ensuring longevity and style.", imageUrl: "https://placehold.co/600x400.png", dataAiHint: "patio furniture" },
-  { id: 4, title: "Retail Store Fixtures", category: "Commercial", description: "Sleek matte grey coating for retail display fixtures, creating a modern and durable solution.", imageUrl: "https://placehold.co/600x400.png", dataAiHint: "retail fixtures" },
-  { id: 5, title: "Bicycle Rims - Set of 4", category: "Recreational", description: "High-gloss red powder coat on alloy bicycle rims for a sporty look and enhanced protection.", imageUrl: "https://placehold.co/600x400.png", dataAiHint: "bicycle rims" },
-  { id: 6, title: "Architectural Railings", category: "Architectural", description: "Bronze metallic finish on custom-fabricated steel railings for a luxury residential project.", imageUrl: "https://placehold.co/600x400.png", dataAiHint: "architectural railings" },
+  {
+    id: 1,
+    title: "Hydrant Valve Coating",
+    category: "Hydrant Valve",
+    description:
+      "High-performance powder coating for hydrant valves, providing superior corrosion resistance and long-lasting durability.",
+    imageUrl: "/images/products/hydrant-valve.jpg",
+    dataAiHint: "hydrant valve",
+  },
+  {
+    id: 2,
+    title: "Automobile Components",
+    category: "Auto Mobile",
+    description:
+      "Premium powder-coated automotive parts with excellent finish, scratch resistance, and weather protection.",
+    imageUrl: "/images/products/automobile-1.jfif",
+    dataAiHint: "automobile parts",
+  },
+  {
+    id: 3,
+    title: "Agriculture Equipment",
+    category: "Agriculture",
+    description:
+      "Durable coatings for agricultural machinery and equipment designed to withstand harsh outdoor environments.",
+    imageUrl: "/images/products/agriculture-1.jfif",
+    dataAiHint: "agriculture equipment",
+  },
+  {
+    id: 4,
+    title: "Casting Valve Components",
+    category: "Casting Valve",
+    description:
+      "Precision powder coating solutions for casting valve parts ensuring corrosion protection and aesthetic appeal.",
+    imageUrl: "/images/products/Valve_Casting_Parts2-madrec.jpg",
+    dataAiHint: "casting valve",
+  },
+  {
+    id: 5,
+    title: "Kitchen Ware Collection",
+    category: "Kitchen Ware",
+    description:
+      "Elegant and food-safe powder-coated kitchenware with smooth finishes and excellent wear resistance.",
+    imageUrl: "/images/products/kitchen-ware.jpg",
+    dataAiHint: "kitchen utensils",
+  },
+  {
+    id: 6,
+    title: "Bath Accessories",
+    category: "Bath Accessories",
+    description:
+      "Stylish powder-coated bathroom accessories featuring moisture resistance and long-lasting finish quality.",
+    imageUrl: "/images/products/bath-accessories.jpg",
+    dataAiHint: "bath accessories",
+  },
 ];
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
-  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+  const categories = [
+    "All",
+    ...Array.from(new Set(projects.map((p) => p.category))),
+  ];
 
   const filteredProjects =
     selectedCategory === "All"
@@ -83,8 +134,12 @@ export default function GalleryPage() {
                   </span>
                 </div>
                 <CardHeader className="px-4 pt-4">
-                  <CardTitle className="text-xl font-semibold text-gray-900">{project.title}</CardTitle>
-                  <CardDescription className="text-sm text-gray-600 mt-1">{project.category}</CardDescription>
+                  <CardTitle className="text-xl font-semibold text-gray-900">
+                    {project.title}
+                  </CardTitle>
+                  <CardDescription className="text-sm text-gray-600 mt-1">
+                    {project.category}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="px-4 pb-4 text-gray-700 text-sm">
                   {project.description}
@@ -95,7 +150,9 @@ export default function GalleryPage() {
                     asChild
                     className="w-full border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
                   >
-                    <Link href={`/contact?project_inquiry=${encodeURIComponent(project.title)}`}>
+                    <Link
+                      href={`/contact?project_inquiry=${encodeURIComponent(project.title)}`}
+                    >
                       Inquire About Similar Project
                     </Link>
                   </Button>
@@ -108,11 +165,18 @@ export default function GalleryPage() {
 
       <section className="py-5 md:py-16 bg-gradient-to-b from-gray-100 via-gray-50 to-gray-100 text-center">
         <div className="container max-w-screen-xl px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Have a Project in Mind?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Have a Project in Mind?
+          </h2>
           <p className="text-lg text-gray-700 max-w-xl mx-auto mb-6">
-            Let's discuss how INTIGRA can bring your vision to life with our expert powder coating services.
+            Let's discuss how INTIGRA can bring your vision to life with our
+            expert powder coating services.
           </p>
-          <Button asChild size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">
+          <Button
+            asChild
+            size="lg"
+            className="bg-orange-600 hover:bg-orange-700 text-white"
+          >
             <Link href="/contact">Get a Free Quote</Link>
           </Button>
         </div>
