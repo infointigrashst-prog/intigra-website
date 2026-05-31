@@ -1,15 +1,21 @@
 "use client";
 
 import { Loader2, PlaySquare, Volume2, VolumeX } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function VideoSection() {
   const [open, setOpen] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const videoId = "1196947679";
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setLoading(false);
+  }, 200);
 
+  return () => clearTimeout(timer);
+}, []);
   return (
     <>
       <section className="relative w-full overflow-hidden">
