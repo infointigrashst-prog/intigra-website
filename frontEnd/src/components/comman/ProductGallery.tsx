@@ -24,26 +24,49 @@ const products: Product[] = [
   {
     id: 1,
     name: "Hydrant Valve Premium Unit",
-    image: ["/images/products/hydrant-valve.jpg", "/images/products/hydrant-valve-2.jpg"],
+    image: [
+      "/images/products/hydrant-valve.jpg",
+      "/images/products/hydrant-valve-2.jpg",
+    ],
     category: "Hydrant Valve",
     sku: "HV-104",
-    features: ["Corrosion Resistant Coating", "High-Pressure Tolerance", "Industrial Standard Compliance"],
+    features: [
+      "Corrosion Resistant Coating",
+      "High-Pressure Tolerance",
+      "Industrial Standard Compliance",
+    ],
   },
   {
     id: 2,
     name: "Auto Mobile Components",
-    image: ["/images/products/automobile-1.jpeg", "/images/products/automobile.jpg", "/images/products/automobile-2.jpg"],
+    image: [
+      "/images/products/automobile-1.jpeg",
+      "/images/products/automobile.jpg",
+      "/images/products/automobile-2.jpg",
+    ],
     category: "Auto Mobile",
     sku: "AM-892",
-    features: ["Precision Forged Engineering", "High Tensile Strength Alloys", "Custom Fit Profiles"],
+    features: [
+      "Precision Forged Engineering",
+      "High Tensile Strength Alloys",
+      "Custom Fit Profiles",
+    ],
   },
   {
     id: 3,
     name: "Agriculture Equipment Parts",
-    image: ["/images/products/agriculture-1.jpeg", "/images/products/agriculture.jpg", "/images/products/agriculture-2.jpg"],
+    image: [
+      "/images/products/agriculture-1.jpeg",
+      "/images/products/agriculture.jpg",
+      "/images/products/agriculture-2.jpg",
+    ],
     category: "Agriculture",
     sku: "AG-501",
-    features: ["Heavy Duty Field Resilience", "Wear-Resistant Micro Finish", "Optimized Core Geometry"],
+    features: [
+      "Heavy Duty Field Resilience",
+      "Wear-Resistant Micro Finish",
+      "Optimized Core Geometry",
+    ],
   },
   {
     id: 4,
@@ -56,20 +79,28 @@ const products: Product[] = [
     ],
     category: "Casting Valve",
     sku: "CV-330",
-    features: ["Defect-Free Sand Casting", "Flawless Machine Threading", "Thermal Stress Tested"],
+    features: [
+      "Defect-Free Sand Casting",
+      "Flawless Machine Threading",
+      "Thermal Stress Tested",
+    ],
   },
   {
     id: 5,
     name: "Premium Kitchen Ware",
     image: [
+      "/images/products/kitchen-ware-3.jpeg",
       "/images/products/kitchen-ware.jpg",
       "/images/products/kitchen-ware-2.jpg",
-      "/images/products/kitchen-ware-3.jpeg",
       "/images/products/kitchen-ware-4.jpeg",
     ],
     category: "Kitchen Ware",
     sku: "KW-721",
-    features: ["Food-Grade Safety Standards", "Ergonomic Balance Profiles", "Ultra Mirror-Polish Polish"],
+    features: [
+      "Food-Grade Safety Standards",
+      "Ergonomic Balance Profiles",
+      "Ultra Mirror-Polish Polish",
+    ],
   },
   {
     id: 6,
@@ -82,7 +113,11 @@ const products: Product[] = [
     ],
     category: "Bath Accessories",
     sku: "BA-012",
-    features: ["Multi-Layer Chrome Plating", "Anti-Lime Scaling Surface", "Easy-Mount System Design"],
+    features: [
+      "Multi-Layer Chrome Plating",
+      "Anti-Lime Scaling Surface",
+      "Easy-Mount System Design",
+    ],
   },
 ];
 
@@ -108,34 +143,61 @@ export default function ProductGallery() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
+
         {/* Category Badge */}
-        <span className="absolute top-4 left-4 text-[11px] uppercase font-extrabold tracking-wider bg-white/90 text-slate-800 px-3 py-1.5 rounded-xl shadow-sm backdrop-blur-sm z-10">
+        {/* <span className="absolute top-4 left-4 text-[11px] uppercase font-extrabold tracking-wider bg-white/90 text-slate-800 px-3 py-1.5 rounded-xl shadow-sm backdrop-blur-sm z-10">
           {product.category}
-        </span>
+        </span> */}
 
         {/* View Overlay Action */}
         <div className="absolute bottom-4 right-4 bg-orange-600 text-white p-3 rounded-2xl shadow-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2.5}
+            stroke="currentColor"
+            className="w-5 h-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
           </svg>
         </div>
       </div>
 
       {/* Product Card Info */}
       <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white border-t border-slate-50">
-        {product.sku && <span className="text-xs text-slate-400 font-mono mb-1">{product.sku}</span>}
+        <div className="flex flex-wrap items-center gap-2 mb-1">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-orange-600 py-1 bg-orange-50 rounded-md">
+            {product.category}
+          </span>
+          {product.sku && (
+            <span className="text-xs font-mono text-slate-400 bg-slate-100 px-2 py-1 rounded-md">
+              SKU: {product.sku}
+            </span>
+          )}
+        </div>
         <h3 className="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-orange-600 transition-colors duration-300 line-clamp-1 mb-2">
           {product.name}
         </h3>
         <div className="w-8 h-1 bg-orange-500 rounded transition-all duration-300 group-hover:w-16 mb-4" />
-        
+
         {/* Micro Preview of Features */}
         {product.features && (
           <ul className="space-y-1.5 mt-auto">
             {product.features.slice(0, 2).map((feat, i) => (
-              <li key={i} className="text-xs text-slate-500 flex items-center gap-1.5 line-clamp-1">
+              <li
+                key={i}
+                className="text-xs text-slate-500 flex items-center gap-1.5 line-clamp-1"
+              >
                 <span className="w-1.5 h-1.5 bg-amber-500 rounded-full flex-shrink-0" />
                 {feat}
               </li>
@@ -159,18 +221,23 @@ export default function ProductGallery() {
             Industrial Portfolio
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-            Our Engineered <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">Product Range</span>
+            Our Engineered{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
+              Product Range
+            </span>
           </h2>
           <p className="text-gray-600 text-sm sm:text-base md:text-lg">
-            Explore high-precision manufacturing components across multiple sectors built to international specifications.
+            Explore high-precision manufacturing components across multiple
+            sectors built to international specifications.
           </p>
         </div>
 
         {/* 1. MOBILE VIEW: Horizontal Touch Slider Container (Visible only below 'sm' breakpoint) */}
         <div className="block sm:hidden pb-10">
           <Swiper
-            modules={[Pagination]}
+            modules={[Pagination, Autoplay]}
             spaceBetween={16}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
             slidesPerView={1.15}
             centeredSlides={false}
             pagination={{ clickable: true }}
@@ -223,9 +290,14 @@ export default function ProductGallery() {
                 navigation={true}
                 pagination={{ clickable: true, dynamicBullets: true }}
                 loop={selectedProduct.image.length > 1}
-                autoplay={{ delay: 1000, disableOnInteraction: true }}
+                autoplay={{ delay: 2000, disableOnInteraction: false }}
                 zoom={true}
-                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+                thumbs={{
+                  swiper:
+                    thumbsSwiper && !thumbsSwiper.destroyed
+                      ? thumbsSwiper
+                      : null,
+                }}
                 autoHeight={true}
                 className="w-full rounded-2xl overflow-hidden group shadow-sm bg-white"
               >
@@ -259,9 +331,17 @@ export default function ProductGallery() {
                     className="thumbs-swiper"
                   >
                     {selectedProduct.image.map((img, idx) => (
-                      <SwiperSlide key={idx} className="cursor-pointer opacity-40 transition-opacity duration-300 [&.swiper-slide-thumb-active]:opacity-100">
+                      <SwiperSlide
+                        key={idx}
+                        className="cursor-pointer opacity-40 transition-opacity duration-300 [&.swiper-slide-thumb-active]:opacity-100"
+                      >
                         <div className="relative aspect-[4/3] border-2 border-transparent [&.swiper-slide-thumb-active]:border-orange-500 rounded-lg overflow-hidden bg-white shadow-sm">
-                          <Image src={img} alt="thumbnail" fill className="object-cover" />
+                          <Image
+                            src={img}
+                            alt="thumbnail"
+                            fill
+                            className="object-cover"
+                          />
                         </div>
                       </SwiperSlide>
                     ))}
@@ -287,20 +367,32 @@ export default function ProductGallery() {
                 <h3 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight mb-4">
                   {selectedProduct.name}
                 </h3>
-                
+
                 <div className="h-0.5 bg-slate-100 w-full mb-6" />
 
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
                   Product Technical Features
                 </h4>
-                
+
                 {selectedProduct.features ? (
                   <ul className="space-y-3">
                     {selectedProduct.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
+                      <li
+                        key={idx}
+                        className="flex items-start gap-3 text-sm text-slate-600"
+                      >
                         <span className="flex-shrink-0 mt-0.5 h-5 w-5 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3">
-                            <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clipRule="evenodd" />
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            className="w-3 h-3"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
+                              clipRule="evenodd"
+                            />
                           </svg>
                         </span>
                         <span>{feat}</span>
@@ -309,7 +401,9 @@ export default function ProductGallery() {
                   </ul>
                 ) : (
                   <p className="text-sm text-slate-500 leading-relaxed">
-                    High-durability engineering product crafted according to industrial guidelines. Ideal for systems requiring meticulous structural accuracy.
+                    High-durability engineering product crafted according to
+                    industrial guidelines. Ideal for systems requiring
+                    meticulous structural accuracy.
                   </p>
                 )}
               </div>
