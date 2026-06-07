@@ -12,6 +12,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
 import WhatsappButton from "@/components/comman/Whatsapp";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -109,6 +110,7 @@ export default function RootLayout({
           inter.variable
         )}
       >
+        <Analytics/>
         <div className="flex flex-col min-h-screen">{children}</div>
         <WhatsappButton />
         <ScrollToTopButton />
