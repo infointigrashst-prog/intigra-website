@@ -22,32 +22,41 @@ import Image from "next/image";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
 export const metadata: Metadata = {
-  title: "Powder Coating Services by INTIGRA",
+  title: "Industrial Powder Coating Services | INTIGRA Rajkot",
   description:
-    "Explore INTIGRA's comprehensive powder coating services, including precision application, custom color matching, specialty coatings, and thorough surface preparation for diverse applications.",
+    "Discover INTIGRA's high-performance powder coating solutions in Gujarat. Precision electrostatic application, meticulous 7-tank surface preparation, and custom texturing for automotive, industrial machinery, and architectural metal.",
+  keywords: [
+    "industrial powder coating services",
+    "surface preparation sandblasting rajkot",
+    "electrostatic powder application",
+    "epoxy polyester hybrid coating",
+    "metal finishing plant gujarat",
+  ],
   alternates: {
-    canonical: "/services",
+    canonical: `${siteUrl}/services`,
   },
   openGraph: {
-    title: "Expert Powder Coating Services | INTIGRA",
+    title: "Expert Powder Coating & Surface Finishing Services | INTIGRA",
     description:
-      "From custom colors to industrial-grade protection, discover INTIGRA's full range of powder coating services.",
-    url: "/services",
+      "From high-durability epoxy formulations to weather-resistant exterior polyesters, discover INTIGRA's automated coating capabilities.",
+    url: `${siteUrl}/services`,
+    type: "website",
     images: [
       {
-        url: "https://placehold.co/1200x630.png", // Placeholder, replace with actual URL
+        url: `${siteUrl}/images/og-services.png`,
         width: 1200,
         height: 630,
-        alt: "Overview of INTIGRA Powder Coating Services",
+        alt: "Overview of INTIGRA Powder Coating Production Services",
         type: "image/png",
       },
     ],
   },
   twitter: {
-    title: "INTIGRA Powder Coating Services: Quality & Precision",
+    card: "summary_large_image",
+    title: "INTIGRA Powder Coating Services: Quality & Engineering Precision",
     description:
-      "Learn about our specialized powder coating solutions for automotive, industrial, and architectural needs.",
-    images: ["https://placehold.co/1200x630.png"], // Placeholder, replace with actual URL
+      "Specialized protective coating options engineered for high-heat tolerances, chemical resistance, and heavy-duty outdoor exposure.",
+    images: [`${siteUrl}/images/og-services.png`],
   },
 };
 
@@ -131,14 +140,14 @@ export default function ServicesPage() {
           description="INTIGRA offers a comprehensive range of powder coating services designed to meet diverse needs with precision and quality."
         />
 
-        <section className="py-8 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
+        <section className="py-16 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
           {/* Decorative Soft Backgrounds */}
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"></div>
 
           <div className="container max-w-screen-xl mx-auto px-6 relative z-10">
             <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
-              Our Services
+              Our Industrial Capabilities
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -148,35 +157,35 @@ export default function ServicesPage() {
                   className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] flex flex-col border-t-4 border-orange-500 rounded-2xl bg-white"
                   data-ai-hint={service.dataAiHint}
                 >
-                  <div className="relative w-full h-60 md:h-56">
+                  <div className="relative w-full h-60 md:h-56 bg-zinc-100">
                     <Image
                       src={service.image}
-                      alt={`${service.title} by INTIGRA Coatings`}
+                      alt={`${service.title} line setup by INTIGRA Coatings`}
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      data-ai-hint={service.dataAiHint}
+                      priority={index < 2}
                     />
                   </div>
 
-                  <CardHeader className="px-6 pt-4">
+                  <CardHeader className="px-6 pt-6">
                     <div className="flex items-center gap-3">
                       {service.icon}
-                      <CardTitle className="text-xl font-semibold text-gray-900">
-                        <h2>{service.title}</h2>
+                      <CardTitle className="text-xl font-bold text-gray-900">
+                        {service.title}
                       </CardTitle>
                     </div>
                   </CardHeader>
 
-                  <CardContent className="px-6 pb-3 flex flex-col flex-grow">
-                    <h3 className="text-gray-700 mb-4 leading-relaxed">
+                  <CardContent className="px-6 pb-6 flex flex-col flex-grow">
+                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
                       {service.description}
-                    </h3>
-                    <ul className="space-y-1 text-sm text-gray-600">
+                    </p>
+                    <ul className="space-y-2 text-sm text-gray-700 mt-auto">
                       {service.details.map((detail, i) => (
                         <li key={i} className="flex items-start">
                           <CheckSquare className="h-4 w-4 mr-2 text-orange-500 flex-shrink-0 mt-0.5" />
-                          {detail}
+                          <span>{detail}</span>
                         </li>
                       ))}
                     </ul>
@@ -187,43 +196,46 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="py-5 bg-gradient-to-r from-orange-50 via-white to-yellow-50">
+        <section className="py-16 bg-gradient-to-r from-orange-50 via-white to-yellow-50 border-y border-zinc-100">
           <div className="container max-w-screen-xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 text-center mb-4">
               Types of Coatings We Offer
             </h2>
+            <p className="text-zinc-600 text-center max-w-xl mx-auto mb-12 text-sm">
+              Tailored powder formulations cross-checked for precise mil thickness, environmental endurance, and structural integrity.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Epoxy",
-                  desc: "Provides exceptional chemical resistance and durability for indoor parts. Excellent adhesion and hardness for industrial machinery and heavy-duty tools.",
+                  title: "Epoxy Coatings",
+                  desc: "Provides exceptional chemical resistance and durability for indoor components. Excellent adhesion and surface hardness built for industrial machinery and heavy-duty tools.",
                 },
                 {
-                  title: "Polyester",
-                  desc: "Perfect for outdoor applications with high UV resistance and color retention. Maintains a long-lasting finish on architectural elements and garden furniture.",
+                  title: "Polyester Finishes",
+                  desc: "Perfect for outdoor applications with high UV resistance and color retention. Maintains an ultra-durable finish on architectural frameworks and exterior panels.",
                 },
                 {
                   title: "Hybrid (Epoxy-Polyester)",
-                  desc: "Combines the toughness of epoxy with the overbake resistance of polyester. A versatile choice for household appliances and general indoor metal products.",
+                  desc: "Combines the structural toughness of epoxy with the overbake color stability of polyester. A flexible choice for household appliances and general indoor enclosures.",
                 },
                 {
-                  title: "Hammertone",
-                  desc: "Creates a unique decorative textured finish that effectively hides surface flaws. Offers a sophisticated, rugged look for electrical boxes and metal cabinets.",
+                  title: "Hammertone & Textures",
+                  desc: "Creates a decorative textured profile that effectively masks underlying casting flaws. Offers a sophisticated, rugged look for electrical boxes and custom enclosures.",
                 },
                 {
-                  title: "Heat-Resistant Developed",
-                  desc: "Specifically engineered to withstand extreme temperatures without peeling or fading. Ideal for exhaust systems, grills, and high-heat industrial equipment.",
+                  title: "High-Heat Formulations",
+                  desc: "Specifically engineered to withstand extreme thermal fluctuations without peeling. Ideal for exhaust system configurations, manifolds, and processing equipment.",
                 },
               ].map((coating) => (
                 <Card
                   key={coating.title}
-                  className="bg-white shadow-lg border-l-4 border-orange-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 rounded-xl"
+                  className="bg-white shadow-md border-l-4 border-orange-500 hover:shadow-xl transition-all duration-300 rounded-xl"
                 >
                   <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-primary">
+                    <h3 className="text-lg font-bold text-zinc-900">
                       {coating.title}
                     </h3>
-                    <p className="mt-2 text-sm text-foreground/70 leading-relaxed">
+                    <p className="mt-2 text-sm text-zinc-600 leading-relaxed">
                       {coating.desc}
                     </p>
                   </CardContent>
@@ -233,23 +245,22 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="py-5 bg-gray-50">
+        <section className="py-16 bg-zinc-50">
           <div className="container max-w-screen-xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold font-headline text-gray-900 text-center mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-2">
               Common Applications
             </h2>
-            <h3 className="text-lg text-gray-700 text-center max-w-2xl mx-auto mb-10">
-              Powder coating is a versatile solution suitable for many
-              industries and products:
-            </h3>
+            <p className="text-md text-gray-600 text-center max-w-2xl mx-auto mb-12">
+              Powder coating is a versatile, high-endurance solution suitable for major processing sectors:
+            </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
               {applications.map((app) => (
                 <div
                   key={app.name}
-                  className="flex flex-col items-center text-center p-6 bg-white shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105 rounded-xl border-t-4 border-orange-500"
+                  className="flex flex-col items-center text-center p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300 rounded-xl border-t-4 border-orange-500"
                 >
-                  {app.icon}
-                  <p className="mt-4 text-md font-medium text-primary">
+                  <div className="mb-4">{app.icon}</div>
+                  <p className="text-sm font-semibold text-zinc-900">
                     {app.name}
                   </p>
                 </div>
@@ -257,64 +268,54 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
         <Testimonials />
 
-        <section className="py-10 bg-gradient-to-b from-gray-50 via-white to-gray-100">
+        <section className="py-16 bg-gradient-to-b from-gray-50 via-white to-zinc-50 border-t border-zinc-200">
           <div className="container max-w-screen-xl mx-auto px-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold font-headline text-gray-900 mb-6">
-              Why Choose{" "}
-              <span className="text-orange-600">Intigra Coatings</span>?
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+              Why Choose <span className="text-orange-600">INTIGRA Coatings</span>?
             </h2>
-            <h3 className="text-lg text-gray-700 max-w-2xl mx-auto mb-12 leading-relaxed">
-              Choose <strong>Intigra Coatings</strong> for premium,
-              eco-friendly, and high-performance powder coating solutions that
-              deliver durability, protection, and style — built to last.
-            </h3>
+            <p className="text-md text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+              Partner with an eco-conscious, high-capacity batch facility engineered to deliver elite-tier impact resistance, zero VOC emissions, and premium uniformity.
+            </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
                 {
-                  icon: <ShieldCheck className="w-10 h-10 text-orange-500" />,
-                  title: "Corrosion & Weather Protection",
-                  desc: "Our coatings shield against rust, moisture, and UV damage — ideal for outdoor and industrial environments.",
+                  icon: <ShieldCheck className="w-8 h-8 text-orange-500" />,
+                  title: "Corrosion & Weather Shielding",
+                  desc: "Engineered layers shield substrates against moisture crystallization and rust creepage across highly humid settings.",
                 },
                 {
-                  icon: <Zap className="w-10 h-10 text-orange-500" />,
-                  title: "Long Life Coating Performance",
-                  desc: "Advanced formulations ensure a long-lasting, chip-resistant surface that maintains color and strength.",
+                  icon: <Zap className="w-8 h-8 text-orange-500" />,
+                  title: "Extended Component Lifespan",
+                  desc: "Advanced therapeutic thermal cross-linking ensures a highly flexible finish that minimizes impact splitting.",
                 },
                 {
-                  icon: <Palette className="w-10 h-10 text-orange-500" />,
-                  title: "Smooth & Consistent Finish",
-                  desc: "Achieve flawless texture and uniform coverage with our precision-controlled application process.",
+                  icon: <Palette className="w-8 h-8 text-orange-500" />,
+                  title: "Flawless Coating Uniformity",
+                  desc: "Maintains tightly managed powder dispersion patterns preventing unwanted corner-builds or localized runs.",
                 },
                 {
-                  icon: <CheckCircle className="w-10 h-10 text-orange-500" />,
-                  title: "Eco-Friendly & Low-Waste Process",
-                  desc: "Sustainable, solvent-free coating technology minimizing waste and environmental impact.",
+                  icon: <CheckCircle className="w-8 h-8 text-orange-500" />,
+                  title: "Eco-Conscious Low-Waste Line",
+                  desc: "Sustainable, solvent-free oversight allowing complete reclamation and reduction of operational carbon footprints.",
                 },
               ].map((item, i) => (
                 <Card
                   key={i}
-                  className="text-center rounded-xl border-t-4 border-orange-500
-                 px-6 py-6 bg-white
-                 shadow-md hover:shadow-xl
-                 hover:-translate-y-1 transition-all duration-300"
+                  className="text-center rounded-xl border-t-4 border-orange-500 px-6 py-6 bg-white shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  {/* Icon */}
                   <div className="flex justify-center mb-4">
-                    <div className="flex items-center justify-center w-16 h-16 bg-orange-50 rounded-full">
+                    <div className="flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full">
                       {item.icon}
                     </div>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 leading-snug">
+                  <h3 className="text-md font-bold text-gray-900 mb-2">
                     {item.title}
                   </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <p className="text-xs text-gray-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </Card>

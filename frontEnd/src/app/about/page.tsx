@@ -7,73 +7,45 @@ import CustomLayout from "@/components/layout/layout";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
+/* --- Production-Grade SEO Metadata --- */
 export const metadata: Metadata = {
-  title: "About INTIGRA - Our Story, Mission, and Values",
+  title: "About INTIGRA | Premium Powder Coating Plant in Rajkot, Gujarat",
   description:
-    "Learn about INTIGRA's history, our mission to deliver quality powder coating, and the core values that drive our commitment to excellence and customer satisfaction.",
+    "Discover the story behind INTIGRA, India's leading automated powder coating facility. Learn about our advanced metal finishing technology, core values, and mission to deliver high-durability surface protection.",
+  keywords: [
+    "about intigra coatings",
+    "powder coating factory rajkot",
+    "automated metal finishing gujarat",
+    "industrial surface treatment company",
+    "durable electrostatic powder coating",
+  ],
   alternates: {
-    canonical: "/about",
+    canonical: `${siteUrl}/about`,
   },
   openGraph: {
-    title: "About INTIGRA - Our Story, Mission, and Values",
+    title: "About INTIGRA | Industrial Powder Coating Experts",
     description:
-      "Discover INTIGRA: Our journey, dedication to quality powder coating, and commitment to innovation and client success.",
-    url: "/about",
+      "Explore our advanced powder coating plant facilities, dedicated technical team, and rigorous quality control workflows built to protect your assets.",
+    url: `${siteUrl}/about`,
+    type: "profile",
     images: [
       {
-        url: "https://placehold.co/1200x630.png", // Placeholder, replace with actual URL
+        url: `${siteUrl}/images/plant/about.jpeg`, // Replaced placeholder with your actual plant image path
         width: 1200,
         height: 630,
-        alt: "About INTIGRA Team and Values",
-        type: "image/png",
+        alt: "Inside the INTIGRA Automated Powder Coating Plant Facilities",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
-    title: "About INTIGRA - Our Story, Mission, and Values",
+    card: "summary_large_image",
+    title: "About INTIGRA | Modern Surface Finishing Plants",
     description:
-      "Meet the team behind INTIGRA and learn about our unwavering commitment to quality and innovation in powder coating.",
-    images: ["https://placehold.co/1200x630.png"], // Placeholder, replace with actual URL
+      "Meet the team delivering eco-friendly, corrosion-resistant, and impact-tolerant industrial powder coatings.",
+    images: [`${siteUrl}/images/plant/about.jpeg`],
   },
 };
-
-const teamMembers = [
-  {
-    name: "Jane Doe",
-    role: "Founder & CEO",
-    image: "https://placehold.co/400x400.png",
-    dataAiHint: "woman portrait",
-    bio: "With over 20 years in the industry, Jane leads INTIGRA with a passion for innovation and customer satisfaction.",
-  },
-  {
-    name: "John Smith",
-    role: "Head of Operations",
-    image: "https://placehold.co/400x400.png",
-    dataAiHint: "man portrait",
-    bio: "John ensures every project meets our high standards of quality and efficiency, leveraging cutting-edge technology.",
-  },
-];
-
-const values = [
-  {
-    icon: <ShieldCheck className="h-8 w-8 text-primary" />,
-    title: "Quality Craftsmanship",
-    description:
-      "We are committed to delivering flawless finishes that stand the test of time, using only the best materials and techniques.",
-  },
-  {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: "Customer Focus",
-    description:
-      "Your satisfaction is our priority. We work closely with you to understand your needs and exceed your expectations.",
-  },
-  {
-    icon: <Zap className="h-8 w-8 text-primary" />,
-    title: "Innovation",
-    description:
-      "We continuously explore new technologies and methods to provide cutting-edge powder coating solutions.",
-  },
-];
 
 const strengths = [
   {
@@ -111,9 +83,10 @@ export default function AboutPage() {
           description="Learn about INTIGRA — Rajkot’s trusted name in premium powder coating solutions built for durability, precision, and performance."
         />
 
+        {/* Introduction Section */}
         <section
-          className="py-10 bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden"
-          aria-labelledby="about-intigra"
+          className="py-16 bg-gradient-to-b from-gray-50 via-white to-gray-100 relative overflow-hidden"
+          aria-label="INTIGRA Overview"
         >
           {/* Decorative Circles */}
           <div className="absolute -top-20 -left-20 w-72 h-72 bg-orange-200 opacity-20 rounded-full blur-3xl animate-pulse"></div>
@@ -122,7 +95,7 @@ export default function AboutPage() {
           <div className="container max-w-screen-xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-xl font-semibold text-orange-600 mb-4">
+                <h2 className="text-xl font-bold text-orange-600 mb-4 uppercase tracking-wider">
                   Premium Powder Coating in Rajkot, Gujarat
                 </h2>
                 <p className="text-lg text-gray-700 mb-4 leading-relaxed">
@@ -146,146 +119,118 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 hover:scale-105 transition-transform duration-500">
+              <div className="rounded-xl overflow-hidden shadow-2xl border border-gray-200 hover:scale-[1.02] transition-transform duration-500">
                 <Image
                   src="/images/plant/about.jpeg"
-                  alt="INTIGRA powder coating plant and equipment in Rajkot, Gujarat"
+                  alt="INTIGRA automated powder coating plant and conveyor machinery in Rajkot, Gujarat"
                   width={600}
                   height={400}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="w-full h-auto object-cover"
+                  priority
                 />
               </div>
             </div>
           </div>
         </section>
 
+        {/* Mission & Vision Section */}
         <section
-          className="py-11 bg-gray-50 relative"
-          aria-labelledby="mission-vision"
+          className="py-16 bg-gray-50 relative border-y border-gray-200"
+          aria-labelledby="mission-vision-title"
         >
           <div className="container max-w-screen-xl mx-auto px-4">
             <h2
-              id="mission-vision"
-              className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12"
+              id="mission-vision-title"
+              className="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-12 tracking-tight"
             >
               Our Mission & Vision
             </h2>
 
             <div className="grid md:grid-cols-2 gap-10">
               {/* Mission Card */}
-              <Card className="shadow-xl hover:shadow-2xl border-l-4 border-orange-500 rounded-xl transition-transform hover:-translate-y-2 hover:scale-105">
-                <CardHeader className="items-center justify-center text-center">
+              <Card className="shadow-xl bg-white hover:shadow-2xl border-l-4 border-orange-500 rounded-xl transition-all hover:-translate-y-1">
+                <CardHeader className="items-center justify-center text-center pb-2">
                   <Target className="h-14 w-14 text-orange-500 mb-4" />
-                  <CardTitle>
-                    <h3 className="text-2xl font-semibold text-gray-900">
-                      Our Mission
-                    </h3>
+                  <CardTitle className="text-2xl font-bold text-gray-900">
+                    Our Mission
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <h3 className="text-gray-700 text-base leading-relaxed text-center">
+                <CardContent className="text-center">
+                  <p className="text-gray-600 text-base leading-relaxed">
                     To provide{" "}
-                    <strong>reliable, long-lasting coating solutions </strong>
+                    <strong>reliable, long-lasting coating solutions</strong>{" "}
                     that protect, strengthen, and enhance every surface. INTIGRA
                     is committed to delivering{" "}
                     <strong>
                       durable, sustainable, and high-performance powder coating
                       services
                     </strong>{" "}
-                    that blend beauty with precision.
-                  </h3>
+                    that blend structural beauty with engineered precision.
+                  </p>
                 </CardContent>
               </Card>
 
               {/* Vision Card */}
-              <Card className="shadow-xl hover:shadow-2xl border-l-4 border-orange-500 rounded-xl transition-transform hover:-translate-y-2 hover:scale-105">
-                <CardHeader className="items-center justify-center text-center">
+              <Card className="shadow-xl bg-white hover:shadow-2xl border-l-4 border-orange-500 rounded-xl transition-all hover:-translate-y-1">
+                <CardHeader className="items-center justify-center text-center pb-2">
                   <Eye className="h-14 w-14 text-orange-500 mb-4" />
-                  <CardTitle>
-                    <h3 className="text-2xl font-semibold text-gray-900">
-                      Our Vision
-                    </h3>
+                  <CardTitle className="text-2xl font-bold text-gray-900">
+                    Our Vision
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <h3 className="text-gray-700 text-base leading-relaxed text-center">
+                <CardContent className="text-center">
+                  <p className="text-gray-600 text-base leading-relaxed">
                     To become a{" "}
                     <strong>global leader in powder coating innovation</strong>{" "}
                     — offering premium-quality, eco-friendly, and
                     performance-driven coating solutions that redefine{" "}
                     <strong>surface protection and design excellence</strong>.
-                  </h3>
+                  </p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-gradient-to-b from-white via-orange-50 to-white relative">
+        {/* Strengths Section */}
+        <section 
+          className="py-16 bg-gradient-to-b from-white via-orange-50 to-white relative"
+          aria-labelledby="strengths-title"
+        >
           <div className="container max-w-screen-xl mx-auto px-6">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
-              Our Strengths
+            <h2 
+              id="strengths-title"
+              className="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-12 tracking-tight"
+            >
+              Our Industrial Strengths
             </h2>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {strengths.map((strength, index) => (
                 <Card
                   key={index}
-                  className="text-center shadow-md hover:shadow-2xl border-t-4 border-orange-500 rounded-2xl transition-transform hover:-translate-y-2 hover:scale-105 bg-white"
+                  className="text-center shadow-md hover:shadow-2xl border-t-4 border-orange-500 rounded-2xl transition-all hover:-translate-y-1 bg-white flex flex-col items-center p-4"
                 >
-                  <CardHeader className="flex justify-center">
-                    <div className="p-5 bg-orange-100 rounded-full mb-4">
+                  <CardHeader className="flex justify-center pb-2">
+                    <div className="p-4 bg-orange-100 rounded-full mb-2">
                       {strength.icon}
                     </div>
                   </CardHeader>
-                  <CardTitle className="text-lg font-semibold text-gray-900 mb-2">
-                    <h2>{strength.title}</h2>
-                  </CardTitle>
-                  <CardContent>
-                    <h3 className="text-gray-700 leading-relaxed">
-                      {strength.description}
+                  <CardContent className="flex flex-col flex-grow items-center">
+                    {/* FIXED: Removed invalid nested <h2> tag from CardTitle structure */}
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug">
+                      {strength.title}
                     </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-auto">
+                      {strength.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
         </section>
-
-        {/* <section className="py-10 bg-gray-50 relative">
-          <div className="container max-w-screen-xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl md:text-5xl font-bold font-headline text-center text-gray-900 mb-12">
-              Meet Our Team
-            </h2>
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-10">
-              {teamMembers.map((member) => (
-                <Card
-                  key={member.name}
-                  className="overflow-hidden shadow-xl hover:shadow-2xl flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left border-l-4 border-orange-500 rounded-xl transition-transform hover:-translate-y-2 hover:scale-105"
-                >
-                  <div className="w-36 h-36 sm:w-44 sm:h-full flex-shrink-0 rounded-full overflow-hidden border-4 border-orange-50 shadow-md">
-                    <Image
-                      src={member.image}
-                      alt={`${member.name}, ${member.role}`}
-                      width={176}
-                      height={176}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-2xl font-semibold text-gray-900">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-orange-500 font-medium mb-2">
-                      {member.role}
-                    </p>
-                    <p className="text-gray-700">{member.bio}</p>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section> */}
       </div>
     </CustomLayout>
   );

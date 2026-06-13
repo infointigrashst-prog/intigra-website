@@ -1,63 +1,143 @@
-"use client";
-
+import { Metadata } from "next";
 import Image from "next/image";
-import PageHeader from "@/components/page-header";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import CustomLayout from "@/components/layout/layout";
+import PageHeader from "@/components/page-header";
+import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 
-// Assuming these images are sourced correctly. The user can reference image_0.png, but for Next.js, they would be paths from the public directory.
-const projects = [
+interface Product {
+  id: number;
+  name: string;
+  image: string[];
+  category: string;
+  sku: string;
+  features: string[];
+}
+
+const products: Product[] = [
   {
     id: 1,
-    title: "Hydrant Valve Coating",
+    name: "Hydrant Valve Premium Unit",
+    image: [
+      "/images/products/hydrant-valve.jpg",
+      "/images/products/hydrant-valve-2.jpg",
+    ],
     category: "Hydrant Valve",
-    description: "High-performance powder coating for hydrant valves, providing superior corrosion resistance and long-lasting durability.",
-    imageUrl: "/images/products/hydrant-valve.jpg", // Replace with actual paths, maybe referencing the files like '/images/products/image_0.png' if that was organized that way.
-    dataAiHint: "hydrant valve"
+    sku: "HV-104",
+    features: [
+      "Corrosion Resistant Coating",
+      "High-Pressure Tolerance",
+      "Industrial Standard Compliance",
+    ],
   },
   {
     id: 2,
-    title: "Automobile Components",
+    name: "Auto Mobile Components",
+    image: [
+      "/images/products/automobile-1.jpeg",
+      "/images/products/automobile.jpg",
+      "/images/products/automobile-2.jpg",
+    ],
     category: "Auto Mobile",
-    description: "Premium powder-coated automotive parts with excellent finish, scratch resistance, and weather protection.",
-    imageUrl: "/images/products/automobile-1.jpeg", // Replace with '/images/products/image_0.png' etc
-    dataAiHint: "automobile parts"
+    sku: "AM-892",
+    features: [
+      "Precision Forged Engineering",
+      "High Tensile Strength Alloys",
+      "Custom Fit Profiles",
+    ],
   },
   {
     id: 3,
-    title: "Agriculture Equipment",
+    name: "Agriculture Equipment Parts",
+    image: [
+      "/images/products/agriculture-1.jpeg",
+      "/images/products/agriculture.jpg",
+      "/images/products/agriculture-2.jpg",
+    ],
     category: "Agriculture",
-    description: "Durable coatings for agricultural machinery and equipment designed to withstand harsh outdoor environments.",
-    imageUrl: "/images/products/agriculture-1.jpeg", // Replace with '/images/products/image_0.png' etc
-    dataAiHint: "agriculture equipment"
+    sku: "AG-501",
+    features: [
+      "Heavy Duty Field Resilience",
+      "Wear-Resistant Micro Finish",
+      "Optimized Core Geometry",
+    ],
   },
   {
     id: 4,
-    title: "Casting Valve Components",
+    name: "Casting Valve Parts",
+    image: [
+      "/images/products/Valve_Casting_Parts2-madrec.jpg",
+      "/images/products/Valve_Casting_Parts3-madrec.jpg",
+      "/images/products/Valve_Casting_Parts4-madrec.jpeg",
+      "/images/products/Valve_Casting_Parts5-madrec.jpeg",
+    ],
     category: "Casting Valve",
-    description: "Precision powder coating solutions for casting valve parts ensuring corrosion protection and aesthetic appeal.",
-    imageUrl: "/images/products/Valve_Casting_Parts2-madrec.jpg", // Replace with '/images/products/image_0.png' etc
-    dataAiHint: "casting valve"
+    sku: "CV-330",
+    features: [
+      "Defect-Free Sand Casting",
+      "Flawless Machine Threading",
+      "Thermal Stress Tested",
+    ],
   },
   {
     id: 5,
-    title: "Kitchen Ware Collection",
+    name: "Premium Kitchen Ware",
+    image: [
+      "/images/products/kitchen-ware-3.jpeg",
+      "/images/products/kitchen-ware.jpg",
+      "/images/products/kitchen-ware-2.jpg",
+      "/images/products/kitchen-ware-4.jpeg",
+    ],
     category: "Kitchen Ware",
-    description: "Elegant and food-safe powder-coated kitchenware with smooth finishes and excellent wear resistance.",
-    imageUrl: "/images/products/kitchen-ware.jpg", // Replace with '/images/products/image_0.png' etc
-    dataAiHint: "kitchen utensils"
+    sku: "KW-721",
+    features: [
+      "Food-Grade Safety Standards",
+      "Ergonomic Balance Profiles",
+      "Ultra Mirror-Polish Polish",
+    ],
   },
   {
     id: 6,
-    title: "Bath Accessories",
+    name: "Luxury Bath Accessories",
+    image: [
+      "/images/products/bath-accessories.jpg",
+      "/images/products/bath-accessories-2.jpg",
+      "/images/products/bath-accessories-3.jpg",
+      "/images/products/bath-accessories-4.jpeg",
+    ],
     category: "Bath Accessories",
-    description: "Stylish powder-coated bathroom accessories featuring moisture resistance and long-lasting finish quality.",
-    imageUrl: "/images/products/bath-accessories.jpg", // Replace with '/images/products/image_0.png' etc
-    dataAiHint: "bath accessories"
-  }
+    sku: "BA-012",
+    features: [
+      "Multi-Layer Chrome Plating",
+      "Anti-Lime Scaling Surface",
+      "Easy-Mount System Design",
+    ],
+  },
 ];
+
+/* --- Main Gallery Catalog Index SEO Metadata --- */
+export const metadata: Metadata = {
+  title: "Industrial Powder Coating Product Catalog", // Results in: Industrial Powder Coating Product Catalog | INTIGRA Powder Coating Rajkot
+  description:
+    "Explore INTIGRA's full industrial application catalog gallery in Rajkot, Gujarat. Premium finishes for protective hydrant valves, automotive components, casting setups, and consumer kitchenware.",
+  keywords: [
+    "powder coating catalog rajkot",
+    "industrial component finishing gujarat",
+    "valve powder coating gallery",
+    "automotive finishing variations",
+    "metal coating application index",
+  ],
+  alternates: {
+    canonical: "/gallery",
+  },
+  openGraph: {
+    title: "Industrial Powder Coating Product Catalog | INTIGRA",
+    description: "Explore our full industrial application catalog gallery in Rajkot, Gujarat. Precision finishes engineered for maximum structural performance.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"}/gallery`,
+    type: "website",
+  },
+};
 
 export default function GalleryPage() {
   return (
@@ -74,47 +154,67 @@ export default function GalleryPage() {
         <section className="py-12 md:py-20">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => (
-                <div
-                  key={project.id}
-                  className="bg-white border border-zinc-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
-                >
-                  <div className="relative w-full aspect-[4/3] bg-zinc-100 overflow-hidden border-b-4 border-orange-600 p-4"> {/* Added p-4 here for whitespace around contained images */}
-                    <Image
-                      src={project.imageUrl}
-                      alt={`${project.title} - ${project.category}`}
-                      fill
-                      className="object-contain transition-transform duration-500 group-hover:scale-105" // Changed 'object-cover' to 'object-contain'
-                      data-ai-hint={project.dataAiHint}
-                    />
-                    
-                    <div className="absolute bottom-3 left-3 bg-zinc-950/80 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-medium tracking-wide uppercase">
-                      {project.category}
+              {products.map((product) => {
+                const categorySlug = encodeURIComponent(product.category.toLowerCase().replace(/\s+/g, "-"));
+                const categoryUrl = `/gallery/${categorySlug}`;
+
+                return (
+                  <div
+                    key={product.id}
+                    className="bg-white border border-zinc-200 rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+                  >
+                    {/* Clickable Image Compartment - Links to Category Page */}
+                    <Link href={categoryUrl} className="relative w-full aspect-[4/3] bg-zinc-100 overflow-hidden border-b-4 border-orange-600 p-4 block">
+                      <Image
+                        src={product.image[0]} 
+                        alt={`${product.name} - ${product.category}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-contain transition-transform duration-500 group-hover:scale-105"
+                        priority={product.id <= 3} // Performance boost: load above-the-fold images faster
+                      />
+                      
+                      <div className="absolute bottom-3 left-3 bg-zinc-950/80 backdrop-blur-sm text-white px-3 py-1 rounded text-xs font-medium tracking-wide uppercase">
+                        {product.category}
+                      </div>
+                    </Link>
+
+                    {/* Text Content Blocks */}
+                    <div className="p-6 flex flex-col flex-grow justify-between">
+                      <div>
+                        <span className="text-[11px] font-mono tracking-wider text-zinc-400 uppercase block mb-1">
+                          SKU: {product.sku}
+                        </span>
+                        
+                        {/* Clickable Product Title - Links to Category Page */}
+                        <Link href={categoryUrl} className="block group/title">
+                          <h3 className="text-xl font-bold tracking-tight text-zinc-900 mb-2 group-hover/title:text-orange-600 group-hover:text-orange-600 transition-colors duration-200">
+                            {product.name}
+                          </h3>
+                        </Link>
+
+                        {/* Bulleted Core Specifications */}
+                        <ul className="text-xs text-zinc-600 space-y-1 mt-3 list-disc pl-4">
+                          {product.features.map((feature, idx) => (
+                            <li key={idx}>{feature}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Industrial Redirection Trigger */}
+                      <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between">
+                        <Link
+                          href={categoryUrl}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-orange-600 hover:text-orange-700 transition-colors"
+                        >
+                          <span>View Category Images ({product.image.length})</span>
+                          <ArrowUpRight className="w-4 h-4" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="p-6 flex flex-col flex-grow justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold tracking-tight text-zinc-900 mb-2 group-hover:text-orange-600 transition-colors duration-200">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-zinc-600 leading-relaxed">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-zinc-100">
-                      <Link
-                        href={`/contact?project_inquiry=${encodeURIComponent(project.title)}`}
-                        className="inline-flex items-center gap-1.5 text-xs font-bold tracking-wider uppercase text-orange-600 hover:text-orange-700 transition-colors"
-                      >
-                        <span>View Technical Specs</span>
-                        <ArrowUpRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
