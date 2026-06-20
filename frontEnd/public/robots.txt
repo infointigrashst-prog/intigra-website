@@ -2,4 +2,28 @@ User-agent: *
 Disallow: /admin
 Allow: /
 
+User-agent: GPTBot
+Disallow: /admin
+Allow: /
+
+User-agent: ClaudeBot
+Disallow: /admin
+Allow: /
+
+User-agent: PerplexityBot
+Disallow: /admin
+Allow: /
+
+User-agent: Google-Extended
+Disallow: /admin
+Allow: /
+
+User-agent: cohere-ai
+Disallow: /admin
+Allow: /
+
+User-agent: Applebot-Extended
+Disallow: /admin
+Allow: /
+
 Sitemap: https://intigracoatings.vercel.app/sitemap.xml

@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import ScrollToTopButton from "@/components/scroll-to-top-button";
 import WhatsappButton from "@/components/comman/Whatsapp";
 import { Analytics } from '@vercel/analytics/next';
+import { LocalBusinessJsonLd } from "@/components/seo/json-ld";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -103,6 +104,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Favicon links can be added here if available */}
         {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
+        <LocalBusinessJsonLd />
       </head>
       <body
         className={cn(

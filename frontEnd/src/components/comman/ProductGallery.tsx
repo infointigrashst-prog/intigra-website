@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Zoom, Thumbs } from "swiper/modules";
+import Link from "next/link";
 
 // Import Swiper styles in your global CSS or here if configuration allows:
 // import "swiper/css";
@@ -410,13 +411,13 @@ export default function ProductGallery() {
 
               {/* Action Area */}
               <div className="mt-6 md:mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   onClick={() => setSelectedProduct(null)}
                   className="flex-grow text-center bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-700 hover:to-amber-600 text-white font-bold text-sm py-3.5 px-6 rounded-2xl shadow-md shadow-orange-600/10 transition-all duration-300 hover:scale-[1.02]"
                 >
                   Request Technical Quotation
-                </a>
+                </Link>
                 <button
                   onClick={() => {
                     setSelectedProduct(null);

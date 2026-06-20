@@ -8,6 +8,7 @@ import CustomLayout from "@/components/layout/layout";
 import ProductGallery from "@/components/comman/ProductGallery";
 import Testimonials from "@/components/comman/Testimonials";
 import VideoSection from "@/components/comman/videoShowcase";
+import { FAQJsonLd } from "@/components/seo/json-ld";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
@@ -54,6 +55,7 @@ export const metadata: Metadata = {
 export default function PremiumHomePage() {
   return (
     <CustomLayout>
+      <FAQJsonLd />
       {/* Video Showcase Section acting as Interactive High-Performance Hero asset */}
       <VideoSection />
 

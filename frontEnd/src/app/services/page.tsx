@@ -1,5 +1,6 @@
 import Testimonials from "@/components/comman/Testimonials";
 import CustomLayout from "@/components/layout/layout";
+import { ServicesJsonLd } from "@/components/seo/json-ld";
 import PageHeader from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -134,6 +135,7 @@ const applications = [
 export default function ServicesPage() {
   return (
     <CustomLayout>
+      <ServicesJsonLd />
       <div>
         <PageHeader
           title="Our Powder Coating Services"
