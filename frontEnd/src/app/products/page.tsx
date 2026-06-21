@@ -5,116 +5,8 @@ import CustomLayout from "@/components/layout/layout";
 import PageHeader from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { PRODUCTS_DATA } from "@/lib/staticData";
 
-interface Product {
-  id: number;
-  name: string;
-  image: string[];
-  category: string;
-  sku: string;
-  features: string[];
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Hydrant Valve Premium Unit",
-    image: [
-      "/images/products/hydrant-valve.jpg",
-      "/images/products/hydrant-valve-2.jpg",
-    ],
-    category: "Hydrant Valve",
-    sku: "HV-104",
-    features: [
-      "Corrosion Resistant Coating",
-      "High-Pressure Tolerance",
-      "Industrial Standard Compliance",
-    ],
-  },
-  {
-    id: 2,
-    name: "Auto Mobile Components",
-    image: [
-      "/images/products/automobile-1.jpeg",
-      "/images/products/automobile.jpg",
-      "/images/products/automobile-2.jpg",
-    ],
-    category: "Auto Mobile",
-    sku: "AM-892",
-    features: [
-      "Precision Forged Engineering",
-      "High Tensile Strength Alloys",
-      "Custom Fit Profiles",
-    ],
-  },
-  {
-    id: 3,
-    name: "Agriculture Equipment Parts",
-    image: [
-      "/images/products/agriculture-1.jpeg",
-      "/images/products/agriculture.jpg",
-      "/images/products/agriculture-2.jpg",
-    ],
-    category: "Agriculture",
-    sku: "AG-501",
-    features: [
-      "Heavy Duty Field Resilience",
-      "Wear-Resistant Micro Finish",
-      "Optimized Core Geometry",
-    ],
-  },
-  {
-    id: 4,
-    name: "Casting Valve Parts",
-    image: [
-      "/images/products/Valve_Casting_Parts2-madrec.jpg",
-      "/images/products/Valve_Casting_Parts3-madrec.jpg",
-      "/images/products/Valve_Casting_Parts4-madrec.jpeg",
-      "/images/products/Valve_Casting_Parts5-madrec.jpeg",
-    ],
-    category: "Casting Valve",
-    sku: "CV-330",
-    features: [
-      "Defect-Free Sand Casting",
-      "Flawless Machine Threading",
-      "Thermal Stress Tested",
-    ],
-  },
-  {
-    id: 5,
-    name: "Premium Kitchen Ware",
-    image: [
-      "/images/products/kitchen-ware-3.jpeg",
-      "/images/products/kitchen-ware.jpg",
-      "/images/products/kitchen-ware-2.jpg",
-      "/images/products/kitchen-ware-4.jpeg",
-    ],
-    category: "Kitchen Ware",
-    sku: "KW-721",
-    features: [
-      "Food-Grade Safety Standards",
-      "Ergonomic Balance Profiles",
-      "Ultra Mirror-Polish Polish",
-    ],
-  },
-  {
-    id: 6,
-    name: "Luxury Bath Accessories",
-    image: [
-      "/images/products/bath-accessories.jpg",
-      "/images/products/bath-accessories-2.jpg",
-      "/images/products/bath-accessories-3.jpg",
-      "/images/products/bath-accessories-4.jpeg",
-    ],
-    category: "Bath Accessories",
-    sku: "BA-012",
-    features: [
-      "Multi-Layer Chrome Plating",
-      "Anti-Lime Scaling Surface",
-      "Easy-Mount System Design",
-    ],
-  },
-];
 
 /* --- Main Gallery Catalog Index SEO Metadata --- */
 export const metadata: Metadata = {
@@ -129,12 +21,12 @@ export const metadata: Metadata = {
     "metal coating application index",
   ],
   alternates: {
-    canonical: "/gallery",
+    canonical: "/products",
   },
   openGraph: {
     title: "Industrial Powder Coating Product Catalog | INTIGRA",
     description: "Explore our full industrial application catalog gallery in Rajkot, Gujarat. Precision finishes engineered for maximum structural performance.",
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"}/gallery`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"}/products`,
     type: "website",
   },
 };
@@ -154,9 +46,9 @@ export default function GalleryPage() {
         <section className="py-12 md:py-20">
           <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {products.map((product) => {
+              {PRODUCTS_DATA.map((product) => {
                 const categorySlug = encodeURIComponent(product.category.toLowerCase().replace(/\s+/g, "-"));
-                const categoryUrl = `/gallery/${categorySlug}`;
+                const categoryUrl = `/products/${categorySlug}`;
 
                 return (
                   <div
@@ -231,7 +123,7 @@ export default function GalleryPage() {
               asChild
               className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm px-6 py-5 rounded shadow-sm transition-colors"
             >
-              <Link href="/contact">Connect with Technical Team</Link>
+              <Link href="/contact-us">Connect with Technical Team</Link>
             </Button>
           </div>
         </section>

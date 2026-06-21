@@ -10,10 +10,10 @@ import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
+  { href: "/about-us", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/gallery", label: "Project Gallery" },
-  { href: "/contact", label: "Contact Us" },
+  { href: "/products", label: "Products" },
+  { href: "/contact-us", label: "Contact Us" },
 ];
 
 const INTIGRALogo = () => (
@@ -32,7 +32,6 @@ const INTIGRALogo = () => (
     </div>
   </Link>
 );
-
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -67,7 +66,7 @@ export default function Navbar() {
                 "relative group transition-all duration-300",
                 pathname === link.href
                   ? "text-orange-600 font-semibold"
-                  : "text-gray-700 hover:text-orange-600"
+                  : "text-gray-700 hover:text-orange-600",
               )}
             >
               {link.label}
@@ -121,7 +120,7 @@ export default function Navbar() {
                   "text-lg transition-all duration-200 w-full text-center py-2 rounded-md",
                   pathname === link.href
                     ? "text-orange-600 font-semibold bg-orange-50"
-                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50"
+                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50",
                 )}
               >
                 {link.label}

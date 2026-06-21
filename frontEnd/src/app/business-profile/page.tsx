@@ -198,7 +198,7 @@ END:VCARD
               icon={<FileText size={20} />}
               text="Inquiry"
               color="blue"
-              href="/contact"
+              href="/contact-us"
             />
             <ContactButton
               icon={<Globe size={20} />}

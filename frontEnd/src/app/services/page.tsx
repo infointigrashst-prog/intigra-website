@@ -19,8 +19,15 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import {
+  SERVICES_DATA,
+  COATING_TYPES_DATA,
+  APPLICATIONS_DATA,
+  SERVICES_BENEFITS_DATA,
+  COMPANY_DETAILS
+} from "@/lib/staticData";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 
 export const metadata: Metadata = {
   title: "Industrial Powder Coating Services | INTIGRA Rajkot",
@@ -61,76 +68,35 @@ export const metadata: Metadata = {
   },
 };
 
-const servicesList = [
-  {
-    icon: <SprayCan className="h-10 w-10 text-orange-600" />,
-    title: "Surface Preparation & Cleaning",
-    description:
-      "Ensuring optimum adhesion and rust prevention through precise sandblasting and chemical cleaning methods.",
-    details: [
-      "Abrasive blasting for rust/paint removal",
-      "Multi-stage chemical pre-treatment",
-      "Clean, profile-ready surface preparation",
-    ],
-    image: "/images/plant/automatic-powder-coating-plant-2.jpg",
-    dataAiHint: "surface preparation and cleaning",
-  },
-  {
-    icon: <Layers className="h-10 w-10 text-orange-600" />,
-    title: "Powder Application",
-    description:
-      "Uniform finish using electrostatic spray technology for precise, durable coating layers.",
-    details: [
-      "Advanced electrostatic application booths",
-      "Consistent film thickness and coverage",
-      "Controlled environment for quality output",
-    ],
-    image: "/images/plant/automatic-powder-coating-plant-1.jpg",
-    dataAiHint: "powder coating application",
-  },
-  {
-    icon: <CheckSquare className="h-10 w-10 text-orange-600" />,
-    title: "Curing Process",
-    description:
-      "High-temperature curing to bond powder to the surface for long-lasting performance and strength.",
-    details: [
-      "Automatic temperature-controlled ovens",
-      "Uniform curing for all components",
-      "Ensures strong, chip-resistant finish",
-    ],
-    image: "/images/plant/about.jpeg",
-    dataAiHint: "curing process coating strength",
-  },
-  {
-    icon: <PaintBucket className="h-10 w-10 text-orange-600" />,
-    title: "Color & Texture Finishing",
-    description:
-      "Choose from matt, gloss, semi-gloss, metallic, or custom finishes — tailored to your project aesthetics.",
-    details: [
-      "RAL, Pantone & custom colors",
-      "Gloss, matt, texture & metallic finishes",
-      "Special effect & bespoke options",
-    ],
-    image: "/images/plant/automatic-powder-coating-plant-1.jpg",
-    dataAiHint: "color texture and finish options",
-  },
-];
+const lucideIconMap: Record<string, React.ReactNode> = {
+  SprayCan: <SprayCan className="h-10 w-10 text-orange-600" />,
+  Layers: <Layers className="h-10 w-10 text-orange-600" />,
+  CheckSquare: <CheckSquare className="h-10 w-10 text-orange-600" />,
+  PaintBucket: <PaintBucket className="h-10 w-10 text-orange-600" />,
+  Bike: <Bike className="h-8 w-8 text-accent" />,
+  Settings: <Settings className="h-8 w-8 text-accent" />,
+  Fence: <Fence className="h-8 w-8 text-accent" />,
+  Aperture: <Aperture className="h-8 w-8 text-accent" />,
+  ShieldCheck: <ShieldCheck className="w-8 h-8 text-orange-500" />,
+  Zap: <Zap className="w-8 h-8 text-orange-500" />,
+  Palette: <Palette className="w-8 h-8 text-orange-500" />,
+  CheckCircle: <CheckCircle className="w-8 h-8 text-orange-500" />
+};
 
-const applications = [
-  { icon: <Bike className="h-8 w-8 text-accent" />, name: "Automotive Parts" },
-  {
-    icon: <Settings className="h-8 w-8 text-accent" />,
-    name: "Industrial Equipment",
-  },
-  {
-    icon: <Fence className="h-8 w-8 text-accent" />,
-    name: "Architectural Elements",
-  },
-  {
-    icon: <Aperture className="h-8 w-8 text-accent" />,
-    name: "Consumer Products",
-  },
-];
+const servicesList = SERVICES_DATA.map(item => ({
+  ...item,
+  icon: lucideIconMap[item.icon]
+}));
+
+const applications = APPLICATIONS_DATA.map(item => ({
+  ...item,
+  icon: lucideIconMap[item.icon]
+}));
+
+const benefitsList = SERVICES_BENEFITS_DATA.map(item => ({
+  ...item,
+  icon: lucideIconMap[item.icon]
+}));
 
 export default function ServicesPage() {
   return (
@@ -207,28 +173,7 @@ export default function ServicesPage() {
               Tailored powder formulations cross-checked for precise mil thickness, environmental endurance, and structural integrity.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "Epoxy Coatings",
-                  desc: "Provides exceptional chemical resistance and durability for indoor components. Excellent adhesion and surface hardness built for industrial machinery and heavy-duty tools.",
-                },
-                {
-                  title: "Polyester Finishes",
-                  desc: "Perfect for outdoor applications with high UV resistance and color retention. Maintains an ultra-durable finish on architectural frameworks and exterior panels.",
-                },
-                {
-                  title: "Hybrid (Epoxy-Polyester)",
-                  desc: "Combines the structural toughness of epoxy with the overbake color stability of polyester. A flexible choice for household appliances and general indoor enclosures.",
-                },
-                {
-                  title: "Hammertone & Textures",
-                  desc: "Creates a decorative textured profile that effectively masks underlying casting flaws. Offers a sophisticated, rugged look for electrical boxes and custom enclosures.",
-                },
-                {
-                  title: "High-Heat Formulations",
-                  desc: "Specifically engineered to withstand extreme thermal fluctuations without peeling. Ideal for exhaust system configurations, manifolds, and processing equipment.",
-                },
-              ].map((coating) => (
+              {COATING_TYPES_DATA.map((coating) => (
                 <Card
                   key={coating.title}
                   className="bg-white shadow-md border-l-4 border-orange-500 hover:shadow-xl transition-all duration-300 rounded-xl"
@@ -283,28 +228,7 @@ export default function ServicesPage() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                {
-                  icon: <ShieldCheck className="w-8 h-8 text-orange-500" />,
-                  title: "Corrosion & Weather Shielding",
-                  desc: "Engineered layers shield substrates against moisture crystallization and rust creepage across highly humid settings.",
-                },
-                {
-                  icon: <Zap className="w-8 h-8 text-orange-500" />,
-                  title: "Extended Component Lifespan",
-                  desc: "Advanced therapeutic thermal cross-linking ensures a highly flexible finish that minimizes impact splitting.",
-                },
-                {
-                  icon: <Palette className="w-8 h-8 text-orange-500" />,
-                  title: "Flawless Coating Uniformity",
-                  desc: "Maintains tightly managed powder dispersion patterns preventing unwanted corner-builds or localized runs.",
-                },
-                {
-                  icon: <CheckCircle className="w-8 h-8 text-orange-500" />,
-                  title: "Eco-Conscious Low-Waste Line",
-                  desc: "Sustainable, solvent-free oversight allowing complete reclamation and reduction of operational carbon footprints.",
-                },
-              ].map((item, i) => (
+              {benefitsList.map((item, i) => (
                 <Card
                   key={i}
                   className="text-center rounded-xl border-t-4 border-orange-500 px-6 py-6 bg-white shadow-sm hover:shadow-md transition-all duration-300"

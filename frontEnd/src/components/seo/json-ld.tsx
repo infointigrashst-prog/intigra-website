@@ -1,37 +1,34 @@
 import React from "react";
+import { COMPANY_DETAILS, SERVICES_DATA } from "@/lib/staticData";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://intigracoatings.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 
 export function LocalBusinessJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${siteUrl}/#local-business`,
-    "name": "INTIGRA Coatings",
-    "alternateName": [
-      "INTIGRA Powder Coating",
-      "Shree Hari Yogi Surface Technology",
-      "INTIGRA Coatings Rajkot"
-    ],
-    "description": "INTIGRA Coatings offers the best powder coating services in Rajkot, Gujarat. Durable, corrosion-resistant, eco-friendly finishes for industrial and automotive applications.",
-    "image": `${siteUrl}/images/header_logo.png`,
+    "name": COMPANY_DETAILS.name,
+    "alternateName": COMPANY_DETAILS.alternateNames,
+    "description": COMPANY_DETAILS.description,
+    "image": `${siteUrl}${COMPANY_DETAILS.logoUrl}`,
     "url": siteUrl,
-    "telephone": "+918128228778",
-    "email": "info.intigra.shst@gmail.com",
+    "telephone": COMPANY_DETAILS.telephone,
+    "email": COMPANY_DETAILS.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Plot 2, Veraval Shapar",
-      "addressLocality": "Rajkot",
-      "addressRegion": "Gujarat",
-      "postalCode": "360024",
-      "addressCountry": "IN"
+      "streetAddress": COMPANY_DETAILS.address.streetAddress,
+      "addressLocality": COMPANY_DETAILS.address.addressLocality,
+      "addressRegion": COMPANY_DETAILS.address.addressRegion,
+      "postalCode": COMPANY_DETAILS.address.postalCode,
+      "addressCountry": COMPANY_DETAILS.address.addressCountry
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 22.1691199,
-      "longitude": 70.8048364
+      "latitude": COMPANY_DETAILS.geo.latitude,
+      "longitude": COMPANY_DETAILS.geo.longitude
     },
-    "hasMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2288.964458162869!2d70.80483645311745!3d22.1691199272777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3958356a0e8a57ef%3A0x9524add0ba5f6cb6!2sIntigra%20Coatings!5e0!3m2!1sen!2sin!4v1765630632650!5m2!1sen!2sin",
+    "hasMap": COMPANY_DETAILS.mapEmbedUrl,
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
@@ -45,10 +42,7 @@ export function LocalBusinessJsonLd() {
       "opens": "09:00",
       "closes": "19:00"
     },
-    "sameAs": [
-      "https://www.facebook.com/share/1JGgtxVfMZ/",
-      "https://www.instagram.com/intigra_coatings?igsh=dmw4OHk2dThvcTB5"
-    ]
+    "sameAs": COMPANY_DETAILS.sameAs
   };
 
   return (
@@ -63,78 +57,25 @@ export function ServicesJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "INTIGRA Powder Coating Services",
-    "description": "High-performance industrial, automotive, and architectural powder coating services in Rajkot, Gujarat.",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "item": {
-          "@type": "Service",
-          "name": "Surface Preparation & Cleaning",
-          "description": "Ensuring optimum adhesion and rust prevention through precise sandblasting and multi-stage chemical pre-treatment cleaning methods.",
-          "provider": {
-            "@type": "LocalBusiness",
-            "@id": `${siteUrl}/#local-business`
-          },
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Gujarat"
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "item": {
-          "@type": "Service",
-          "name": "Electrostatic Powder Application",
-          "description": "Uniform coating finish using electrostatic spray technology in advanced booths for consistent film thickness and coverage.",
-          "provider": {
-            "@type": "LocalBusiness",
-            "@id": `${siteUrl}/#local-business`
-          },
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Gujarat"
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "item": {
-          "@type": "Service",
-          "name": "Thermal Curing Process",
-          "description": "High-temperature curing in automatic temperature-controlled ovens to bond powder to the surface for long-lasting, chip-resistant finishes.",
-          "provider": {
-            "@type": "LocalBusiness",
-            "@id": `${siteUrl}/#local-business`
-          },
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Gujarat"
-          }
-        }
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "item": {
-          "@type": "Service",
-          "name": "Color & Texture Finishing",
-          "description": "Bespoke RAL and Pantone color matching in gloss, matt, metallic, and hammertone textured finishes.",
-          "provider": {
-            "@type": "LocalBusiness",
-            "@id": `${siteUrl}/#local-business`
-          },
-          "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Gujarat"
-          }
+    "name": `${COMPANY_DETAILS.name} Powder Coating Services`,
+    "description": `High-performance industrial, automotive, and architectural powder coating services in ${COMPANY_DETAILS.address.addressLocality}, ${COMPANY_DETAILS.address.addressRegion}.`,
+    "itemListElement": SERVICES_DATA.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "name": service.title,
+        "description": service.description,
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": `${siteUrl}/#local-business`
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": COMPANY_DETAILS.address.addressRegion
         }
       }
-    ]
+    }))
   };
 
   return (
@@ -152,39 +93,39 @@ export function FAQJsonLd() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What makes INTIGRA Coatings the best powder coating choice in Rajkot?",
+        "name": `What makes ${COMPANY_DETAILS.name} the best powder coating choice in ${COMPANY_DETAILS.address.addressLocality}?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "INTIGRA Coatings operates an advanced, automated powder coating plant in Rajkot, Gujarat. We provide durable, corrosion-resistant, and eco-friendly finishes for automotive, industrial, and architectural parts with exceptional precision."
+          "text": `${COMPANY_DETAILS.name} operates an advanced, automated powder coating plant in ${COMPANY_DETAILS.address.addressLocality}, ${COMPANY_DETAILS.address.addressRegion}. We provide durable, corrosion-resistant, and eco-friendly finishes for automotive, industrial, and architectural parts with exceptional precision.`
         }
       },
       {
         "@type": "Question",
-        "name": "What is the exact location of the INTIGRA coating facility?",
+        "name": `What is the exact location of the ${COMPANY_DETAILS.name} coating facility?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The INTIGRA Coatings facility is located at Plot 2, Veraval Shapar, Rajkot, Gujarat, 360024, India. This location provides convenient logistical access for engineering and manufacturing hubs."
+          "text": `The ${COMPANY_DETAILS.name} coating facility is located at ${COMPANY_DETAILS.address.formatted}. This location provides convenient logistical access for engineering and manufacturing hubs.`
         }
       },
       {
         "@type": "Question",
-        "name": "How can I request a quote or process samples at INTIGRA?",
+        "name": `How can I request a quote or process samples at ${COMPANY_DETAILS.name}?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can request a free quote or schedule sample processing by contacting our team via phone at +91 81282 28778, emailing info.intigra.shst@gmail.com, or submitting the contact form on our website."
+          "text": `You can request a free quote or schedule sample processing by contacting our team via phone at ${COMPANY_DETAILS.telephoneFormatted}, emailing ${COMPANY_DETAILS.email}, or submitting the contact form on our website.`
         }
       },
       {
         "@type": "Question",
-        "name": "What types of materials and products does INTIGRA coat?",
+        "name": `What types of materials and products does ${COMPANY_DETAILS.name} coat?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "INTIGRA coats a wide range of industrial valves, engineering castings, flanges, boiler parts, automotive components, commercial hardware, and architectural metal structures."
+          "text": `${COMPANY_DETAILS.name} coats a wide range of industrial valves, engineering castings, flanges, boiler parts, automotive components, commercial hardware, and architectural metal structures.`
         }
       },
       {
         "@type": "Question",
-        "name": "What finishes and colors are available at INTIGRA?",
+        "name": `What finishes and colors are available at ${COMPANY_DETAILS.name}?`,
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We offer a vast palette of custom colors and textures, ranging from smooth matte to high-gloss metallic finishes, engineered for superior impact and weather tolerance."

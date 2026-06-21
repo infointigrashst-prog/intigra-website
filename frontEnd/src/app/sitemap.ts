@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${siteUrl}/about`,
+      url: `${siteUrl}/about-us`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -24,13 +24,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${siteUrl}/gallery`,
+      url: `${siteUrl}/products`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${siteUrl}/contact`,
+      url: `${siteUrl}/contact-us`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'yearly',
       priority: 0.5,

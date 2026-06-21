@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SprayCan, Facebook, Twitter, Instagram } from "lucide-react";
 import Image from "next/image";
+import { COMPANY_DETAILS } from "@/lib/staticData";
 
 const INTIGRALogoSmall = () => (
   <Link
@@ -50,11 +51,11 @@ export default function Footer() {
                 Quick Links
               </h3>
               <ul className="mt-4 space-y-2">
-                {["About Us", "Services", "Project Gallery", "Contact Us"].map(
+                {["About Us", "Services", "Products", "Contact Us"].map(
                   (item, i) => (
                     <li key={i}>
                       <Link
-                        href={`/${item.toLowerCase().replace(/ /g, "")}`}
+                        href={`/${item.toLowerCase().replace(/ /g, "-")}`}
                         className="text-base text-white/80 hover:text-orange-400 transition-colors"
                       >
                         {item}
@@ -73,7 +74,7 @@ export default function Footer() {
 
                <div className="mt-4 flex space-x-4">
               <a
-                href="https://www.facebook.com/share/1JGgtxVfMZ/"
+                href={COMPANY_DETAILS.sameAs[0]}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -82,7 +83,7 @@ export default function Footer() {
                 <Facebook className="h-6 w-6" />
               </a>
               <a
-                href="https://www.instagram.com/intigra_coatings?igsh=dmw4OHk2dThvcTB5"
+                href={COMPANY_DETAILS.sameAs[1]}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -93,21 +94,21 @@ export default function Footer() {
             </div>
 
               <p className="mt-4 mb-2 text-base text-white/80">
-                Intigra Coatings, Rajkot, Gujarat, India
+                {COMPANY_DETAILS.name}, {COMPANY_DETAILS.address.addressLocality}, {COMPANY_DETAILS.address.addressRegion}, India
               </p>
 
               <p className="text-base text-white/80">
-                <a href="tel:+918128228778" className="hover:text-white">
-                  📞 +91 81282 28778
+                <a href={`tel:${COMPANY_DETAILS.telephone}`} className="hover:text-white">
+                  📞 {COMPANY_DETAILS.telephoneFormatted}
                 </a>
               </p>
 
               <p className="text-base text-white/80">
                 <a
-                  href="mailto:info.intigra.shst@gmail.com"
+                  href={`mailto:${COMPANY_DETAILS.email}`}
                   className="hover:text-white break-all sm:break-normal"
                 >
-                info.intigra.shst@gmail.com
+                  {COMPANY_DETAILS.email}
                 </a>
               </p>
             </div>

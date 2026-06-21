@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Zoom, Thumbs } from "swiper/modules";
 import Link from "next/link";
+import { Product, PRODUCTS_DATA as products } from "@/lib/staticData";
 
 // Import Swiper styles in your global CSS or here if configuration allows:
 // import "swiper/css";
@@ -11,116 +12,6 @@ import Link from "next/link";
 // import "swiper/css/pagination";
 // import "swiper/css/zoom";
 // import "swiper/css/thumbs";
-
-interface Product {
-  id: number;
-  name: string;
-  image: string[];
-  category: string;
-  sku?: string;
-  features?: string[];
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Hydrant Valve Premium Unit",
-    image: [
-      "/images/products/hydrant-valve.jpg",
-      "/images/products/hydrant-valve-2.jpg",
-    ],
-    category: "Hydrant Valve",
-    sku: "HV-104",
-    features: [
-      "Corrosion Resistant Coating",
-      "High-Pressure Tolerance",
-      "Industrial Standard Compliance",
-    ],
-  },
-  {
-    id: 2,
-    name: "Auto Mobile Components",
-    image: [
-      "/images/products/automobile-1.jpeg",
-      "/images/products/automobile.jpg",
-      "/images/products/automobile-2.jpg",
-    ],
-    category: "Auto Mobile",
-    sku: "AM-892",
-    features: [
-      "Precision Forged Engineering",
-      "High Tensile Strength Alloys",
-      "Custom Fit Profiles",
-    ],
-  },
-  {
-    id: 3,
-    name: "Agriculture Equipment Parts",
-    image: [
-      "/images/products/agriculture-1.jpeg",
-      "/images/products/agriculture.jpg",
-      "/images/products/agriculture-2.jpg",
-    ],
-    category: "Agriculture",
-    sku: "AG-501",
-    features: [
-      "Heavy Duty Field Resilience",
-      "Wear-Resistant Micro Finish",
-      "Optimized Core Geometry",
-    ],
-  },
-  {
-    id: 4,
-    name: "Casting Valve Parts",
-    image: [
-      "/images/products/Valve_Casting_Parts2-madrec.jpg",
-      "/images/products/Valve_Casting_Parts3-madrec.jpg",
-      "/images/products/Valve_Casting_Parts4-madrec.jpeg",
-      "/images/products/Valve_Casting_Parts5-madrec.jpeg",
-    ],
-    category: "Casting Valve",
-    sku: "CV-330",
-    features: [
-      "Defect-Free Sand Casting",
-      "Flawless Machine Threading",
-      "Thermal Stress Tested",
-    ],
-  },
-  {
-    id: 5,
-    name: "Premium Kitchen Ware",
-    image: [
-      "/images/products/kitchen-ware-3.jpeg",
-      "/images/products/kitchen-ware.jpg",
-      "/images/products/kitchen-ware-2.jpg",
-      "/images/products/kitchen-ware-4.jpeg",
-    ],
-    category: "Kitchen Ware",
-    sku: "KW-721",
-    features: [
-      "Food-Grade Safety Standards",
-      "Ergonomic Balance Profiles",
-      "Ultra Mirror-Polish Polish",
-    ],
-  },
-  {
-    id: 6,
-    name: "Luxury Bath Accessories",
-    image: [
-      "/images/products/bath-accessories.jpg",
-      "/images/products/bath-accessories-2.jpg",
-      "/images/products/bath-accessories-3.jpg",
-      "/images/products/bath-accessories-4.jpeg",
-    ],
-    category: "Bath Accessories",
-    sku: "BA-012",
-    features: [
-      "Multi-Layer Chrome Plating",
-      "Anti-Lime Scaling Surface",
-      "Easy-Mount System Design",
-    ],
-  },
-];
 
 export default function ProductGallery() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -412,7 +303,7 @@ export default function ProductGallery() {
               {/* Action Area */}
               <div className="mt-6 md:mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   onClick={() => setSelectedProduct(null)}
                   className="flex-grow text-center bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-700 hover:to-amber-600 text-white font-bold text-sm py-3.5 px-6 rounded-2xl shadow-md shadow-orange-600/10 transition-all duration-300 hover:scale-[1.02]"
                 >

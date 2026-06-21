@@ -3,8 +3,9 @@ import ContactForm from "@/components/contact-form";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import CustomLayout from "@/components/layout/layout";
+import { COMPANY_DETAILS } from "@/lib/staticData";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 
 /* --- Production-Grade Search Engine Optimization Metadata --- */
 export const metadata: Metadata = {
@@ -51,17 +52,17 @@ const contactDetails = [
   {
     icon: <MapPin className="h-6 w-6" />,
     label: "Address",
-    value: "Intigra Coatings, Rajkot, Gujarat, India",
+    value: COMPANY_DETAILS.address.formatted,
   },
   {
     icon: <Phone className="h-6 w-6" />,
     label: "Phone",
     value: (
       <a
-        href="tel:+918128228778"
+        href={`tel:${COMPANY_DETAILS.telephone}`}
         className="text-gray-700 hover:text-orange-600 transition-colors"
       >
-        +91 81282 28778
+        {COMPANY_DETAILS.telephoneFormatted}
       </a>
     ),
   },
@@ -70,17 +71,17 @@ const contactDetails = [
     label: "Email",
     value: (
       <a
-        href="mailto:info.intigra.shst@gmail.com"
+        href={`mailto:${COMPANY_DETAILS.email}`}
         className="text-gray-700 hover:text-orange-600 transition-colors font-break"
       >
-        info.intigra.shst@gmail.com
+        {COMPANY_DETAILS.email}
       </a>
     ),
   },
   {
     icon: <Clock className="h-6 w-6" />,
     label: "Business Hours",
-    value: "Monday - Saturday: 9 AM - 7 PM", // Swapped "Thu - Thu" text bug for clean industrial operations schedule reference
+    value: COMPANY_DETAILS.businessHours,
   },
 ];
 

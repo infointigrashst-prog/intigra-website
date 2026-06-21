@@ -7,51 +7,7 @@ import Modal from "react-modal";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
-const reviews = [
-  {
-    author_name: "Smit Butani",
-    date: "a day ago",
-    rating: 5,
-    text: "One of the best powder coating plants in Rajkot, offering great quality with smooth, long-lasting finishes. Professional team, reliable service, and timely delivery—highly recommended.",
-    initial: "S",
-  },
-  {
-    author_name: "Bhut Shreyas",
-    date: "a day ago",
-    rating: 5,
-    text: "Active 9 tank process which gives anti-corrosion property , Dust controlled plant , aesthetic look finish, accuracy in every inch!",
-    initial: "B",
-  },
-  {
-    author_name: "Ronak Ghadiya",
-    date: "a day ago", 
-    rating: 5,
-    text: "",
-    initial: "R",
-  },
-  {
-    author_name: "Smit Patel",
-    date: "5 days ago",
-    rating: 5,
-    text: "Good quality in work are maintained Good nature of owner and staff Best finished work are provided for all the coating",
-    initial: "S",
-  },
-  {
-    author_name: "Svetal Dholariya",
-    date: "a day ago",
-    rating: 5,
-    text: "",
-    initial: "S",
-  },
-  {
-    author_name: "Dagu Sakariya",
-    date: "3 months ago",
-    rating: 5,
-    text: "",
-    initial: "D",
-  },
-];
+import { REVIEWS_DATA as reviews } from "@/lib/staticData";
 
 const Testimonials = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

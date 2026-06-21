@@ -9,6 +9,19 @@ import ProductGallery from "@/components/comman/ProductGallery";
 import Testimonials from "@/components/comman/Testimonials";
 import VideoSection from "@/components/comman/videoShowcase";
 import { FAQJsonLd } from "@/components/seo/json-ld";
+import { HOME_BENEFITS_DATA } from "@/lib/staticData";
+
+const lucideIconMap: Record<string, React.ReactNode> = {
+  ShieldCheck: <ShieldCheck className="w-8 h-8 text-orange-500" />,
+  Leaf: <Leaf className="w-8 h-8 text-orange-500" />,
+  Palette: <Palette className="w-8 h-8 text-orange-500" />,
+  Zap: <Zap className="w-8 h-8 text-orange-500" />,
+};
+
+const homeBenefits = HOME_BENEFITS_DATA.map(item => ({
+  ...item,
+  icon: lucideIconMap[item.icon]
+}));
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
@@ -88,28 +101,7 @@ export default function PremiumHomePage() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              {
-                icon: <ShieldCheck className="w-8 h-8 text-orange-500" />,
-                title: "Durable & Corrosion-Resistant Coatings",
-                desc: "Engineered for long-term protection against corrosion, abrasion, and extreme weather — ensuring surfaces stay stronger for longer.",
-              },
-              {
-                icon: <Leaf className="w-8 h-8 text-orange-500" />,
-                title: "Eco-Friendly Powder Technology",
-                desc: "Sustainable, solvent-free powder coatings that reduce emissions and waste while maintaining superior quality and finish.",
-              },
-              {
-                icon: <Palette className="w-8 h-8 text-orange-500" />,
-                title: "Custom Colors & Finish Options",
-                desc: "From smooth matte to metallic gloss, choose from a vast palette of colors and finishes tailored to your brand’s design needs.",
-              },
-              {
-                icon: <Zap className="w-8 h-8 text-orange-500" />,
-                title: "Advanced Application & Quality Standards",
-                desc: "Delivered through precision application systems and strict quality checks for consistent, flawless, and durable coating performance.",
-              },
-            ].map((item, i) => (
+            {homeBenefits.map((item, i) => (
               <Card
                 key={i}
                 className="text-center bg-white rounded-xl border-t-4 border-orange-500 px-6 py-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center"
@@ -207,7 +199,7 @@ export default function PremiumHomePage() {
                 size="lg"
                 className="bg-orange-600 text-white hover:bg-orange-700 font-semibold shadow-md transition-transform hover:scale-105 rounded-md text-sm px-6"
               >
-                <Link href="/contact">Request Free Quote</Link>
+                <Link href="/contact-us">Request Free Quote</Link>
               </Button>
 
               <Button
@@ -216,7 +208,7 @@ export default function PremiumHomePage() {
                 variant="outline"
                 className="border-orange-600 text-orange-700 hover:bg-orange-100/50 font-semibold transition-transform hover:scale-105 rounded-md text-sm px-6"
               >
-                <Link href="/gallery">Explore Our Finishes</Link>
+                <Link href="/products">Explore Our Finishes</Link>
               </Button>
             </div>
           </div>

@@ -4,8 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Target, Eye, ShieldCheck, Zap, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import CustomLayout from "@/components/layout/layout";
+import { STRENGTHS_DATA, COMPANY_DETAILS } from "@/lib/staticData";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 
 /* --- Production-Grade SEO Metadata --- */
 export const metadata: Metadata = {
@@ -20,13 +21,13 @@ export const metadata: Metadata = {
     "durable electrostatic powder coating",
   ],
   alternates: {
-    canonical: `${siteUrl}/about`,
+    canonical: `${siteUrl}/about-us`,
   },
   openGraph: {
     title: "About INTIGRA | Industrial Powder Coating Experts",
     description:
       "Explore our advanced powder coating plant facilities, dedicated technical team, and rigorous quality control workflows built to protect your assets.",
-    url: `${siteUrl}/about`,
+    url: `${siteUrl}/about-us`,
     type: "profile",
     images: [
       {
@@ -47,32 +48,17 @@ export const metadata: Metadata = {
   },
 };
 
-const strengths = [
-  {
-    icon: <Zap className="h-8 w-8 text-orange-500" />,
-    title: "Modern Powder Coating Facility",
-    description:
-      "Equipped with advanced coating lines and precision machinery for superior, consistent finishes every time.",
-  },
-  {
-    icon: <Users className="h-8 w-8 text-orange-500" />,
-    title: "Skilled Technical Team",
-    description:
-      "Our experienced professionals bring expertise and attention to detail to every project, ensuring quality and reliability.",
-  },
-  {
-    icon: <ShieldCheck className="h-8 w-8 text-orange-500" />,
-    title: "Strong Quality Checks & Process Control",
-    description:
-      "Each stage undergoes rigorous quality checks for coating thickness, adhesion, and surface finish to meet high standards.",
-  },
-  {
-    icon: <Clock className="h-8 w-8 text-orange-500" />,
-    title: "Fast Turnaround & Consistent Results",
-    description:
-      "We deliver projects on time without compromising finish quality — reliable results, every single batch.",
-  },
-];
+const lucideIconMap: Record<string, React.ReactNode> = {
+  Zap: <Zap className="h-8 w-8 text-orange-500" />,
+  Users: <Users className="h-8 w-8 text-orange-500" />,
+  ShieldCheck: <ShieldCheck className="h-8 w-8 text-orange-500" />,
+  Clock: <Clock className="h-8 w-8 text-orange-500" />,
+};
+
+const strengths = STRENGTHS_DATA.map((item) => ({
+  ...item,
+  icon: lucideIconMap[item.icon],
+}));
 
 export default function AboutPage() {
   return (
