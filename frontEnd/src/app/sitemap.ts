@@ -4,7 +4,7 @@ import type { MetadataRoute } from 'next';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'; // Replace with your actual domain
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = [
+  const staticPages:any = [
     {
       url: siteUrl,
       lastModified: new Date().toISOString(),
