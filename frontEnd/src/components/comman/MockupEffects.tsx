@@ -108,8 +108,8 @@ export default function MockupEffects() {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.25, // Slower, smoother drift
-          vy: (Math.random() - 0.5) * 0.25,
+          vx: (Math.random() - 0.5) * 0.45, // Dynamic floating drift
+          vy: (Math.random() - 0.5) * 0.45,
           radius: Math.random() * 4.5 + 2.5, // Various sizes: 2.5px to 7px
           color: colors[Math.floor(Math.random() * colors.length)],
         });
@@ -358,12 +358,7 @@ export default function MockupEffects() {
         }}
       />
 
-      {/* Ambient background particles canvas */}
-      <canvas
-        id="particleCanvas"
-        ref={canvasRef}
-        className="fixed inset-0 z-0 pointer-events-none opacity-[0.4]"
-      />
+
 
       {/* SVG filter to dynamically key out white backgrounds from logo images */}
       <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: "absolute", width: 0, height: 0 }}>

@@ -167,7 +167,7 @@ export default function ProductGallery() {
         </div>
 
         {/* CTA Button to All Products */}
-        <div className="mt-20 text-center reveal">
+        <div className="mt-10 text-center reveal">
           <Link
             href="/products"
             className="inline-flex items-center gap-3 px-12 py-4.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-ui text-[13px] tracking-[2.5px] uppercase font-bold hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:shadow-[0_0_45px_rgba(249,115,22,0.35)]"

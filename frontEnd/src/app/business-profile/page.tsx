@@ -105,7 +105,7 @@ END:VCARD
         </div>
 
         {/* Info Section */}
-        <div className="mt-20 text-center px-6 pb-8">
+        <div className="mt-10 text-center px-6 pb-8">
           {/* <h2 className="text-3xl font-extrabold text-gray-900 leading-tight">
             Yash Kapadiya
           </h2> */}

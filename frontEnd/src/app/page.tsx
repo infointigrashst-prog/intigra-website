@@ -12,6 +12,7 @@ import IndustriesSection from "@/components/comman/IndustriesSection";
 import ProcessSection from "@/components/comman/ProcessSection";
 import WhyIntigraSection from "@/components/comman/WhyIntigraSection";
 import ContactCTASection from "@/components/comman/ContactCTASection";
+import StatsBar from "@/components/home/StatsBar";
 
 const lucideIconMap: Record<string, React.ReactNode> = {
   ShieldCheck: <ShieldCheck className="w-8 h-8 text-orange-500" />,
@@ -87,28 +88,7 @@ export default function PremiumHomePage() {
       </section>
 
       {/* ===== STATS BAR ===== */}
-      <div className="border-y border-slate-200 py-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
-        <div className="max-w-[1200px] mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { count: 20, label: "Happy Clients" },
-            { count: 5,  label: "Cities Served" },
-            { count: 50, label: "Projects Delivered" },
-            { count: 99, label: "% Quality Rating" },
-          ].map((stat, i) => (
-            <div key={i} className="text-center md:border-r border-slate-200 last:border-none reveal">
-              <div
-                className="font-display text-5xl md:text-6xl bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent mb-2"
-                data-count={stat.count}
-              >
-                0
-              </div>
-              <div className="text-[12px] tracking-[3px] uppercase text-slate-500 font-ui font-semibold">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <StatsBar />
 
       {/* ===== ABOUT STRIP ===== */}
       <section className="py-10 relative overflow-hidden border-b border-white/5" style={{ background: "#0d0d15" }}>
@@ -170,7 +150,7 @@ export default function PremiumHomePage() {
           </div>
 
           {/* Benefits grid */}
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {homeBenefits.map((item, i) => (
               <div
                 key={i}
