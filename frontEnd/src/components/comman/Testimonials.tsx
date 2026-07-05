@@ -24,7 +24,7 @@ export default function Testimonials() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-10 reveal">
           <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Client Testimonials
           </div>
@@ -40,8 +40,8 @@ export default function Testimonials() {
         </div>
 
         {/* Top bar with Google rating CTA */}
-        <div className="flex justify-between items-center mb-6 reveal">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8 reveal text-center sm:text-left">
+          <div className="flex flex-col sm:flex-row items-center gap-2.5">
             <span className="text-sm font-semibold text-[#1E3A8A] font-ui">Google Review Rating: 5.0</span>
             <div className="flex text-yellow-500 text-xs">
               <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
