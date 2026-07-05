@@ -6,7 +6,7 @@ export default function ContactCTASection() {
   return (
     <section
       id="contact"
-      className="py-16 relative overflow-hidden border-t border-white/5"
+      className="py-10 relative overflow-hidden border-t border-white/5"
       style={{ background: "#0d0d15" }}
     >
       {/* Subtle blurred glow */}

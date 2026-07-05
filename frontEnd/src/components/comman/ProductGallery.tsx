@@ -103,7 +103,7 @@ export default function ProductGallery() {
   );
 
   return (
-    <section className="relative py-28 overflow-hidden border-b border-white/5" style={{ background: "#0a0a0f" }}>
+    <section className="relative py-10 overflow-hidden border-b border-white/5" style={{ background: "#0a0a0f" }}>
       {/* Advanced blueprints crosshairs CAD grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"

@@ -52,7 +52,7 @@ export default function ProcessSection() {
   return (
     <section
       id="process"
-      className="py-16 relative overflow-hidden border-b border-white/5"
+      className="py-10 relative overflow-hidden border-b border-white/5"
       style={{ background: "#0d0d15" }}
     >
       {/* Decorative diagonal blueprints lines */}

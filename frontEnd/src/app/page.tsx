@@ -111,7 +111,7 @@ export default function PremiumHomePage() {
       </div>
 
       {/* ===== ABOUT STRIP ===== */}
-      <section className="py-24 relative overflow-hidden border-b border-white/5" style={{ background: "#0d0d15" }}>
+      <section className="py-10 relative overflow-hidden border-b border-white/5" style={{ background: "#0d0d15" }}>
         {/* Subtle glow orbs */}
         <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
         <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-cyan-500 opacity-[0.02] blur-[100px] pointer-events-none" />

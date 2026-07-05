@@ -11,7 +11,7 @@ interface PageHeaderProps {
 export default function PageHeader({ title, description, children, category }: PageHeaderProps) {
   return (
     <section 
-      className="relative py-20 md:py-28 overflow-hidden border-b border-white/5"
+      className="relative py-20 md:py-10 overflow-hidden border-b border-white/5"
       style={{ background: "#0d0d15" }}
     >
       {/* Abstract Industrial Grid Pattern */}

@@ -95,7 +95,7 @@ export default function ContactPage() {
         />
 
         <section
-          className="py-16 relative overflow-hidden"
+          className="py-10 relative overflow-hidden"
           style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
           aria-label="Contact Information and Inquiries Form"
         >

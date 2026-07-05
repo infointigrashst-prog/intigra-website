@@ -15,7 +15,7 @@ export default function Testimonials() {
 
   return (
     <section 
-      className="py-16 relative overflow-hidden border-b border-slate-100" 
+      className="py-10 relative overflow-hidden border-b border-slate-100" 
       style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
     >
       {/* Decorative ambient soft glow orbs */}

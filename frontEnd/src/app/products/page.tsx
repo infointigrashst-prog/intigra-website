@@ -40,7 +40,7 @@ export default function GalleryPage() {
         />
 
         {/* Gallery Grid Section */}
-        <section className="py-16 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+        <section className="py-10 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
           <div className="container max-w-7xl mx-auto px-6 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {PRODUCTS_DATA.map((product, i) => {
@@ -112,7 +112,7 @@ export default function GalleryPage() {
         </section>
 
         {/* Custom Order Callout Section */}
-        <section className="py-16 relative overflow-hidden text-center" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+        <section className="py-10 relative overflow-hidden text-center" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
           <div className="max-w-4xl mx-auto px-6 relative z-10 reveal">
             <h2 className="font-display text-3xl sm:text-4xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
               Custom Powder Formulations & Volume Orders

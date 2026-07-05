@@ -109,7 +109,7 @@ export default function ServicesPage() {
         />
 
         <section 
-          className="py-16 relative overflow-hidden border-b border-slate-100"
+          className="py-10 relative overflow-hidden border-b border-slate-100"
           style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
         >
           {/* Decorative Soft Backgrounds */}
@@ -168,7 +168,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="py-16 relative overflow-hidden reveal" style={{ background: "#0d0d15" }}>
+        <section className="py-10 relative overflow-hidden reveal" style={{ background: "#0d0d15" }}>
           {/* Subtle glow orb */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
 
@@ -201,7 +201,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="py-16 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+        <section className="py-10 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
           <div className="container max-w-screen-xl mx-auto px-6 relative z-10">
             <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase text-center mb-4">
               Common Applications
@@ -228,7 +228,7 @@ export default function ServicesPage() {
 
         <Testimonials />
 
-        <section className="py-16 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+        <section className="py-10 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
           <div className="container max-w-screen-xl mx-auto px-6 text-center">
             <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
               Why Choose <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">INTIGRA Coatings</span>?
