@@ -93,7 +93,7 @@ export default function ProductGallery() {
   );
 
   return (
-    <section className="relative py-10 overflow-hidden border-b border-white/5" style={{ background: "#0a0a0f" }}>
+    <section className="relative py-5 overflow-hidden border-b border-white/5" style={{ background: "#0a0a0f" }}>
       {/* Geometric blueprints grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"
@@ -114,7 +114,7 @@ export default function ProductGallery() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-20 reveal">
+        <div className="text-center mb-10 reveal">
           <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Industrial Portfolio
           </div>
@@ -156,7 +156,7 @@ export default function ProductGallery() {
         </div>
 
         {/* CTA Button to All Products */}
-        <div className="mt-16 text-center reveal">
+        <div className="mb-10 text-center reveal">
           <Link
             href="/products"
             className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-ui text-[13px] tracking-[2px] uppercase font-semibold hover:scale-105 transition-transform duration-300 shadow-lg shadow-orange-500/20"

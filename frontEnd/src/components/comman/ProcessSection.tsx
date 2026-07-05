@@ -107,7 +107,7 @@ export default function ProcessSection() {
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
-        <div className="text-center mb-20 reveal">
+        <div className="text-center mb-10 reveal">
           <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Our Methodology
           </div>
