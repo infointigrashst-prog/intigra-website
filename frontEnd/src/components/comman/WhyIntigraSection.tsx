@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 
 const WHY_ITEMS = [
   {
@@ -44,15 +46,50 @@ const WHY_ITEMS = [
   },
   {
     icon: "🔬",
-    title: "ISO-Compliant QC",
-    desc: "Every batch undergoes adhesion cross-hatch, impact resistance, salt-spray corrosion, and gloss level testing against international ISO standards.",
-    metric: "ISO",
-    metricLabel: "Certified QC",
+    title: "Standardised QC",
+    desc: "Every batch undergoes adhesion cross-hatch, impact resistance, salt-spray corrosion, and gloss level testing to exceed industry durability expectations.",
+    metric: "100%",
+    metricLabel: "Quality QC",
     accent: "#ff6b2b",
   },
 ];
 
 export default function WhyIntigraSection() {
+  const WhyCard = ({ item }: { item: typeof WHY_ITEMS[0] }) => (
+    <div
+      className="group relative p-8 bg-white hover:bg-slate-50/50 transition-all duration-400 cursor-pointer overflow-hidden text-left h-full border border-slate-200"
+    >
+      {/* Animated top border */}
+      <div
+        className="absolute top-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
+        style={{ background: item.accent }}
+      />
+
+      {/* Metric badge */}
+      <div
+        className="font-display text-3xl mb-1 transition-all duration-300 group-hover:scale-110 inline-block"
+        style={{ color: item.accent }}
+      >
+        {item.metric}
+      </div>
+      <div className="font-ui text-[9px] tracking-[3px] uppercase text-slate-500 mb-5">
+        {item.metricLabel}
+      </div>
+
+      {/* Icon + title */}
+      <div className="flex items-center gap-3 mb-4">
+        <span className="text-2xl">{item.icon}</span>
+        <h3 className="font-ui font-semibold text-[#1E3A8A] text-sm tracking-wide">
+          {item.title}
+        </h3>
+      </div>
+
+      <p className="text-slate-500 text-xs leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
+        {item.desc}
+      </p>
+    </div>
+  );
+
   return (
     <section
       id="why-intigra"
@@ -93,42 +130,33 @@ export default function WhyIntigraSection() {
           </div>
         </div>
 
-        {/* Feature cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px border border-slate-200">
+        {/* Mobile Slider View */}
+        <div className="block sm:hidden pb-10">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={16}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            slidesPerView={1.1}
+            pagination={{ clickable: true }}
+            className="w-full !overflow-visible"
+          >
+            {WHY_ITEMS.map((item, i) => (
+              <SwiperSlide key={i}>
+                <WhyCard item={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid View */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-px border border-slate-200">
           {WHY_ITEMS.map((item, i) => (
             <div
               key={i}
-              className="group relative p-8 bg-white hover:bg-slate-50/50 transition-all duration-400 cursor-pointer overflow-hidden reveal"
+              className="reveal"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
-              {/* Animated top border */}
-              <div
-                className="absolute top-0 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-500"
-                style={{ background: item.accent }}
-              />
-
-              {/* Metric badge */}
-              <div
-                className="font-display text-3xl mb-1 transition-all duration-300 group-hover:scale-110 inline-block"
-                style={{ color: item.accent }}
-              >
-                {item.metric}
-              </div>
-              <div className="font-ui text-[9px] tracking-[3px] uppercase text-slate-500 mb-5">
-                {item.metricLabel}
-              </div>
-
-              {/* Icon + title */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">{item.icon}</span>
-                <h3 className="font-ui font-semibold text-[#1E3A8A] text-sm tracking-wide">
-                  {item.title}
-                </h3>
-              </div>
-
-              <p className="text-slate-500 text-xs leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
-                {item.desc}
-              </p>
+              <WhyCard item={item} />
             </div>
           ))}
         </div>

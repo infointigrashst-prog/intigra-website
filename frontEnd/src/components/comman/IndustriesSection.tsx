@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+// Import Swiper styles if needed locally, but they are already imported globally in the app layout.
 
 const INDUSTRIES = [
   {
@@ -48,6 +52,52 @@ const INDUSTRIES = [
 ];
 
 export default function IndustriesSection() {
+  const IndustryCard = ({ industry }: { industry: typeof INDUSTRIES[0] }) => (
+    <Link
+      href={`/industries/${industry.slug}`}
+      className="industry-card group relative p-8 border border-slate-200 bg-white hover:border-orange-500/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 rounded-none cursor-pointer overflow-hidden block text-left h-full"
+    >
+      {/* Hover animated background */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: `linear-gradient(135deg, ${industry.accent}10, transparent)`,
+        }}
+      />
+      {/* Top accent line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ background: industry.accent }}
+      />
+
+      <div className="relative z-10">
+        <div className="text-4xl mb-5 transition-transform duration-300 group-hover:scale-110 inline-block">
+          {industry.icon}
+        </div>
+        <h3
+          className="font-display text-2xl text-[#1E3A8A] tracking-[1px] uppercase mb-3 transition-colors duration-300"
+          style={{ "--accent": industry.accent } as React.CSSProperties}
+        >
+          {industry.title}
+        </h3>
+        <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
+          {industry.desc}
+        </p>
+
+        {/* Link arrow - Always visible on mobile, animated on desktop */}
+        <div
+          className="mt-6 flex items-center gap-2 text-xs tracking-[2px] uppercase transition-all duration-300 md:opacity-0 md:-translate-x-2 md:group-hover:opacity-100 md:group-hover:translate-x-0 font-bold"
+          style={{ color: industry.accent }}
+        >
+          <span>Learn More</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+    </Link>
+  );
+
   return (
     <section
       id="industries"
@@ -72,7 +122,7 @@ export default function IndustriesSection() {
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         {/* Section header */}
-        <div className="text-center mb-16 reveal">
+        <div className="text-center mb-20 reveal">
           <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Market Verticals
           </div>
@@ -89,56 +139,30 @@ export default function IndustriesSection() {
           </p>
         </div>
 
-        {/* Industry Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile Carousel View */}
+        <div className="block sm:hidden pb-10">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={16}
+            autoplay={{ delay: 2800, disableOnInteraction: false }}
+            slidesPerView={1.1}
+            pagination={{ clickable: true }}
+            className="w-full !overflow-visible"
+          >
+            {INDUSTRIES.map((industry, i) => (
+              <SwiperSlide key={i}>
+                <IndustryCard industry={industry} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+
+        {/* Desktop Grid View */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-6">
           {INDUSTRIES.map((industry, i) => (
-            <Link
-              key={i}
-              href={`/industries/${industry.slug}`}
-              className="industry-card group relative p-8 border border-slate-200 bg-white hover:border-orange-500/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 rounded-none cursor-pointer overflow-hidden block reveal"
-              style={{ transitionDelay: `${i * 80}ms` }}
-            >
-              {/* Hover animated background */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: `linear-gradient(135deg, ${industry.accent}10, transparent)`,
-                }}
-              />
-              {/* Top accent line */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: industry.accent }}
-              />
-
-              <div className="relative z-10">
-                <div
-                  className="text-4xl mb-5 transition-transform duration-300 group-hover:scale-110 inline-block"
-                >
-                  {industry.icon}
-                </div>
-                <h3
-                  className="font-display text-2xl text-[#1E3A8A] tracking-[1px] uppercase mb-3 transition-colors duration-300"
-                  style={{ "--accent": industry.accent } as React.CSSProperties}
-                >
-                  {industry.title}
-                </h3>
-                <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
-                  {industry.desc}
-                </p>
-
-                {/* Arrow indicator */}
-                <div
-                  className="mt-6 flex items-center gap-2 text-xs tracking-[2px] uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-2 group-hover:translate-x-0"
-                  style={{ color: industry.accent }}
-                >
-                  <span>Learn More</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </div>
-            </Link>
+            <div key={i} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+              <IndustryCard industry={industry} />
+            </div>
           ))}
         </div>
       </div>

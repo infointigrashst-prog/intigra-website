@@ -111,7 +111,7 @@ export default function PremiumHomePage() {
                 Excellence.
               </h2>
               <p className="text-zinc-300 text-base leading-relaxed mb-6">
-                INTIGRA is Rajkot&apos;s premier automated powder coating plant, built around a fully conveyor-driven production line that delivers exceptional consistency and throughput. Our ISO-aligned facility handles everything from precision automotive parts to large architectural steel components.
+                INTIGRA is Rajkot&apos;s premier automated powder coating plant, built around a fully conveyor-driven production line that delivers exceptional consistency and throughput. Our advanced automated facility handles everything from precision automotive parts to large architectural steel components.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-8">
                 Backed by a rigorous 7-stage phosphating pre-treatment system, precision electrostatic application, and thermally-optimised curing ovens — every component that leaves our plant carries a finish designed to last decades.

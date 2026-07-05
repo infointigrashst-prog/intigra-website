@@ -1,5 +1,7 @@
 "use client";
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
 
 const PROCESS_STEPS = [
   {
@@ -39,7 +41,7 @@ const PROCESS_STEPS = [
   {
     num: "04",
     title: "Quality Inspection",
-    desc: "Dry-film thickness measured per ISO 2178, adhesion tested per ISO 2409, and visual inspection under controlled lighting — every batch certified before dispatch.",
+    desc: "Dry-film thickness measured, adhesion tested, and visual inspection under controlled lighting — every batch verified before dispatch.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <polyline points="20 6 9 17 4 12"/>
@@ -49,6 +51,36 @@ const PROCESS_STEPS = [
 ];
 
 export default function ProcessSection() {
+  const ProcessCard = ({ step }: { step: typeof PROCESS_STEPS[0] }) => (
+    <div
+      className="relative flex flex-col items-center text-center group h-full p-4"
+    >
+      {/* Step circle */}
+      <div className="relative mb-8">
+        <div
+          className="w-[104px] h-[104px] rounded-full border-2 border-white/10 bg-white/[0.02] shadow-lg flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-orange-500 group-hover:shadow-orange-500/20 group-hover:shadow-xl"
+        >
+          <div
+            className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+          />
+          <div className="text-orange-500 relative z-10">{step.icon}</div>
+        </div>
+        {/* Number badge */}
+        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+          <span className="font-display text-white text-xs tracking-wider">{step.num}</span>
+        </div>
+      </div>
+
+      {/* Content */}
+      <h3 className="font-display text-xl text-white tracking-[1px] uppercase mb-3">
+        {step.title}
+      </h3>
+      <p className="text-zinc-400 text-sm leading-relaxed">
+        {step.desc}
+      </p>
+    </div>
+  );
+
   return (
     <section
       id="process"
@@ -97,41 +129,33 @@ export default function ProcessSection() {
           {/* Connecting line (desktop) */}
           <div className="hidden lg:block absolute top-[52px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-orange-500/30 via-orange-500/60 to-orange-500/30" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Mobile Swiper View */}
+          <div className="block sm:hidden pb-10">
+            <Swiper
+              modules={[Pagination, Autoplay]}
+              spaceBetween={16}
+              autoplay={{ delay: 3200, disableOnInteraction: false }}
+              slidesPerView={1.1}
+              pagination={{ clickable: true }}
+              className="w-full !overflow-visible"
+            >
+              {PROCESS_STEPS.map((step, i) => (
+                <SwiperSlide key={i}>
+                  <ProcessCard step={step} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* Desktop Grid View */}
+          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-8">
             {PROCESS_STEPS.map((step, i) => (
               <div
                 key={i}
-                className="relative flex flex-col items-center text-center group reveal"
+                className="reveal"
                 style={{ transitionDelay: `${i * 120}ms` }}
               >
-                {/* Step circle */}
-                <div className="relative mb-8">
-                  <div
-                    className="w-[104px] h-[104px] rounded-full border-2 border-white/10 bg-white/[0.02] shadow-lg flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-orange-500 group-hover:shadow-orange-500/20 group-hover:shadow-xl"
-                  >
-                    <div
-                      className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                    />
-                    <div className="text-orange-500 relative z-10">{step.icon}</div>
-                  </div>
-                  {/* Number badge */}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                    <span className="font-display text-white text-xs tracking-wider">{step.num}</span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <h3 className="font-display text-xl text-white tracking-[1px] uppercase mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  {step.desc}
-                </p>
-
-                {/* Mobile connector */}
-                {i < PROCESS_STEPS.length - 1 && (
-                  <div className="lg:hidden mt-8 w-[2px] h-8 bg-gradient-to-b from-orange-500/60 to-transparent mx-auto" />
-                )}
+                <ProcessCard step={step} />
               </div>
             ))}
           </div>

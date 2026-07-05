@@ -543,7 +543,7 @@ export const INDUSTRIES_DATA: IndustryItem[] = [
     specifications: [
       { label: "Coating Thickness", value: "70 - 100 Microns" },
       { label: "UV Resistance", value: "Excellent (Qualicoat Class 2 compatible)" },
-      { label: "Cross-Cut Adhesion", value: "0 (ISO 2409)" },
+      { label: "Cross-Cut Adhesion", value: "Excellent (Class 5B)" },
       { label: "Gloss Level", value: "Matt (10-20%) to High Gloss (>85%)" }
     ],
     applications: [

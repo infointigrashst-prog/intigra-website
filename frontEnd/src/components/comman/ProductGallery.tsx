@@ -14,20 +14,21 @@ export default function ProductGallery() {
   const ProductCard = ({ product }: { product: Product }) => (
     <div
       onClick={() => setSelectedProduct(product)}
-      className="group relative bg-[#13131c]/60 backdrop-blur-xl border border-white/5 hover:border-orange-500/30 rounded-none overflow-hidden transition-all duration-500 hover:-translate-y-2 cursor-pointer flex flex-col h-full text-left"
+      className="group relative bg-[#13131c]/60 backdrop-blur-xl border border-white/5 hover:border-orange-500/30 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-3 cursor-pointer flex flex-col h-full text-left shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_40px_rgba(249,115,22,0.15)]"
     >
-      {/* Premium Backlight Glow */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-amber-500 opacity-0 group-hover:opacity-[0.04] blur-2xl transition-opacity duration-700 pointer-events-none" />
+      {/* Dynamic Animated Gradient Corner Accent */}
+      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-orange-500 to-amber-400 opacity-[0.03] group-hover:opacity-[0.08] blur-xl transition-opacity duration-500" />
 
-      {/* Dynamic top animated border accent */}
-      <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 group-hover:w-full transition-all duration-500 z-20" />
+      {/* Floating Bubbles inside the card background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute w-2 h-2 rounded-full bg-orange-400/30 top-1/4 left-1/3 animate-bounce" style={{ animationDelay: "0.2s", animationDuration: "3s" }} />
+        <div className="absolute w-3.5 h-3.5 rounded-full bg-cyan-400/25 bottom-1/4 right-1/4 animate-pulse" style={{ animationDelay: "0.5s", animationDuration: "4s" }} />
+        <div className="absolute w-2.5 h-2.5 rounded-full bg-yellow-400/30 top-2/3 left-12 animate-pulse" style={{ animationDelay: "1s", animationDuration: "5s" }} />
+      </div>
 
-      {/* Image compartment with diagonal tech accents */}
-      <div className="relative w-full h-60 bg-gradient-to-br from-white/[0.02] to-transparent p-8 flex items-center justify-center overflow-hidden border-b border-white/5">
-        <div className="absolute top-0 right-0 w-16 h-[1px] bg-white/10 transform rotate-45 translate-x-6 translate-y-2" />
-        <div className="absolute bottom-0 left-0 w-16 h-[1px] bg-white/10 transform rotate-45 -translate-x-6 -translate-y-2" />
-
-        <div className="relative w-full h-full transform transition-transform duration-700 ease-out group-hover:scale-108 group-hover:-rotate-1">
+      {/* Image Compartment with dynamic shadow lifts */}
+      <div className="relative w-full h-64 bg-gradient-to-b from-white/[0.02] to-transparent p-6 flex items-center justify-center overflow-hidden border-b border-white/5 z-10">
+        <div className="relative w-full h-full transform transition-all duration-700 ease-out group-hover:scale-108 group-hover:-translate-y-2.5 filter group-hover:drop-shadow-[0_20px_25px_rgba(249,115,22,0.3)]">
           <Image
             src={product.image[0]}
             alt={product.name}
@@ -36,67 +37,56 @@ export default function ProductGallery() {
             className="object-contain"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* View Action Overlay */}
-        <div className="absolute bottom-4 right-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white p-3 shadow-2xl opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10" style={{ clipPath: "polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)" }}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2.5}
-            stroke="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
-          </svg>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-orange-500/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      {/* Info compartment */}
-      <div className="p-6 flex flex-col flex-grow justify-between relative bg-white/[0.005]">
+      {/* Info Compartment */}
+      <div className="p-6 flex flex-col flex-grow justify-between bg-white/[0.005] z-10 relative">
         <div>
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-[9px] font-mono tracking-[2px] uppercase text-orange-400 font-semibold border border-orange-500/20 px-2.5 py-0.5 bg-orange-500/5">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-[9px] font-mono tracking-[2.5px] uppercase text-orange-400 font-bold border border-orange-500/20 px-2.5 py-0.5 bg-orange-500/5 rounded-full">
               {product.category}
             </span>
             {product.sku && (
-              <span className="text-[9px] font-mono text-zinc-500 border border-white/5 bg-white/5 px-2 py-0.5">
+              <span className="text-[9px] font-mono text-zinc-500 border border-white/5 bg-white/5 px-2 py-0.5 rounded-full">
                 {product.sku}
               </span>
             )}
           </div>
-          <h3 className="font-display text-2xl text-white uppercase tracking-[0.5px] group-hover:text-orange-400 transition-colors duration-300 mb-4">
+          <h3 className="font-display text-2xl text-white uppercase tracking-[0.5px] group-hover:text-orange-400 transition-colors duration-300 mb-3">
             {product.name}
           </h3>
 
-          {/* Technical Spec Matrix Grid */}
-          <div className="grid grid-cols-2 gap-2 mb-6 border-y border-white/5 py-4 font-mono text-[10px]">
-            <div>
-              <div className="text-zinc-500">FINISH STATUS</div>
-              <div className="text-emerald-400 font-bold">100% INSPECTED</div>
-            </div>
-            <div>
-              <div className="text-zinc-500">COMPLIANCE</div>
-              <div className="text-orange-400 font-bold">ISO ALIGNED</div>
+          {/* Animated Slide-Up Specs (Expands on Hover) */}
+          <div className="max-h-0 opacity-0 group-hover:max-h-[140px] group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden">
+            <div className="pb-4 border-t border-white/5 mt-3 pt-3">
+              <div className="text-[10px] font-mono text-zinc-500 mb-2 uppercase tracking-wider">Specifications</div>
+              {product.features && (
+                <ul className="space-y-1.5">
+                  {product.features.slice(0, 3).map((feat, i) => (
+                    <li
+                      key={i}
+                      className="text-xs text-zinc-400 flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500"
+                      style={{ transitionDelay: `${i * 100}ms` }}
+                    >
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex-shrink-0" />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
 
-        <div className="flex justify-between items-center text-xs tracking-[1.5px] uppercase font-semibold text-orange-400 border-t border-white/5 pt-4">
-          <span>View Specifications</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transform group-hover:translate-x-1.5 transition-transform duration-300">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
+        {/* View Details CTA Button Bar */}
+        <div className="flex justify-between items-center text-xs tracking-[1.5px] uppercase font-bold text-orange-400 border-t border-white/5 pt-4 mt-2">
+          <span>Explore Finish Specs</span>
+          <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-orange-500 text-orange-400 group-hover:text-white flex items-center justify-center transition-all duration-300 transform group-hover:rotate-45">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -104,7 +94,7 @@ export default function ProductGallery() {
 
   return (
     <section className="relative py-10 overflow-hidden border-b border-white/5" style={{ background: "#0a0a0f" }}>
-      {/* Advanced blueprints crosshairs CAD grid overlay */}
+      {/* Geometric blueprints grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
@@ -117,25 +107,24 @@ export default function ProductGallery() {
         }}
       />
 
-      {/* Deep decorative ambient soft glow orbs */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-orange-500 opacity-[0.04] blur-[130px] pointer-events-none animate-pulse" style={{ animationDuration: "8s" }} />
-      <div className="absolute bottom-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-cyan-500 opacity-[0.03] blur-[110px] pointer-events-none animate-pulse" style={{ animationDuration: "12s" }} />
+      {/* Decorative ambient soft glow orbs */}
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none animate-pulse" style={{ animationDuration: "8s" }} />
+      <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-cyan-500 opacity-[0.02] blur-[100px] pointer-events-none animate-pulse" style={{ animationDuration: "12s" }} />
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-24 reveal">
-          <div className="font-ui text-[11px] tracking-[8px] uppercase text-orange-500 mb-5">
+        <div className="text-center mb-20 reveal">
+          <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Industrial Portfolio
           </div>
-          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-white tracking-[2px] uppercase mb-6 leading-none">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white tracking-[2px] uppercase mb-4">
             Engineered{" "}
-            <span className="bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
               Products
             </span>
           </h2>
-          <div className="w-24 h-[3px] bg-gradient-to-r from-orange-500 to-amber-500 mx-auto mb-6" />
-          <p className="text-zinc-400 text-sm md:text-base max-w-[620px] mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
             Discover our high-precision coating finishes applied to hydrant valves, agricultural machinery, and automotive chassis components.
           </p>
         </div>
@@ -167,10 +156,10 @@ export default function ProductGallery() {
         </div>
 
         {/* CTA Button to All Products */}
-        <div className="mt-10 text-center reveal">
+        <div className="mt-16 text-center reveal">
           <Link
             href="/products"
-            className="inline-flex items-center gap-3 px-12 py-4.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-ui text-[13px] tracking-[2.5px] uppercase font-bold hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:shadow-[0_0_45px_rgba(249,115,22,0.35)]"
+            className="inline-flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-ui text-[13px] tracking-[2px] uppercase font-semibold hover:scale-105 transition-transform duration-300 shadow-lg shadow-orange-500/20"
             style={{ clipPath: "polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)" }}
           >
             <span>View All Products</span>
@@ -191,6 +180,7 @@ export default function ProductGallery() {
           </Link>
         </div>
       </div>
+
 
       {/* Premium Detail Modal */}
       {selectedProduct && (
