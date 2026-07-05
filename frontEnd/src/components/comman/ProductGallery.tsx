@@ -2,29 +2,25 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay, Zoom, Thumbs } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, Thumbs } from "swiper/modules";
 import Link from "next/link";
 import { Product, PRODUCTS_DATA as products } from "@/lib/staticData";
-
-// Import Swiper styles in your global CSS or here if configuration allows:
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
-// import "swiper/css/zoom";
-// import "swiper/css/thumbs";
 
 export default function ProductGallery() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
-  // Reusable Product Card Component to avoid code duplication between Grid and Swiper views
+  // Reusable Product Card Component
   const ProductCard = ({ product }: { product: Product }) => (
     <div
       onClick={() => setSelectedProduct(product)}
-      className="group relative bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl border border-slate-100 transition-all duration-500 hover:-translate-y-2 cursor-pointer flex flex-col h-full text-left"
+      className="group relative bg-white border border-slate-200 hover:border-orange-500/40 rounded-none overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer flex flex-col h-full text-left"
     >
-      {/* Product Card Image Container - Adjusted to h-48 on mobile and h-64 on tablet up */}
-      <div className="relative w-full h-48 sm:h-64 bg-slate-50 p-4 flex items-center justify-center overflow-hidden">
+      {/* Dynamic top border accent */}
+      <div className="absolute top-0 left-0 w-0 h-[3px] bg-gradient-to-r from-orange-500 to-amber-500 group-hover:w-full transition-all duration-500" />
+
+      {/* Image compartment */}
+      <div className="relative w-full h-56 bg-slate-50/50 p-6 flex items-center justify-center overflow-hidden border-b border-slate-100">
         <div className="relative w-full h-full">
           <Image
             src={product.image[0]}
@@ -34,22 +30,17 @@ export default function ProductGallery() {
             className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-        {/* Category Badge */}
-        {/* <span className="absolute top-4 left-4 text-[11px] uppercase font-extrabold tracking-wider bg-white/90 text-slate-800 px-3 py-1.5 rounded-xl shadow-sm backdrop-blur-sm z-10">
-          {product.category}
-        </span> */}
-
-        {/* View Overlay Action */}
-        <div className="absolute bottom-4 right-4 bg-orange-600 text-white p-3 rounded-2xl shadow-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10">
+        {/* View Action Overlay */}
+        <div className="absolute bottom-4 right-4 bg-orange-500 text-white p-3 shadow-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10" style={{ clipPath: "polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={2.5}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-4 h-4"
           >
             <path
               strokeLinecap="round"
@@ -65,93 +56,97 @@ export default function ProductGallery() {
         </div>
       </div>
 
-      {/* Product Card Info */}
-      <div className="p-5 sm:p-6 flex flex-col flex-grow bg-white border-t border-slate-50">
-        <div className="flex flex-wrap items-center gap-2 mb-1">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-orange-600 py-1 bg-orange-50 rounded-md">
-            {product.category}
-          </span>
-          {product.sku && (
-            <span className="text-xs font-mono text-slate-400 bg-slate-100 px-2 py-1 rounded-md">
-              SKU: {product.sku}
+      {/* Info compartment */}
+      <div className="p-6 flex flex-col flex-grow justify-between">
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-[10px] font-ui tracking-[2px] uppercase text-orange-500 font-semibold">
+              {product.category}
             </span>
+            {product.sku && (
+              <span className="text-[10px] font-mono text-zinc-400">
+                SKU: {product.sku}
+              </span>
+            )}
+          </div>
+          <h3 className="font-display text-2xl text-[#1E3A8A] uppercase tracking-[0.5px] group-hover:text-orange-500 transition-colors duration-300 mb-4">
+            {product.name}
+          </h3>
+
+          {/* Features */}
+          {product.features && (
+            <ul className="space-y-1.5 mb-6">
+              {product.features.slice(0, 3).map((feat, i) => (
+                <li
+                  key={i}
+                  className="text-xs text-slate-500 flex items-center gap-2"
+                >
+                  <span className="w-1.5 h-1.5 bg-orange-500 flex-shrink-0" />
+                  {feat}
+                </li>
+              ))}
+            </ul>
           )}
         </div>
-        <h3 className="text-lg sm:text-xl font-bold text-slate-800 group-hover:text-orange-600 transition-colors duration-300 line-clamp-1 mb-2">
-          {product.name}
-        </h3>
-        <div className="w-8 h-1 bg-orange-500 rounded transition-all duration-300 group-hover:w-16 mb-4" />
 
-        {/* Micro Preview of Features */}
-        {product.features && (
-          <ul className="space-y-1.5 mt-auto">
-            {product.features.slice(0, 2).map((feat, i) => (
-              <li
-                key={i}
-                className="text-xs text-slate-500 flex items-center gap-1.5 line-clamp-1"
-              >
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full flex-shrink-0" />
-                {feat}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="flex justify-between items-center text-xs tracking-[1.5px] uppercase font-semibold text-orange-500 border-t border-slate-100 pt-4">
+          <span>View Details</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </div>
       </div>
     </div>
   );
 
   return (
-    <section className="relative py-12 sm:py-20 bg-gradient-to-b from-slate-50 via-gray-100 to-slate-200 overflow-hidden">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-12 right-10 w-80 h-80 bg-amber-200/20 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+    <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
+        
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
-          <span className="text-orange-600 font-bold tracking-widest text-xs uppercase px-3 py-1 bg-orange-100 rounded-full inline-block mb-3">
+        <div className="text-center mb-20 reveal">
+          <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Industrial Portfolio
-          </span>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-            Our Engineered{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
-              Product Range
+          </div>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
+            Engineered{" "}
+            <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+              Products
             </span>
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg">
-            Explore high-precision manufacturing components across multiple
-            sectors built to international specifications.
+          <p className="text-slate-500 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
+            Discover our high-precision coating finishes applied to hydrant valves, agricultural machinery, and automotive chassis components.
           </p>
         </div>
 
-        {/* 1. MOBILE VIEW: Horizontal Touch Slider Container (Visible only below 'sm' breakpoint) */}
+        {/* Swiper on mobile, Grid on desktop */}
         <div className="block sm:hidden pb-10">
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={16}
-            autoplay={{ delay: 2000, disableOnInteraction: false }}
-            slidesPerView={1.15}
-            centeredSlides={false}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            slidesPerView={1.1}
             pagination={{ clickable: true }}
             className="w-full !overflow-visible"
           >
             {products.map((product) => (
-              <SwiperSlide key={product.id} className="h-full">
+              <SwiperSlide key={product.id}>
                 <ProductCard product={product} />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
 
-        {/* 2. TABLET & DESKTOP VIEW: Universal Adaptive Product Grid (Hidden on mobile) */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product, i) => (
+            <div key={product.id} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}>
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Premium Split Layout Modal */}
+      {/* Premium Detail Modal */}
       {selectedProduct && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 md:p-6"
@@ -161,162 +156,99 @@ export default function ProductGallery() {
           }}
         >
           <div
-            className="relative w-full max-w-5xl bg-white rounded-[32px] shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[90vh]"
+            className="relative w-full max-w-5xl bg-white border border-slate-200 shadow-2xl flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Trigger Button */}
+            {/* Close Button */}
             <button
               onClick={() => {
                 setSelectedProduct(null);
                 setThumbsSwiper(null);
               }}
-              className="absolute top-4 right-4 md:top-6 md:right-6 z-50 h-10 w-10 rounded-full bg-slate-900/10 text-slate-800 text-xl font-bold hover:bg-orange-600 hover:text-white transition-all flex items-center justify-center backdrop-blur-sm"
+              className="absolute top-4 right-4 z-50 h-10 w-10 border border-slate-200 text-slate-800 text-xl hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all flex items-center justify-center"
             >
               ×
             </button>
 
-            {/* Left Column: Presentation Area */}
-            <div className="w-full md:w-1/2 bg-slate-50 flex flex-col p-4 md:p-6 border-r border-slate-100 justify-center">
+            {/* Presentation Column */}
+            <div className="w-full md:w-1/2 bg-slate-50/50 flex flex-col p-6 justify-center border-b md:border-b-0 md:border-r border-slate-200">
               <Swiper
-                modules={[Navigation, Pagination, Autoplay, Zoom, Thumbs]}
+                modules={[Navigation, Pagination, Autoplay, Thumbs]}
                 navigation={true}
                 pagination={{ clickable: true, dynamicBullets: true }}
                 loop={selectedProduct.image.length > 1}
-                autoplay={{ delay: 2000, disableOnInteraction: false }}
-                zoom={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 thumbs={{
-                  swiper:
-                    thumbsSwiper && !thumbsSwiper.destroyed
-                      ? thumbsSwiper
-                      : null,
+                  swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
                 }}
-                autoHeight={true}
-                className="w-full rounded-2xl overflow-hidden group shadow-sm bg-white"
+                className="w-full bg-white border border-slate-200 shadow-sm"
               >
                 {selectedProduct.image.map((img, idx) => (
                   <SwiperSlide key={idx}>
-                    <div className="swiper-zoom-container flex items-center justify-center p-2">
+                    <div className="flex items-center justify-center p-4">
                       <Image
                         src={img}
                         alt={`${selectedProduct.name} View ${idx + 1}`}
-                        width={1000}
-                        height={750}
-                        className="w-full h-auto max-h-[35vh] md:max-h-[50vh] object-contain rounded-xl"
+                        width={800}
+                        height={600}
+                        className="w-full h-auto max-h-[30vh] md:max-h-[45vh] object-contain"
                         priority
                       />
                     </div>
                   </SwiperSlide>
                 ))}
               </Swiper>
-
-              {/* Dynamic Thumbnail Swiper */}
-              {selectedProduct.image.length > 1 && (
-                <div className="mt-4 hidden sm:block">
-                  <Swiper
-                    onSwiper={setThumbsSwiper}
-                    loop={true}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    freeMode={true}
-                    watchSlidesProgress={true}
-                    modules={[Thumbs]}
-                    className="thumbs-swiper"
-                  >
-                    {selectedProduct.image.map((img, idx) => (
-                      <SwiperSlide
-                        key={idx}
-                        className="cursor-pointer opacity-40 transition-opacity duration-300 [&.swiper-slide-thumb-active]:opacity-100"
-                      >
-                        <div className="relative aspect-[4/3] border-2 border-transparent [&.swiper-slide-thumb-active]:border-orange-500 rounded-lg overflow-hidden bg-white shadow-sm">
-                          <Image
-                            src={img}
-                            alt="thumbnail"
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
-              )}
             </div>
 
-            {/* Right Column: Technical Details */}
-            <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-between overflow-y-auto bg-white">
+            {/* Details Column */}
+            <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-between bg-white">
               <div>
-                <div className="flex flex-wrap items-center gap-3 mb-3">
-                  <span className="text-xs font-extrabold uppercase tracking-widest text-orange-600 px-2.5 py-1 bg-orange-50 rounded-md">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[10px] font-ui tracking-[2px] uppercase text-orange-500 font-semibold bg-orange-50 px-2.5 py-1">
                     {selectedProduct.category}
                   </span>
                   {selectedProduct.sku && (
-                    <span className="text-xs font-mono text-slate-400 bg-slate-100 px-2 py-1 rounded-md">
+                    <span className="text-xs font-mono text-zinc-400 bg-zinc-50 px-2 py-1 border border-zinc-100">
                       SKU: {selectedProduct.sku}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-xl md:text-3xl font-black text-slate-900 tracking-tight mb-4">
+                <h3 className="font-display text-3xl sm:text-4xl text-[#1E3A8A] uppercase tracking-[1px] mb-6">
                   {selectedProduct.name}
                 </h3>
+                <div className="h-[2px] bg-slate-100 w-full mb-6" />
 
-                <div className="h-0.5 bg-slate-100 w-full mb-6" />
-
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                  Product Technical Features
+                <h4 className="text-[10px] font-ui tracking-[2px] uppercase text-slate-400 font-bold mb-4">
+                  Technical Specifications
                 </h4>
 
-                {selectedProduct.features ? (
-                  <ul className="space-y-3">
-                    {selectedProduct.features.map((feat, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-3 text-sm text-slate-600"
-                      >
-                        <span className="flex-shrink-0 mt-0.5 h-5 w-5 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            className="w-3 h-3"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-sm text-slate-500 leading-relaxed">
-                    High-durability engineering product crafted according to
-                    industrial guidelines. Ideal for systems requiring
-                    meticulous structural accuracy.
-                  </p>
-                )}
+                <ul className="space-y-3">
+                  {selectedProduct.features.map((feat, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-slate-600">
+                      <span className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs flex-shrink-0 mt-0.5">
+                        ✓
+                      </span>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Action Area */}
-              <div className="mt-6 md:mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
+              <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
                 <Link
                   href="/contact-us"
                   onClick={() => setSelectedProduct(null)}
-                  className="flex-grow text-center bg-gradient-to-r from-orange-600 to-amber-500 hover:from-orange-700 hover:to-amber-600 text-white font-bold text-sm py-3.5 px-6 rounded-2xl shadow-md shadow-orange-600/10 transition-all duration-300 hover:scale-[1.02]"
+                  className="flex-grow text-center bg-gradient-to-r from-orange-500 to-red-600 text-white font-ui text-[12px] tracking-[2px] uppercase font-semibold py-4 hover:scale-[1.02] transition-all"
+                  style={{ clipPath: "polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)" }}
                 >
-                  Request Technical Quotation
+                  Request Quote
                 </Link>
                 <button
-                  onClick={() => {
-                    setSelectedProduct(null);
-                    setThumbsSwiper(null);
-                  }}
-                  className="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm py-3.5 px-6 rounded-2xl transition-colors duration-300"
+                  onClick={() => setSelectedProduct(null)}
+                  className="px-6 py-4 bg-zinc-100 hover:bg-zinc-200 text-zinc-700 font-ui text-[12px] tracking-[2px] uppercase font-medium transition-colors"
                 >
-                  Back to Range
+                  Back
                 </button>
               </div>
             </div>

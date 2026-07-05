@@ -114,7 +114,7 @@ export default function ServicesPage() {
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"></div>
 
           <div className="container max-w-screen-xl mx-auto px-6 relative z-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 reveal">
               Our Industrial Capabilities
             </h2>
 
@@ -122,7 +122,8 @@ export default function ServicesPage() {
               {servicesList.map((service, index) => (
                 <Card
                   key={index}
-                  className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] flex flex-col border-t-4 border-orange-500 rounded-2xl bg-white"
+                  className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] flex flex-col border-t-4 border-orange-500 rounded-2xl bg-white reveal"
+                  style={{ transitionDelay: `${index * 100}ms` }}
                   data-ai-hint={service.dataAiHint}
                 >
                   <div className="relative w-full h-60 md:h-56 bg-zinc-100">
@@ -164,50 +165,56 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="py-16 bg-gradient-to-r from-orange-50 via-white to-yellow-50 border-y border-zinc-100">
-          <div className="container max-w-screen-xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 text-center mb-4">
+        <section className="py-16 relative overflow-hidden reveal" style={{ background: "#0d0d15" }}>
+          {/* Subtle glow orb */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
+
+          <div className="container max-w-screen-xl mx-auto px-6 relative z-10">
+            <h2 className="font-display text-4xl sm:text-5xl text-white tracking-[2px] uppercase text-center mb-4">
               Types of Coatings We Offer
             </h2>
-            <p className="text-zinc-600 text-center max-w-xl mx-auto mb-12 text-sm">
+            <p className="text-zinc-400 text-center max-w-xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
               Tailored powder formulations cross-checked for precise mil thickness, environmental endurance, and structural integrity.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {COATING_TYPES_DATA.map((coating) => (
-                <Card
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {COATING_TYPES_DATA.map((coating, i) => (
+                <div
                   key={coating.title}
-                  className="bg-white shadow-md border-l-4 border-orange-500 hover:shadow-xl transition-all duration-300 rounded-xl"
+                  className="group relative bg-white/[0.02] border border-white/8 hover:bg-white/[0.04] transition-all duration-300 p-6 rounded-none reveal"
+                  style={{ transitionDelay: `${i * 80}ms` }}
                 >
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-bold text-zinc-900">
-                      {coating.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-zinc-600 leading-relaxed">
-                      {coating.desc}
-                    </p>
-                  </CardContent>
-                </Card>
+                  {/* Top accent line on hover */}
+                  <div className="absolute top-0 left-0 w-0 h-[2px] bg-orange-500 group-hover:w-full transition-all duration-500" />
+                  
+                  <h3 className="font-display text-2xl text-orange-500 tracking-[0.5px] uppercase mb-3">
+                    {coating.title}
+                  </h3>
+                  <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                    {coating.desc}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-zinc-50">
-          <div className="container max-w-screen-xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-2">
+        <section className="py-16 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+          <div className="container max-w-screen-xl mx-auto px-6 relative z-10">
+            <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase text-center mb-4">
               Common Applications
             </h2>
-            <p className="text-md text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            <p className="text-slate-500 text-center max-w-2xl mx-auto mb-12 text-sm md:text-base leading-relaxed">
               Powder coating is a versatile, high-endurance solution suitable for major processing sectors:
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
-              {applications.map((app) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+              {applications.map((app, i) => (
                 <div
                   key={app.name}
-                  className="flex flex-col items-center text-center p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300 rounded-xl border-t-4 border-orange-500"
+                  className="flex flex-col items-center text-center p-6 bg-white border border-slate-200 hover:border-orange-500/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 rounded-none reveal"
+                  style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <div className="mb-4">{app.icon}</div>
-                  <p className="text-sm font-semibold text-zinc-900">
+                  <p className="text-xs sm:text-sm font-semibold tracking-wide uppercase text-zinc-900">
                     {app.name}
                   </p>
                 </div>
@@ -218,33 +225,34 @@ export default function ServicesPage() {
 
         <Testimonials />
 
-        <section className="py-16 bg-gradient-to-b from-gray-50 via-white to-zinc-50 border-t border-zinc-200">
-          <div className="container max-w-screen-xl mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why Choose <span className="text-orange-600">INTIGRA Coatings</span>?
+        <section className="py-16 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+          <div className="container max-w-screen-xl mx-auto px-6 text-center">
+            <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
+              Why Choose <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">INTIGRA Coatings</span>?
             </h2>
-            <p className="text-md text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-slate-500 text-sm md:text-base max-w-2xl mx-auto mb-12 leading-relaxed">
               Partner with an eco-conscious, high-capacity batch facility engineered to deliver elite-tier impact resistance, zero VOC emissions, and premium uniformity.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {benefitsList.map((item, i) => (
-                <Card
+                <div
                   key={i}
-                  className="text-center rounded-xl border-t-4 border-orange-500 px-6 py-6 bg-white shadow-sm hover:shadow-md transition-all duration-300"
+                  className="group text-center p-6 border border-slate-200 hover:border-orange-500/40 bg-white hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 rounded-none reveal"
+                  style={{ transitionDelay: `${i * 80}ms` }}
                 >
                   <div className="flex justify-center mb-4">
-                    <div className="flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full">
+                    <div className="flex items-center justify-center w-14 h-14 bg-orange-50 rounded-full group-hover:bg-orange-100 transition-colors">
                       {item.icon}
                     </div>
                   </div>
-                  <h3 className="text-md font-bold text-gray-900 mb-2">
+                  <h3 className="font-display text-lg text-[#1E3A8A] tracking-[0.5px] uppercase mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed">
+                  <p className="text-xs text-slate-500 leading-relaxed">
                     {item.desc}
                   </p>
-                </Card>
+                </div>
               ))}
             </div>
           </div>

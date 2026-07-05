@@ -1,37 +1,69 @@
 import type { ReactNode } from 'react';
+import Link from 'next/link';
 
 interface PageHeaderProps {
   title: string;
   description?: string | ReactNode;
   children?: ReactNode;
+  category?: string; // Optional parent category for breadcrumbs
 }
 
-export default function PageHeader({ title, description, children }: PageHeaderProps) {
+export default function PageHeader({ title, description, children, category }: PageHeaderProps) {
   return (
-    <section className="relative py-16 md:py-20 bg-gradient-to-r from-orange-50 via-white to-yellow-50 overflow-hidden">
-      {/* Decorative blurred circles */}
-      <div className="absolute -top-20 -left-20 w-64 h-64 bg-orange-300 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-yellow-300 rounded-full opacity-20 blur-3xl animate-pulse"></div>
+    <section 
+      className="relative py-20 md:py-28 overflow-hidden border-b border-white/5"
+      style={{ background: "#0d0d15" }}
+    >
+      {/* Abstract Industrial Grid Pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px",
+        }}
+      />
 
-      <div className="container max-w-screen-xl mx-auto text-center relative z-10 px-4">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-headline text-gray-900 tracking-tight leading-tight">
-          {title.split(' ').map((word, idx) => (
-            <span
-              key={idx}
-              className={idx % 2 === 0 ? 'text-orange-600' : 'text-gray-900'}
-            >
-              {word}{' '}
-            </span>
-          ))}
-        </h1>
+      {/* Decorative ambient soft glow orbs */}
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-500 opacity-[0.06] blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-cyan-500 opacity-[0.04] blur-[100px] pointer-events-none" />
+
+      <div className="container max-w-screen-xl mx-auto text-center relative z-10 px-6">
+        
+        {/* Dynamic Breadcrumbs - Styled as a Flex Block to prevent overlapping */}
+        <nav className="flex justify-center items-center flex-wrap gap-2 text-[10px] sm:text-[11px] font-mono tracking-wider uppercase text-zinc-400 mb-6" aria-label="Breadcrumb">
+          <Link href="/" className="hover:text-orange-500 transition-colors">
+            HOME
+          </Link>
+          <span>/</span>
+          {category ? (
+            <>
+              <Link href={`/${category.toLowerCase()}`} className="hover:text-orange-500 transition-colors">
+                {category}
+              </Link>
+              <span>/</span>
+            </>
+          ) : null}
+          <span className="text-orange-500 font-semibold">{title}</span>
+        </nav>
+
+        {/* Title Block with Block display to ensure vertical division */}
+        <div className="block mb-6">
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white tracking-[2px] uppercase leading-tight">
+            {title}
+          </h1>
+          <div className="w-16 h-[3px] bg-gradient-to-r from-orange-500 to-amber-500 mx-auto mt-4" />
+        </div>
 
         {description && (
-          <h3 className="mt-2 md:mt-4 max-w-3xl mx-auto text-sm sm:text-lg md:text-xl text-gray-700">
+          <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base text-zinc-400 leading-relaxed font-light block">
             {description}
-          </h3>
+          </p>
         )}
 
-        {children && <div className="mt-8 md:mt-10">{children}</div>}
+        {children && <div className="mt-8 block">{children}</div>}
       </div>
     </section>
   );

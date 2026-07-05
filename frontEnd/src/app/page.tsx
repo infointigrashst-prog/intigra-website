@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { ShieldCheck, Palette, Zap, ArrowRight, Leaf } from "lucide-react";
 import CustomLayout from "@/components/layout/layout";
 import ProductGallery from "@/components/comman/ProductGallery";
@@ -10,6 +8,10 @@ import Testimonials from "@/components/comman/Testimonials";
 import VideoSection from "@/components/comman/videoShowcase";
 import { FAQJsonLd } from "@/components/seo/json-ld";
 import { HOME_BENEFITS_DATA } from "@/lib/staticData";
+import IndustriesSection from "@/components/comman/IndustriesSection";
+import ProcessSection from "@/components/comman/ProcessSection";
+import WhyIntigraSection from "@/components/comman/WhyIntigraSection";
+import ContactCTASection from "@/components/comman/ContactCTASection";
 
 const lucideIconMap: Record<string, React.ReactNode> = {
   ShieldCheck: <ShieldCheck className="w-8 h-8 text-orange-500" />,
@@ -69,151 +71,136 @@ export default function PremiumHomePage() {
   return (
     <CustomLayout>
       <FAQJsonLd />
-      {/* Video Showcase Section acting as Interactive High-Performance Hero asset */}
-      <VideoSection />
 
-      {/* FIXED: Core SEO Header Section establishing the target H1 keyword baseline */}
-      <header className="bg-zinc-900 text-white py-12 md:py-16 text-center relative overflow-hidden border-b border-orange-600/30">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(249,115,22,0.15),transparent_70%)]" />
-        <div className="container mx-auto px-6 relative z-10 max-w-4xl">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4 uppercase">
-            Automated <span className="text-orange-500">Powder Coating Plant</span> & Industrial Finishing
-          </h1>
-          <p className="text-zinc-300 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            INTIGRA delivers premium electrostatic surface treatments and high-durability 
-            protective finishes for engineering castings, automotive parts, and structural components in Rajkot, Gujarat.
-          </p>
-        </div>
-      </header>
-
-      {/* Benefits */}
-      <section className="py-16 bg-gradient-to-r from-orange-50 via-white to-yellow-50 relative overflow-hidden">
-        {/* Decorative background configurations for industrial styling */}
-        <div className="absolute -top-16 -left-16 w-64 h-[250px] bg-orange-300 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-16 -right-16 w-64 h-[250px] bg-yellow-300 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
-            Why Choose <span className="text-orange-600">INTIGRA Powder Coating Solutions</span>?
-          </h2>
-          <p className="text-gray-600 mb-12 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
-            Experience complete surface protection and flawless finishes with INTIGRA — delivering high-performance, eco-friendly powder coating for industrial, commercial, and architectural applications.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {homeBenefits.map((item, i) => (
-              <Card
-                key={i}
-                className="text-center bg-white rounded-xl border-t-4 border-orange-500 px-6 py-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center"
-              >
-                <div className="mb-4 p-3 bg-orange-50 rounded-full">{item.icon}</div>
-                <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-gray-600 leading-relaxed mt-auto">
-                  {item.desc}
-                </p>
-              </Card>
-            ))}
-          </div>
+      {/* ===== 1. MOBILE HERO SECTION (Visible on mobile only) ===== */}
+      <section id="hero-mobile" className="block md:hidden relative flex flex-col overflow-hidden bg-zinc-950 h-fit pt-[80px]">
+        <div className="relative w-full aspect-video z-20">
+          <VideoSection />
         </div>
       </section>
 
-      {/* Dynamic Product Filtering Module */}
-      <ProductGallery />
+      {/* ===== 2. DESKTOP HERO SECTION (Visible on desktop/big screens only) ===== */}
+      <section id="hero-desktop" className="hidden md:flex relative flex-col overflow-hidden bg-zinc-950 pt-[92px] w-full aspect-video h-auto">
+        <div className="absolute inset-0 z-20">
+          <VideoSection />
+        </div>
+      </section>
 
-      {/* Services Portfolio */}
-      <section className="py-16 bg-zinc-50 relative border-y border-zinc-200">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-gray-900 tracking-tight">
-            Our <span className="text-orange-600">Powder Coating Expertise</span>
-          </h2>
+      {/* ===== STATS BAR ===== */}
+      <div className="bg-[#0d0d15] border-y border-white/5 py-10 overflow-hidden">
+        <div className="max-w-[1200px] mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { count: 20, label: "Happy Clients" },
+            { count: 5,  label: "Cities Served" },
+            { count: 50, label: "Projects Delivered" },
+            { count: 99, label: "% Quality Rating" },
+          ].map((stat, i) => (
+            <div key={i} className="text-center md:border-r border-white/10 last:border-none reveal">
+              <div
+                className="font-display text-5xl md:text-6xl bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent mb-2"
+                data-count={stat.count}
+              >
+                0
+              </div>
+              <div className="text-[12px] tracking-[3px] uppercase text-zinc-400 font-ui">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
-            {[
-              {
-                img: "/images/plant/automatic-powder-coating-plant-1.jpg",
-                title: "Custom Coating Solutions",
-                desc: "Tailored powder coating for projects of any size or complexity with precise thickness finishes.",
-              },
-              {
-                img: "/images/plant/automatic-powder-coating-plant-2.jpg",
-                title: "Industrial & Architectural Batching",
-                desc: "High-performance treatments specialized for casting parts, automotive profiles, structural valves, and metal components.",
-              },
-            ].map((s, i) => (
+      {/* ===== ABOUT STRIP ===== */}
+      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F0FDF4 0%, #ecfdf5 60%, #d1fae5 100%)" }}>
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Text */}
+            <div className="reveal">
+              <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
+                About INTIGRA
+              </div>
+              <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase leading-tight mb-6">
+                Precision Coating.{" "}
+                <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+                  Engineered
+                </span>{" "}
+                Excellence.
+              </h2>
+              <p className="text-slate-600 text-base leading-relaxed mb-6">
+                INTIGRA is Rajkot&apos;s premier automated powder coating plant, built around a fully conveyor-driven production line that delivers exceptional consistency and throughput. Our ISO-aligned facility handles everything from precision automotive parts to large architectural steel components.
+              </p>
+              <p className="text-slate-500 text-sm leading-relaxed mb-8">
+                Backed by a rigorous 7-stage phosphating pre-treatment system, precision electrostatic application, and thermally-optimised curing ovens — every component that leaves our plant carries a finish designed to last decades.
+              </p>
+              <Link
+                href="/about-us"
+                className="inline-flex items-center gap-2 text-orange-500 font-ui text-sm tracking-[2px] uppercase font-semibold border-b border-orange-500/30 pb-1 hover:border-orange-500 transition-all duration-300"
+              >
+                Our Story
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+
+            {/* Image with framing */}
+            <div className="relative reveal" style={{ transitionDelay: "150ms" }}>
+              <div className="absolute -inset-4 border border-orange-500/20 rounded-none pointer-events-none" />
+              <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-orange-500" />
+              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-orange-500" />
+              <div className="relative overflow-hidden">
+                <Image
+                  src="/images/plant/about.jpeg"
+                  alt="INTIGRA automated powder coating conveyor plant in Rajkot, Gujarat"
+                  width={600}
+                  height={420}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-auto object-cover hover:scale-[1.03] transition-transform duration-700"
+                  priority
+                />
+                {/* Overlay badge */}
+                <div className="absolute bottom-6 left-6 bg-black/70 backdrop-blur-md border border-white/10 px-5 py-3">
+                  <div className="font-display text-2xl text-orange-500 tracking-wider">EST. 2020</div>
+                  <div className="font-ui text-[9px] text-zinc-400 tracking-[3px] uppercase">Rajkot, Gujarat</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Benefits grid */}
+          <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {homeBenefits.map((item, i) => (
               <div
                 key={i}
-                className="relative group rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all bg-zinc-950 flex flex-col"
+                className="text-center p-6 border border-slate-200 hover:border-orange-500/40 bg-white/80 hover:bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10 reveal"
+                style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="relative w-full h-72">
-                  <Image
-                    src={s.img}
-                    alt={`${s.title} production capabilities at INTIGRA`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover brightness-90 group-hover:brightness-75 transition-all duration-500"
-                  />
-                </div>
-                {/* Visual Depth Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                
-                <div className="absolute bottom-6 left-6 right-6 text-left text-white z-10">
-                  <h3 className="text-xl font-bold mb-2">{s.title}</h3>
-                  <p className="text-xs text-gray-200 mb-4 leading-relaxed max-w-md">{s.desc}</p>
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center text-orange-400 hover:text-orange-300 text-xs font-bold uppercase tracking-wider transition-colors"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </div>
+                <div className="mb-4 p-3 bg-orange-50 rounded-full inline-flex">{item.icon}</div>
+                <h3 className="text-sm font-bold text-[#1E3A8A] mb-2 leading-snug">{item.title}</h3>
+                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Review Feed */}
+      {/* ===== INDUSTRIES ===== */}
+      <IndustriesSection />
+
+      {/* ===== PRODUCTS GALLERY ===== */}
+      <section id="products">
+        <ProductGallery />
+      </section>
+
+      {/* ===== WHY INTIGRA ===== */}
+      <WhyIntigraSection />
+
+      {/* ===== PROCESS ===== */}
+      <ProcessSection />
+
+      {/* ===== TESTIMONIALS ===== */}
       <Testimonials />
 
-      {/* Industrial Conversion CTA Segment */}
-      <section className="relative py-16 bg-orange-50 overflow-hidden border-t border-orange-100">
-        <div className="absolute top-10 left-20 w-12 h-12 bg-orange-300 rounded-full opacity-20 blur-xl animate-ping"></div>
-        <div className="absolute bottom-20 right-32 w-16 h-16 bg-yellow-300 rounded-full opacity-15 blur-xl animate-ping"></div>
-
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <div className="bg-gradient-to-r from-orange-100 via-amber-100 to-zinc-100 p-10 md:p-14 rounded-3xl shadow-xl text-gray-900 max-w-4xl mx-auto border border-orange-200">
-            <h2 className="text-2xl sm:text-4xl font-extrabold mb-4 text-orange-800 tracking-tight">
-              Get in Touch for Quotes, Samples & Project Support
-            </h2>
-
-            <p className="text-sm sm:text-base mb-8 leading-relaxed text-gray-700 max-w-3xl mx-auto">
-              Ready to elevate your next production run? Partner with <span className="font-bold text-orange-700">INTIGRA Coatings</span> — your trusted structural partner in <strong>durable, protective, and eco-friendly powder coating</strong> solutions. Request a free target estimation, analyze sample profiles, or consult our specialized engineers.
-            </p>
-
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-orange-600 text-white hover:bg-orange-700 font-semibold shadow-md transition-transform hover:scale-105 rounded-md text-sm px-6"
-              >
-                <Link href="/contact-us">Request Free Quote</Link>
-              </Button>
-
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-orange-600 text-orange-700 hover:bg-orange-100/50 font-semibold transition-transform hover:scale-105 rounded-md text-sm px-6"
-              >
-                <Link href="/products">Explore Our Finishes</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ===== CONTACT CTA ===== */}
+      <ContactCTASection />
     </CustomLayout>
   );
 }

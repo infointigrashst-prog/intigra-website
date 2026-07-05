@@ -17,9 +17,9 @@ useEffect(() => {
   return () => clearTimeout(timer);
 }, []);
   return (
-    <>
-      <section className="relative w-full overflow-hidden">
-        <div className="relative w-full aspect-video overflow-hidden">
+    <div className="absolute inset-0 w-full h-full">
+      <section className="relative w-full h-full overflow-hidden">
+        <div className="relative w-full h-full overflow-hidden">
           {loading && (
             <div className="absolute inset-0 z-20 flex items-center justify-center bg-black">
               <div className="flex flex-col items-center">
@@ -34,41 +34,41 @@ useEffect(() => {
           <iframe
             key={isMuted ? "muted" : "unmuted"}
             onLoad={() => setLoading(false)}
-            src={`https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=${
+            src={`https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&playsinline=1&muted=${
               isMuted ? 1 : 0
             }`}
-            className="absolute inset-0 w-full h-full"
+            className="bg-video-iframe"
             allow="autoplay; fullscreen; picture-in-picture"
           />
         </div>
 
         <div className="absolute inset-0 bg-black/20" />
-
-        <div className="absolute bottom-3 right-3 md:bottom-6 md:right-6 flex gap-2 md:gap-3">
-          {/* Mute / Unmute */}
-          <button
-            onClick={() => {
-              setLoading(true);
-              setIsMuted(!isMuted);
-            }}
-            className="bg-black/60 hover:bg-black/80 text-white rounded-lg md:rounded-xl p-2 md:p-3 backdrop-blur-md transition"
-          >
-            {isMuted ? (
-              <VolumeX className="w-4 h-4 md:w-6 md:h-6" />
-            ) : (
-              <Volume2 className="w-4 h-4 md:w-6 md:h-6" />
-            )}
-          </button>
-
-          {/* Open Popup */}
-          <button
-            onClick={() => setOpen(true)}
-            className="bg-orange-500 hover:bg-orange-600 text-white rounded-lg md:rounded-xl shadow-xl p-2 md:p-3 transition-all duration-300"
-          >
-            <PlaySquare className="w-4 h-4 md:w-6 md:h-6" />
-          </button>
-        </div>
       </section>
+
+      <div className="absolute bottom-6 right-6 flex gap-3 z-50">
+        {/* Mute / Unmute */}
+        <button
+          onClick={() => {
+            setLoading(true);
+            setIsMuted(!isMuted);
+          }}
+          className="bg-black/60 hover:bg-black/80 text-white rounded-lg md:rounded-xl p-2 md:p-3 backdrop-blur-md transition"
+        >
+          {isMuted ? (
+            <VolumeX className="w-4 h-4 md:w-6 md:h-6" />
+          ) : (
+            <Volume2 className="w-4 h-4 md:w-6 md:h-6" />
+          )}
+        </button>
+
+        {/* Open Popup */}
+        <button
+          onClick={() => setOpen(true)}
+          className="bg-orange-500 hover:bg-orange-600 text-white rounded-lg md:rounded-xl shadow-xl p-2 md:p-3 transition-all duration-300"
+        >
+          <PlaySquare className="w-4 h-4 md:w-6 md:h-6" />
+        </button>
+      </div>
 
       {/* Popup */}
       {open && (
@@ -98,6 +98,6 @@ useEffect(() => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

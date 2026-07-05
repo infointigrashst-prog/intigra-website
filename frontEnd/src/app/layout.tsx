@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Bebas_Neue, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,8 +14,11 @@ import ScrollToTopButton from "@/components/scroll-to-top-button";
 import WhatsappButton from "@/components/comman/Whatsapp";
 import { Analytics } from '@vercel/analytics/next';
 import { LocalBusinessJsonLd } from "@/components/seo/json-ld";
+import MockupEffects from "@/components/comman/MockupEffects";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas-neue" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
@@ -99,7 +102,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${bebasNeue.variable} ${spaceGrotesk.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Favicon links can be added here if available */}
@@ -112,6 +115,7 @@ export default function RootLayout({
           inter.variable
         )}
       >
+        <MockupEffects />
         <Analytics/>
         <div className="flex flex-col min-h-screen">{children}</div>
         <WhatsappButton />

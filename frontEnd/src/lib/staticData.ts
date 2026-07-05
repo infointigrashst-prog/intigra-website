@@ -475,3 +475,232 @@ export const SERVICES_BENEFITS_DATA: BenefitItem[] = [
     desc: "Sustainable, solvent-free oversight allowing complete reclamation and reduction of operational carbon footprints.",
   },
 ];
+
+export interface IndustryItem {
+  slug: string;
+  icon: string;
+  title: string;
+  desc: string;
+  accent: string;
+  detailedDesc: string;
+  benefits: string[];
+  specifications: { label: string; value: string }[];
+  applications: string[];
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string[];
+}
+
+export const INDUSTRIES_DATA: IndustryItem[] = [
+  {
+    slug: "automotive",
+    icon: "🚗",
+    title: "Automotive",
+    desc: "Chassis parts, wheel rims, engine covers, bumpers and structural automotive components demanding extreme durability and finish.",
+    accent: "#ff6b2b",
+    detailedDesc: "Our automotive coating line is engineered to meet strict OEM specifications. From high-tensile structural underbody parts requiring superior stone-chip resistance to exterior panels demanding UV-stable gloss retention, we provide multi-stage pre-treated coatings built to survive harsh road conditions.",
+    benefits: [
+      "Extreme stone-chip protection",
+      "1000+ hours salt-spray resistance",
+      "High heat-cycle stability",
+      "Underbody corrosion protection"
+    ],
+    specifications: [
+      { label: "Coating Thickness", value: "60 - 90 Microns" },
+      { label: "Salt Spray Resistance", value: "1000 Hours (ASTM B117)" },
+      { label: "Impact Adhesion", value: "Direct/Reverse > 80 in-lbs" },
+      { label: "Curing Temperature", value: "200°C Peak Metal Temp" }
+    ],
+    applications: [
+      "Chassis assemblies",
+      "Alloy wheel rims",
+      "Suspension arms",
+      "Engine covers & brackets",
+      "Bumper bars"
+    ],
+    seoTitle: "Automotive Powder Coating Services Rajkot | INTIGRA",
+    seoDescription: "High-durability OEM-spec automotive powder coating in Shapar Rajkot. Salt-spray resistant finishes for chassis, alloy rims, suspension components, and brackets.",
+    seoKeywords: [
+      "automotive powder coating rajkot",
+      "car suspension coating",
+      "rim powder coating shapar",
+      "rustproof auto parts gujarat"
+    ]
+  },
+  {
+    slug: "architecture",
+    icon: "🏗️",
+    title: "Architecture",
+    desc: "Curtain walls, aluminium extrusions, window profiles, structural steelwork and façade cladding with premium weather resistance.",
+    accent: "#00c8ff",
+    detailedDesc: "Architectural steel and aluminium profiles require long-term protection against UV degradation, humidity, and weather cycles. INTIGRA utilizes high-performance Qualicoat-compliant polyester and PVDF powders that guarantee color and gloss retention for years, keeping structures beautiful and protected.",
+    benefits: [
+      "Super-durable UV protection",
+      "Excellent chalking resistance",
+      "Qualicoat performance standards",
+      "Vibrant color integrity"
+    ],
+    specifications: [
+      { label: "Coating Thickness", value: "70 - 100 Microns" },
+      { label: "UV Resistance", value: "Excellent (Qualicoat Class 2 compatible)" },
+      { label: "Cross-Cut Adhesion", value: "0 (ISO 2409)" },
+      { label: "Gloss Level", value: "Matt (10-20%) to High Gloss (>85%)" }
+    ],
+    applications: [
+      "Curtain walls & cladding",
+      "Window profiles & extrusions",
+      "Fencing & structural gates",
+      "Pergolas & outdoor louvers",
+      "Façade framework"
+    ],
+    seoTitle: "Architectural Powder Coating Shapar Rajkot | INTIGRA",
+    seoDescription: "Qualicoat-class architectural powder coating services in Rajkot Gujarat. Durable polyester finishes for curtain walls, aluminium windows, and façade frameworks.",
+    seoKeywords: [
+      "architectural powder coating rajkot",
+      "aluminium extrusion coating gujarat",
+      "facade metal finish shapar",
+      "UV resistant metal coating"
+    ]
+  },
+  {
+    slug: "furniture",
+    icon: "🪑",
+    title: "Furniture",
+    desc: "Office furniture frames, garden sets, shelving systems and decorative ironwork with vibrant, chip-resistant finishes.",
+    accent: "#00d68f",
+    detailedDesc: "Commercial and residential furniture requires a balance of aesthetic appeal and everyday wear resistance. Our furniture coating processes deliver exceptionally smooth finishes, texturing profiles, and rich color depths that protect office chairs, structural shelving, and garden patio furniture from scratches and moisture.",
+    benefits: [
+      "Exceptional scratch resistance",
+      "Hammertone & texture options",
+      "Eco-friendly food-contact safety",
+      "Seamless paint uniformity"
+    ],
+    specifications: [
+      { label: "Coating Thickness", value: "50 - 70 Microns" },
+      { label: "Scratch Resistance", value: "Pencil Hardness > 2H" },
+      { label: "Flexibility", value: "Conical Mandrel < 3mm" },
+      { label: "Surface Finishes", value: "Matt, Gloss, Structure, Hammertone" }
+    ],
+    applications: [
+      "Office desk frameworks",
+      "Outdoor garden furniture",
+      "Supermarket shelving displays",
+      "Wrought iron tables",
+      "Metal cabinets & lockers"
+    ],
+    seoTitle: "Furniture Metal Coating Services Rajkot | INTIGRA",
+    seoDescription: "Premium metal furniture powder coating in Rajkot. Smooth, hammertone, and scratch-resistant finishes for office, garden, and commercial shelving frameworks.",
+    seoKeywords: [
+      "furniture powder coating rajkot",
+      "metal chair paint finish",
+      "shelving powder coat shapar",
+      "scratch proof office furniture coat"
+    ]
+  },
+  {
+    slug: "industrial-machinery",
+    icon: "⚙️",
+    title: "Industrial Machinery",
+    desc: "Valves, flanges, compressor housings, pipe fittings and heavy equipment requiring chemical and abrasion resistance.",
+    accent: "#f5c842",
+    detailedDesc: "Industrial valves, castings, and pipeline components operate in highly corrosive chemical, fluid, and high-pressure environments. We use heavy-duty epoxy and hybrid powders that form an impenetrable barrier against acids, oils, solvents, and physical impact, ensuring long operational lifetimes.",
+    benefits: [
+      "Heavy-duty chemical resistance",
+      "Thick barrier corrosion protection",
+      "Anti-scaling internal coating",
+      "Abrasion resistant barrier"
+    ],
+    specifications: [
+      { label: "Coating Thickness", value: "100 - 250 Microns" },
+      { label: "Chemical Resistance", value: "Acids, Alkalis, Hydrocarbons, Oils" },
+      { label: "Dielectric Strength", value: "Excellent (Electrical barrier)" },
+      { label: "Impact Resistance", value: "Direct > 120 in-lbs" }
+    ],
+    applications: [
+      "Valve bodies & castings",
+      "Pipe flanges & couplings",
+      "Compressor housing modules",
+      "Pump casings",
+      "Pneumatic cylinders"
+    ],
+    seoTitle: "Industrial Valve & Machinery Powder Coating Rajkot | INTIGRA",
+    seoDescription: "Corrosion-resistant heavy epoxy powder coating for industrial castings, valve bodies, and machinery parts in Shapar Rajkot. High chemical and impact resistance.",
+    seoKeywords: [
+      "industrial valve coating rajkot",
+      "casting parts powder coating gujarat",
+      "chemical resistant epoxy shapar",
+      "flange protective finishes"
+    ]
+  },
+  {
+    slug: "home-appliances",
+    icon: "🏠",
+    title: "Home Appliances",
+    desc: "Refrigerator panels, washing machine cabinets, HVAC units and white goods with seamless, long-lasting factory finishes.",
+    accent: "#8b5cf6",
+    detailedDesc: "Household appliances require beautiful, easy-to-clean surfaces that stand up to heat, detergents, and physical impacts. Our specialized appliance coating line utilizes high-quality hybrid epoxy-polyester coatings that prevent yellowing, offer excellent stain resistance, and ensure a flawless mirror-like finish.",
+    benefits: [
+      "Stain & detergent resistance",
+      "Anti-yellowing thermal defense",
+      "Ultra-smooth gloss consistency",
+      "Easy-to-clean hygienic seal"
+    ],
+    specifications: [
+      { label: "Coating Thickness", value: "55 - 75 Microns" },
+      { label: "Gloss Level", value: "Semi-Gloss (50-70%) to Mirror Gloss (>90%)" },
+      { label: "Detergent Resistance", value: "500 hrs in 5% solution" },
+      { label: "Yellowing Resistance", value: "Excellent overbake color stability" }
+    ],
+    applications: [
+      "Refrigerator front panels",
+      "Washing machine cabinets",
+      "Air conditioner outdoor units",
+      "Microwave oven housings",
+      "Water heater covers"
+    ],
+    seoTitle: "Appliance & White Goods Powder Coating Rajkot | INTIGRA",
+    seoDescription: "Hygienic, chemical-resistant powder coating for home appliances and HVAC units in Rajkot. Mirror-smooth finishes with color overbake stability.",
+    seoKeywords: [
+      "home appliance powder coating rajkot",
+      "HVAC cabinet coating shapar",
+      "refrigerator metal paint gujarat",
+      "white goods surface finish"
+    ]
+  },
+  {
+    slug: "general-engineering",
+    icon: "🔩",
+    title: "General Engineering",
+    desc: "Custom brackets, fasteners, conveyor parts and OEM components with tight tolerance coating for high-volume production.",
+    accent: "#ff6b2b",
+    detailedDesc: "Our high-capacity automated conveyor line is perfectly suited to handle custom brackets, fasteners, stamping assemblies, and OEM parts. We offer rapid turnarounds and high-volume consistency with tight coating tolerances to ensure assemblies fit together perfectly after coating.",
+    benefits: [
+      "Tight coating tolerance control",
+      "High volume production capability",
+      "Rapid standard turnaround",
+      "Batch-to-batch color matching"
+    ],
+    specifications: [
+      { label: "Coating Thickness", value: "45 - 65 Microns" },
+      { label: "Batch Consistency", value: "Delta E < 0.5 (Spectrophotometer)" },
+      { label: "Curing Cycle", value: "Optimized high-speed convection line" },
+      { label: "Adhesion Rating", value: "5B (ASTM D3359)" }
+    ],
+    applications: [
+      "Custom bracket assemblies",
+      "Fastener hooks & plates",
+      "Conveyor belt frameworks",
+      "Stamped sheet metal parts",
+      "OEM bracket interfaces"
+    ],
+    seoTitle: "OEM & General Engineering Powder Coating Rajkot | INTIGRA",
+    seoDescription: "High-volume OEM metal finishing and powder coating services in Rajkot Shapar. Precision coating tolerances for custom brackets, stampings, and fasteners.",
+    seoKeywords: [
+      "general engineering powder coating rajkot",
+      "OEM metal finishing shapar",
+      "conveyor parts coating gujarat",
+      "fastener powder coat rajkot"
+    ]
+  }
+];
+
