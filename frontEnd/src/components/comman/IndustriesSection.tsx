@@ -51,24 +51,24 @@ export default function IndustriesSection() {
   return (
     <section
       id="industries"
-      className="py-16 relative overflow-hidden"
-      style={{ background: "#0d0d15" }}
+      className="py-16 relative overflow-hidden border-b border-slate-100"
+      style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
     >
       {/* Geometric grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,107,43,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,107,43,0.04) 1px, transparent 1px)
+            linear-gradient(rgba(30,58,138,0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(30,58,138,0.02) 1px, transparent 1px)
           `,
           backgroundSize: "80px 80px",
         }}
       />
 
       {/* Glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-orange-500 opacity-[0.04] blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-cyan-400 opacity-[0.04] blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-orange-500 opacity-[0.02] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-cyan-400 opacity-[0.02] blur-[100px] pointer-events-none" />
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         {/* Section header */}
@@ -76,13 +76,13 @@ export default function IndustriesSection() {
           <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Market Verticals
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white tracking-[2px] uppercase mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
             Industries{" "}
             <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
               We Serve
             </span>
           </h2>
-          <p className="text-zinc-400 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
+          <p className="text-slate-500 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
             Our automated coating line handles everything from precision
             automotive components to large architectural frameworks — delivering
             consistent quality across diverse market sectors.
@@ -95,7 +95,7 @@ export default function IndustriesSection() {
             <Link
               key={i}
               href={`/industries/${industry.slug}`}
-              className="industry-card group relative p-8 border border-white/8 rounded-none cursor-pointer overflow-hidden block reveal"
+              className="industry-card group relative p-8 border border-slate-200 bg-white hover:border-orange-500/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 rounded-none cursor-pointer overflow-hidden block reveal"
               style={{ transitionDelay: `${i * 80}ms` }}
             >
               {/* Hover animated background */}
@@ -118,12 +118,12 @@ export default function IndustriesSection() {
                   {industry.icon}
                 </div>
                 <h3
-                  className="font-display text-2xl text-white tracking-[1px] uppercase mb-3 transition-colors duration-300"
+                  className="font-display text-2xl text-[#1E3A8A] tracking-[1px] uppercase mb-3 transition-colors duration-300"
                   style={{ "--accent": industry.accent } as React.CSSProperties}
                 >
                   {industry.title}
                 </h3>
-                <p className="text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
+                <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
                   {industry.desc}
                 </p>
 

@@ -87,7 +87,7 @@ export default function PremiumHomePage() {
       </section>
 
       {/* ===== STATS BAR ===== */}
-      <div className="bg-[#0d0d15] border-y border-white/5 py-10 overflow-hidden">
+      <div className="border-y border-slate-200 py-10 overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
         <div className="max-w-[1200px] mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { count: 20, label: "Happy Clients" },
@@ -95,14 +95,14 @@ export default function PremiumHomePage() {
             { count: 50, label: "Projects Delivered" },
             { count: 99, label: "% Quality Rating" },
           ].map((stat, i) => (
-            <div key={i} className="text-center md:border-r border-white/10 last:border-none reveal">
+            <div key={i} className="text-center md:border-r border-slate-200 last:border-none reveal">
               <div
                 className="font-display text-5xl md:text-6xl bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent mb-2"
                 data-count={stat.count}
               >
                 0
               </div>
-              <div className="text-[12px] tracking-[3px] uppercase text-zinc-400 font-ui">
+              <div className="text-[12px] tracking-[3px] uppercase text-slate-500 font-ui font-semibold">
                 {stat.label}
               </div>
             </div>
@@ -111,25 +111,29 @@ export default function PremiumHomePage() {
       </div>
 
       {/* ===== ABOUT STRIP ===== */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #F0FDF4 0%, #ecfdf5 60%, #d1fae5 100%)" }}>
-        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+      <section className="py-24 relative overflow-hidden border-b border-white/5" style={{ background: "#0d0d15" }}>
+        {/* Subtle glow orbs */}
+        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-cyan-500 opacity-[0.02] blur-[100px] pointer-events-none" />
+
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
             <div className="reveal">
               <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
                 About INTIGRA
               </div>
-              <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase leading-tight mb-6">
+              <h2 className="font-display text-4xl sm:text-5xl text-white tracking-[2px] uppercase leading-tight mb-6">
                 Precision Coating.{" "}
                 <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
                   Engineered
                 </span>{" "}
                 Excellence.
               </h2>
-              <p className="text-slate-600 text-base leading-relaxed mb-6">
+              <p className="text-zinc-300 text-base leading-relaxed mb-6">
                 INTIGRA is Rajkot&apos;s premier automated powder coating plant, built around a fully conveyor-driven production line that delivers exceptional consistency and throughput. Our ISO-aligned facility handles everything from precision automotive parts to large architectural steel components.
               </p>
-              <p className="text-slate-500 text-sm leading-relaxed mb-8">
+              <p className="text-zinc-400 text-sm leading-relaxed mb-8">
                 Backed by a rigorous 7-stage phosphating pre-treatment system, precision electrostatic application, and thermally-optimised curing ovens — every component that leaves our plant carries a finish designed to last decades.
               </p>
               <Link
@@ -143,7 +147,7 @@ export default function PremiumHomePage() {
 
             {/* Image with framing */}
             <div className="relative reveal" style={{ transitionDelay: "150ms" }}>
-              <div className="absolute -inset-4 border border-orange-500/20 rounded-none pointer-events-none" />
+              <div className="absolute -inset-4 border border-white/10 rounded-none pointer-events-none" />
               <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-orange-500" />
               <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-orange-500" />
               <div className="relative overflow-hidden">

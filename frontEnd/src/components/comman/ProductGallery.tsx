@@ -14,26 +14,32 @@ export default function ProductGallery() {
   const ProductCard = ({ product }: { product: Product }) => (
     <div
       onClick={() => setSelectedProduct(product)}
-      className="group relative bg-white border border-slate-200 hover:border-orange-500/40 rounded-none overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl cursor-pointer flex flex-col h-full text-left"
+      className="group relative bg-[#13131c]/60 backdrop-blur-xl border border-white/5 hover:border-orange-500/30 rounded-none overflow-hidden transition-all duration-500 hover:-translate-y-2 cursor-pointer flex flex-col h-full text-left"
     >
-      {/* Dynamic top border accent */}
-      <div className="absolute top-0 left-0 w-0 h-[3px] bg-gradient-to-r from-orange-500 to-amber-500 group-hover:w-full transition-all duration-500" />
+      {/* Premium Backlight Glow */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-amber-500 opacity-0 group-hover:opacity-[0.04] blur-2xl transition-opacity duration-700 pointer-events-none" />
 
-      {/* Image compartment */}
-      <div className="relative w-full h-56 bg-slate-50/50 p-6 flex items-center justify-center overflow-hidden border-b border-slate-100">
-        <div className="relative w-full h-full">
+      {/* Dynamic top animated border accent */}
+      <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 group-hover:w-full transition-all duration-500 z-20" />
+
+      {/* Image compartment with diagonal tech accents */}
+      <div className="relative w-full h-60 bg-gradient-to-br from-white/[0.02] to-transparent p-8 flex items-center justify-center overflow-hidden border-b border-white/5">
+        <div className="absolute top-0 right-0 w-16 h-[1px] bg-white/10 transform rotate-45 translate-x-6 translate-y-2" />
+        <div className="absolute bottom-0 left-0 w-16 h-[1px] bg-white/10 transform rotate-45 -translate-x-6 -translate-y-2" />
+
+        <div className="relative w-full h-full transform transition-transform duration-700 ease-out group-hover:scale-108 group-hover:-rotate-1">
           <Image
             src={product.image[0]}
             alt={product.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+            className="object-contain"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         {/* View Action Overlay */}
-        <div className="absolute bottom-4 right-4 bg-orange-500 text-white p-3 shadow-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10" style={{ clipPath: "polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)" }}>
+        <div className="absolute bottom-4 right-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white p-3 shadow-2xl opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10" style={{ clipPath: "polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -57,41 +63,38 @@ export default function ProductGallery() {
       </div>
 
       {/* Info compartment */}
-      <div className="p-6 flex flex-col flex-grow justify-between">
+      <div className="p-6 flex flex-col flex-grow justify-between relative bg-white/[0.005]">
         <div>
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] font-ui tracking-[2px] uppercase text-orange-500 font-semibold">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-[9px] font-mono tracking-[2px] uppercase text-orange-400 font-semibold border border-orange-500/20 px-2.5 py-0.5 bg-orange-500/5">
               {product.category}
             </span>
             {product.sku && (
-              <span className="text-[10px] font-mono text-zinc-400">
-                SKU: {product.sku}
+              <span className="text-[9px] font-mono text-zinc-500 border border-white/5 bg-white/5 px-2 py-0.5">
+                {product.sku}
               </span>
             )}
           </div>
-          <h3 className="font-display text-2xl text-[#1E3A8A] uppercase tracking-[0.5px] group-hover:text-orange-500 transition-colors duration-300 mb-4">
+          <h3 className="font-display text-2xl text-white uppercase tracking-[0.5px] group-hover:text-orange-400 transition-colors duration-300 mb-4">
             {product.name}
           </h3>
 
-          {/* Features */}
-          {product.features && (
-            <ul className="space-y-1.5 mb-6">
-              {product.features.slice(0, 3).map((feat, i) => (
-                <li
-                  key={i}
-                  className="text-xs text-slate-500 flex items-center gap-2"
-                >
-                  <span className="w-1.5 h-1.5 bg-orange-500 flex-shrink-0" />
-                  {feat}
-                </li>
-              ))}
-            </ul>
-          )}
+          {/* Technical Spec Matrix Grid */}
+          <div className="grid grid-cols-2 gap-2 mb-6 border-y border-white/5 py-4 font-mono text-[10px]">
+            <div>
+              <div className="text-zinc-500">FINISH STATUS</div>
+              <div className="text-emerald-400 font-bold">100% INSPECTED</div>
+            </div>
+            <div>
+              <div className="text-zinc-500">COMPLIANCE</div>
+              <div className="text-orange-400 font-bold">ISO ALIGNED</div>
+            </div>
+          </div>
         </div>
 
-        <div className="flex justify-between items-center text-xs tracking-[1.5px] uppercase font-semibold text-orange-500 border-t border-slate-100 pt-4">
-          <span>View Details</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <div className="flex justify-between items-center text-xs tracking-[1.5px] uppercase font-semibold text-orange-400 border-t border-white/5 pt-4">
+          <span>View Specifications</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transform group-hover:translate-x-1.5 transition-transform duration-300">
             <path d="M5 12h14M12 5l7 7-7 7"/>
           </svg>
         </div>
@@ -100,21 +103,39 @@ export default function ProductGallery() {
   );
 
   return (
-    <section className="relative py-24 overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+    <section className="relative py-28 overflow-hidden border-b border-white/5" style={{ background: "#0a0a0f" }}>
+      {/* Advanced blueprints crosshairs CAD grid overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-20"
+        style={{
+          backgroundImage: `
+            radial-gradient(rgba(255,255,255,0.15) 1px, transparent 0),
+            linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px)
+          `,
+          backgroundSize: "20px 20px, 100px 100px, 100px 100px",
+        }}
+      />
+
+      {/* Deep decorative ambient soft glow orbs */}
+      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-orange-500 opacity-[0.04] blur-[130px] pointer-events-none animate-pulse" style={{ animationDuration: "8s" }} />
+      <div className="absolute bottom-1/4 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] rounded-full bg-cyan-500 opacity-[0.03] blur-[110px] pointer-events-none animate-pulse" style={{ animationDuration: "12s" }} />
+
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-20 reveal">
-          <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
+        <div className="text-center mb-24 reveal">
+          <div className="font-ui text-[11px] tracking-[8px] uppercase text-orange-500 mb-5">
             Industrial Portfolio
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
+          <h2 className="font-display text-5xl sm:text-6xl md:text-7xl text-white tracking-[2px] uppercase mb-6 leading-none">
             Engineered{" "}
-            <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 bg-clip-text text-transparent">
               Products
             </span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
+          <div className="w-24 h-[3px] bg-gradient-to-r from-orange-500 to-amber-500 mx-auto mb-6" />
+          <p className="text-zinc-400 text-sm md:text-base max-w-[620px] mx-auto leading-relaxed">
             Discover our high-precision coating finishes applied to hydrant valves, agricultural machinery, and automotive chassis components.
           </p>
         </div>
@@ -143,6 +164,31 @@ export default function ProductGallery() {
               <ProductCard product={product} />
             </div>
           ))}
+        </div>
+
+        {/* CTA Button to All Products */}
+        <div className="mt-20 text-center reveal">
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-3 px-12 py-4.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-ui text-[13px] tracking-[2.5px] uppercase font-bold hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(249,115,22,0.15)] hover:shadow-[0_0_45px_rgba(249,115,22,0.35)]"
+            style={{ clipPath: "polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%)" }}
+          >
+            <span>View All Products</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.5}
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
+              />
+            </svg>
+          </Link>
         </div>
       </div>
 

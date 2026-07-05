@@ -15,11 +15,11 @@ export default function Testimonials() {
 
   return (
     <section 
-      className="py-16 relative overflow-hidden" 
-      style={{ background: "#0d0d15" }}
+      className="py-16 relative overflow-hidden border-b border-slate-100" 
+      style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
     >
-      {/* Dynamic ambient glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-orange-500 opacity-[0.03] blur-[120px] pointer-events-none" />
+      {/* Decorative ambient soft glow orbs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-orange-500 opacity-[0.02] blur-[120px] pointer-events-none" />
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         
@@ -28,13 +28,13 @@ export default function Testimonials() {
           <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Client Testimonials
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white tracking-[2px] uppercase mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
             Trusted By{" "}
             <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
               Manufacturers
             </span>
           </h2>
-          <p className="text-zinc-400 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
+          <p className="text-slate-500 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
             See why leading OEMs and fabricators in Rajkot choose INTIGRA for high-durability electrostatic powder coating.
           </p>
         </div>
@@ -42,15 +42,15 @@ export default function Testimonials() {
         {/* Top bar with Google rating CTA */}
         <div className="flex justify-between items-center mb-6 reveal">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-semibold text-white font-ui">Google Review Rating: 5.0</span>
-            <div className="flex text-yellow-400 text-xs">
+            <span className="text-sm font-semibold text-[#1E3A8A] font-ui">Google Review Rating: 5.0</span>
+            <div className="flex text-yellow-500 text-xs">
               <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
             </div>
           </div>
           <Link
             href="https://g.page/r/CbZsX7rQrSSVEBM/review"
             target="_blank"
-            className="text-xs text-orange-400 font-ui tracking-[2px] uppercase font-semibold hover:text-orange-300 transition-colors border-b border-orange-500/20 pb-1"
+            className="text-xs text-orange-500 font-ui tracking-[2px] uppercase font-semibold hover:text-orange-600 transition-colors border-b border-orange-500/20 pb-1"
           >
             Write a Review
           </Link>
@@ -73,7 +73,7 @@ export default function Testimonials() {
           >
             {reviews.map((review, index) => (
               <SwiperSlide key={index}>
-                <div className="bg-white/[0.02] border border-white/5 p-6 hover:bg-white/[0.04] transition-all duration-300 flex flex-col justify-between min-h-[220px]">
+                <div className="bg-white border border-slate-200 p-6 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 flex flex-col justify-between min-h-[220px]">
                   <div>
                     {/* Header */}
                     <div className="flex justify-between items-start mb-4">
@@ -82,10 +82,10 @@ export default function Testimonials() {
                           {review.initial}
                         </div>
                         <div>
-                          <h3 className="font-ui font-semibold text-sm text-white truncate max-w-[150px]">
+                          <h3 className="font-ui font-semibold text-sm text-[#1E3A8A] truncate max-w-[150px]">
                             {review.author_name}
                           </h3>
-                          <p className="text-[10px] text-zinc-500">{review.date}</p>
+                          <p className="text-[10px] text-slate-400">{review.date}</p>
                         </div>
                       </div>
                       <Image
@@ -109,14 +109,14 @@ export default function Testimonials() {
                     </div>
 
                     {/* Comment */}
-                    <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+                    <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
                       {review.text ? (
                         <>
                           {review.text.length > 120 ? (
                             <>
                               {review.text.slice(0, 110)}...
                               <button
-                                className="text-orange-400 text-xs ml-1 hover:underline focus:outline-none"
+                                className="text-orange-500 text-xs ml-1 hover:underline focus:outline-none"
                                 onClick={() => {
                                   setActiveReview(review);
                                   setModalIsOpen(true);
@@ -130,7 +130,7 @@ export default function Testimonials() {
                           )}
                         </>
                       ) : (
-                        <span className="text-zinc-600 italic">No comment provided.</span>
+                        <span className="text-slate-400 italic">No comment provided.</span>
                       )}
                     </p>
                   </div>

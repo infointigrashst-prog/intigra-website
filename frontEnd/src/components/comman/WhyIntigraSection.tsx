@@ -56,15 +56,15 @@ export default function WhyIntigraSection() {
   return (
     <section
       id="why-intigra"
-      className="py-16 relative overflow-hidden"
-      style={{ background: "#0d0d15" }}
+      className="py-16 relative overflow-hidden border-b border-slate-100"
+      style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
     >
       {/* Background mesh */}
       <div
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
-          background: `radial-gradient(ellipse at 20% 50%, rgba(255,107,43,0.06) 0%, transparent 60%),
-                       radial-gradient(ellipse at 80% 50%, rgba(0,200,255,0.05) 0%, transparent 60%)`,
+          background: `radial-gradient(ellipse at 20% 50%, rgba(30,58,138,0.03) 0%, transparent 60%),
+                       radial-gradient(ellipse at 80% 50%, rgba(255,107,43,0.02) 0%, transparent 60%)`,
         }}
       />
 
@@ -75,7 +75,7 @@ export default function WhyIntigraSection() {
             <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
               Competitive Edge
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl text-white tracking-[2px] uppercase leading-tight mb-6">
+            <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase leading-tight mb-6">
               Why{" "}
               <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
                 INTIGRA?
@@ -84,7 +84,7 @@ export default function WhyIntigraSection() {
             <div className="w-16 h-[3px] bg-gradient-to-r from-orange-500 to-amber-400" />
           </div>
           <div className="reveal flex items-center">
-            <p className="text-zinc-400 text-base leading-relaxed">
+            <p className="text-slate-500 text-base leading-relaxed">
               We combine advanced automation, rigorous quality science, and deep
               industry expertise to deliver powder coating solutions that exceed
               performance benchmarks — consistently, at scale. Here is why
@@ -94,11 +94,11 @@ export default function WhyIntigraSection() {
         </div>
 
         {/* Feature cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px border border-white/5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px border border-slate-200">
           {WHY_ITEMS.map((item, i) => (
             <div
               key={i}
-              className="group relative p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all duration-400 cursor-pointer overflow-hidden reveal"
+              className="group relative p-8 bg-white hover:bg-slate-50/50 transition-all duration-400 cursor-pointer overflow-hidden reveal"
               style={{ transitionDelay: `${i * 60}ms` }}
             >
               {/* Animated top border */}
@@ -114,19 +114,19 @@ export default function WhyIntigraSection() {
               >
                 {item.metric}
               </div>
-              <div className="font-ui text-[9px] tracking-[3px] uppercase text-zinc-500 mb-5">
+              <div className="font-ui text-[9px] tracking-[3px] uppercase text-slate-500 mb-5">
                 {item.metricLabel}
               </div>
 
               {/* Icon + title */}
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-2xl">{item.icon}</span>
-                <h3 className="font-ui font-semibold text-white text-sm tracking-wide">
+                <h3 className="font-ui font-semibold text-[#1E3A8A] text-sm tracking-wide">
                   {item.title}
                 </h3>
               </div>
 
-              <p className="text-zinc-500 text-xs leading-relaxed group-hover:text-zinc-400 transition-colors duration-300">
+              <p className="text-slate-500 text-xs leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
                 {item.desc}
               </p>
             </div>

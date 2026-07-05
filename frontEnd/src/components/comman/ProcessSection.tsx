@@ -52,22 +52,26 @@ export default function ProcessSection() {
   return (
     <section
       id="process"
-      className="py-16 relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
+      className="py-16 relative overflow-hidden border-b border-white/5"
+      style={{ background: "#0d0d15" }}
     >
-      {/* Decorative diagonal bars */}
+      {/* Decorative diagonal blueprints lines */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        className="absolute inset-0 pointer-events-none opacity-[0.015]"
         style={{
           backgroundImage: `repeating-linear-gradient(
             -45deg,
-            #ff6b2b,
-            #ff6b2b 1px,
+            #ffffff,
+            #ffffff 1px,
             transparent 1px,
             transparent 40px
           )`,
         }}
       />
+
+      {/* Decorative ambient soft glow orbs */}
+      <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-cyan-500 opacity-[0.02] blur-[100px] pointer-events-none" />
 
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
@@ -75,13 +79,13 @@ export default function ProcessSection() {
           <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
             Our Methodology
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-white tracking-[2px] uppercase mb-4">
             The INTIGRA{" "}
             <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
               Process
             </span>
           </h2>
-          <p className="text-slate-500 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
+          <p className="text-zinc-400 text-sm md:text-base max-w-[600px] mx-auto leading-relaxed">
             A rigorously controlled, four-stage coating methodology that
             guarantees consistent quality and long-term surface performance
             across every production batch.
@@ -103,7 +107,7 @@ export default function ProcessSection() {
                 {/* Step circle */}
                 <div className="relative mb-8">
                   <div
-                    className="w-[104px] h-[104px] rounded-full border-2 border-orange-500/30 bg-white shadow-lg flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-orange-500 group-hover:shadow-orange-500/20 group-hover:shadow-xl"
+                    className="w-[104px] h-[104px] rounded-full border-2 border-white/10 bg-white/[0.02] shadow-lg flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-orange-500 group-hover:shadow-orange-500/20 group-hover:shadow-xl"
                   >
                     <div
                       className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
@@ -117,10 +121,10 @@ export default function ProcessSection() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-display text-xl text-[#1E3A8A] tracking-[1px] uppercase mb-3">
+                <h3 className="font-display text-xl text-white tracking-[1px] uppercase mb-3">
                   {step.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+                <p className="text-zinc-400 text-sm leading-relaxed">
                   {step.desc}
                 </p>
 

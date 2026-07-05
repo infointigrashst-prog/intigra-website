@@ -108,7 +108,10 @@ export default function ServicesPage() {
           description="INTIGRA offers a comprehensive range of powder coating services designed to meet diverse needs with precision and quality."
         />
 
-        <section className="py-16 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
+        <section 
+          className="py-16 relative overflow-hidden border-b border-slate-100"
+          style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
+        >
           {/* Decorative Soft Backgrounds */}
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"></div>
