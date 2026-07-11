@@ -1,30 +1,19 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, Palette, Zap, ArrowRight, Leaf } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import CustomLayout from "@/components/layout/layout";
 import ProductGallery from "@/components/comman/ProductGallery";
 import Testimonials from "@/components/comman/Testimonials";
 import VideoSection from "@/components/comman/videoShowcase";
 import { FAQJsonLd } from "@/components/seo/json-ld";
-import { HOME_BENEFITS_DATA } from "@/lib/staticData";
 import IndustriesSection from "@/components/comman/IndustriesSection";
 import ProcessSection from "@/components/comman/ProcessSection";
 import WhyIntigraSection from "@/components/comman/WhyIntigraSection";
 import ContactCTASection from "@/components/comman/ContactCTASection";
 import StatsBar from "@/components/home/StatsBar";
-
-const lucideIconMap: Record<string, React.ReactNode> = {
-  ShieldCheck: <ShieldCheck className="w-8 h-8 text-orange-500" />,
-  Leaf: <Leaf className="w-8 h-8 text-orange-500" />,
-  Palette: <Palette className="w-8 h-8 text-orange-500" />,
-  Zap: <Zap className="w-8 h-8 text-orange-500" />,
-};
-
-const homeBenefits = HOME_BENEFITS_DATA.map(item => ({
-  ...item,
-  icon: lucideIconMap[item.icon]
-}));
+import BubbleBackground from "@/components/comman/BubbleBackground";
+import AboutBenefits from "@/components/home/AboutBenefits";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 
@@ -92,6 +81,8 @@ export default function PremiumHomePage() {
 
       {/* ===== ABOUT STRIP ===== */}
       <section className="py-10 relative overflow-hidden border-b border-white/5" style={{ background: "#0d0d15" }}>
+        {/* Reusable Background bubbles canvas */}
+        <BubbleBackground opacity={0.6} theme="dark" />
         {/* Subtle glow orbs */}
         <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
         <div className="absolute top-1/2 right-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-cyan-500 opacity-[0.02] blur-[100px] pointer-events-none" />
@@ -145,20 +136,8 @@ export default function PremiumHomePage() {
             </div>
           </div>
 
-          {/* Benefits grid */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {homeBenefits.map((item, i) => (
-              <div
-                key={i}
-                className="text-center p-6 border border-slate-200 hover:border-orange-500/40 bg-white/80 hover:bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/10 reveal"
-                style={{ transitionDelay: `${i * 80}ms` }}
-              >
-                <div className="mb-4 p-3 bg-orange-50 rounded-full inline-flex">{item.icon}</div>
-                <h3 className="text-sm font-bold text-[#1E3A8A] mb-2 leading-snug">{item.title}</h3>
-                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          {/* About benefits mobile slider & desktop grid wrapper */}
+          <AboutBenefits />
         </div>
       </section>
 

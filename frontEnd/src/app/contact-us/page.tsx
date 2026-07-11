@@ -4,6 +4,7 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import CustomLayout from "@/components/layout/layout";
 import { COMPANY_DETAILS } from "@/lib/staticData";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 
@@ -99,6 +100,8 @@ export default function ContactPage() {
           style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
           aria-label="Contact Information and Inquiries Form"
         >
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           {/* Subtle glow orbs */}
           <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-orange-500 opacity-[0.03] blur-[120px] pointer-events-none" />
           <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-cyan-500 opacity-[0.03] blur-[100px] pointer-events-none" />

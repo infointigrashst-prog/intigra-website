@@ -1,5 +1,7 @@
-import type { ReactNode } from 'react';
-import Link from 'next/link';
+"use client";
+import React, { type ReactNode } from "react";
+import Link from "next/link";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 interface PageHeaderProps {
   title: string;
@@ -14,9 +16,12 @@ export default function PageHeader({ title, description, children, category }: P
       className="relative py-20 md:py-10 overflow-hidden border-b border-white/5"
       style={{ background: "#0d0d15" }}
     >
+      {/* Reusable Local Background bubbles canvas */}
+      <BubbleBackground opacity={1} theme="dark" />
+
       {/* Abstract Industrial Grid Pattern */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-30"
+        className="absolute inset-0 pointer-events-none opacity-30 z-0"
         style={{
           backgroundImage: `
             linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),

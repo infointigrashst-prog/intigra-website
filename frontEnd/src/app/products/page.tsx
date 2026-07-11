@@ -5,6 +5,7 @@ import CustomLayout from "@/components/layout/layout";
 import PageHeader from "@/components/page-header";
 import { ArrowUpRight } from "lucide-react";
 import { PRODUCTS_DATA } from "@/lib/staticData";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 /* --- Main Gallery Catalog Index SEO Metadata --- */
 export const metadata: Metadata = {
@@ -41,6 +42,8 @@ export default function GalleryPage() {
 
         {/* Gallery Grid Section */}
         <section className="py-10 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           <div className="container max-w-7xl mx-auto px-6 md:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {PRODUCTS_DATA.map((product, i) => {
@@ -113,6 +116,8 @@ export default function GalleryPage() {
 
         {/* Custom Order Callout Section */}
         <section className="py-10 relative overflow-hidden text-center" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           <div className="max-w-4xl mx-auto px-6 relative z-10 reveal">
             <h2 className="font-display text-3xl sm:text-4xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
               Custom Powder Formulations & Volume Orders

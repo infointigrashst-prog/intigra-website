@@ -8,6 +8,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { REVIEWS_DATA as reviews } from "@/lib/staticData";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 export default function Testimonials() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -18,6 +19,8 @@ export default function Testimonials() {
       className="py-10 relative overflow-hidden border-b border-slate-100" 
       style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
     >
+      {/* Reusable Background bubbles canvas */}
+      <BubbleBackground opacity={0.65} theme="light" />
       {/* Decorative ambient soft glow orbs */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-orange-500 opacity-[0.02] blur-[120px] pointer-events-none" />
 
@@ -145,7 +148,7 @@ export default function Testimonials() {
           <Link
             href="https://www.google.com/maps/place/Intigra+Coatings/@22.1691844,70.8067727,41m/data=!3m1!1e3!4m18!1m9!3m8!1s0x3958356a0e8a57ef:0x9524add0ba5f6cb6!2sIntigra+Coatings!8m2!3d22.1690515!4d70.8067547!9m1!1b1!16s%2Fg%2F11msfp0v32!3m7!1s0x3958356a0e8a57ef:0x9524add0ba5f6cb6!8m2!3d22.1690515!4d70.8067547!9m1!1b1!16s%2Fg%2F11msfp0v32?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
-            className="inline-flex items-center text-xs text-zinc-400 hover:text-white transition-colors gap-2 border border-white/10 hover:border-orange-500/40 px-5 py-3"
+            className="inline-flex items-center text-xs text-slate-600 hover:text-orange-500 transition-colors gap-2 border border-slate-200 hover:border-orange-500/40 bg-white/80 hover:bg-white px-5 py-3 shadow-sm hover:shadow-md transition-all duration-300"
           >
             <Image
               src="/images/icons8-google-96.png"

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 import { usePathname } from "next/navigation";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 export default function MockupEffects() {
   const pathname = usePathname();
@@ -9,7 +10,6 @@ export default function MockupEffects() {
   const [preloaderActive, setPreloaderActive] = useState(true);
   const cursorRef = useRef<HTMLDivElement>(null);
   const cursorRingRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Initial loader progress bar state
   const [progress, setProgress] = useState(0);
@@ -67,87 +67,6 @@ export default function MockupEffects() {
       return () => clearTimeout(timer);
     }
   }, [pathname, loaded]);
-
-  useEffect(() => {
-    // 2. Canvas Particles Background
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      radius: number;
-      color: string;
-    }> = [];
-
-    const colors = [
-      "rgba(255, 107, 43, 0.45)",  // Orange
-      "rgba(0, 229, 255, 0.45)",   // Cyan
-      "rgba(255, 200, 55, 0.45)",   // Yellow
-      "rgba(16, 185, 129, 0.45)",   // Green
-      "rgba(239, 68, 68, 0.45)",    // Red
-      "rgba(168, 85, 247, 0.45)"    // Purple
-    ];
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    };
-
-    const initParticles = () => {
-      particles = [];
-      const particleCount = Math.min(Math.floor(window.innerWidth / 18), 70);
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.45, // Dynamic floating drift
-          vy: (Math.random() - 0.5) * 0.45,
-          radius: Math.random() * 4.5 + 2.5, // Various sizes: 2.5px to 7px
-          color: colors[Math.floor(Math.random() * colors.length)],
-        });
-      }
-    };
-
-    const drawParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        // Boundary checks (wrap around cleanly)
-        if (p.x < -10) p.x = canvas.width + 10;
-        if (p.x > canvas.width + 10) p.x = -10;
-        if (p.y < -10) p.y = canvas.height + 10;
-        if (p.y > canvas.height + 10) p.y = -10;
-
-        // Draw particle dot
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-      });
-
-      animationFrameId = requestAnimationFrame(drawParticles);
-    };
-
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-    drawParticles();
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
 
   useEffect(() => {
     // 3. Custom Cursor Follower & Hover Easing
@@ -315,6 +234,8 @@ export default function MockupEffects() {
           className="fixed inset-0 z-[10000] bg-[#F0FDF4] flex flex-col items-center justify-center gap-6 select-none transition-opacity duration-500 ease-out"
           style={{ opacity: progress === 100 ? 0 : 1 }}
         >
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.8} theme="light" />
           <div className="font-display text-5xl sm:text-6xl tracking-[8px] bg-gradient-to-r from-[#ff6b2b] via-[#f5c842] to-[#8b5cf6] bg-[length:300%_300%] bg-clip-text text-transparent animate-gradientShift">
             INTIGRA
           </div>
@@ -358,7 +279,12 @@ export default function MockupEffects() {
         }}
       />
 
-
+      {/* Reusable Ambient background particles canvas */}
+      <BubbleBackground
+        opacity={0.3}
+        theme="light"
+        className="fixed inset-0 w-screen h-screen pointer-events-none z-30"
+      />
 
       {/* SVG filter to dynamically key out white backgrounds from logo images */}
       <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: "absolute", width: 0, height: 0 }}>

@@ -4,6 +4,7 @@ import { Users, Target, Eye, ShieldCheck, Zap, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import CustomLayout from "@/components/layout/layout";
 import { STRENGTHS_DATA, COMPANY_DETAILS } from "@/lib/staticData";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 
@@ -74,6 +75,8 @@ export default function AboutPage() {
           style={{ background: "linear-gradient(135deg, #F0FDF4 0%, #ecfdf5 60%, #d1fae5 100%)" }}
           aria-label="INTIGRA Overview"
         >
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           <div className="absolute -top-20 -left-20 w-72 h-72 bg-orange-200 opacity-20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-20 -right-20 w-72 h-72 bg-emerald-200 opacity-15 rounded-full blur-3xl animate-pulse"></div>
 
@@ -121,6 +124,8 @@ export default function AboutPage() {
           style={{ background: "#0d0d15" }}
           aria-labelledby="mission-vision-title"
         >
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.6} theme="dark" />
           <div className="container max-w-screen-xl mx-auto px-6">
             <h2
               id="mission-vision-title"
@@ -174,6 +179,8 @@ export default function AboutPage() {
           style={{ background: "linear-gradient(135deg, #F0FDF4, #ecfdf5)" }}
           aria-labelledby="strengths-title"
         >
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           <div className="container max-w-screen-xl mx-auto px-6">
             <h2 
               id="strengths-title"

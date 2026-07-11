@@ -5,6 +5,7 @@ import CustomLayout from "@/components/layout/layout";
 import PageHeader from "@/components/page-header";
 import { ArrowLeft } from "lucide-react";
 import { PRODUCTS_DATA } from "@/lib/staticData";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 const getSlug = (category: string) => category.toLowerCase().replace(/\s+/g, "-");
 
@@ -95,6 +96,8 @@ export default async function CategoryGalleryPage({ params }: Props) {
 
         {/* Gallery Image Grid */}
         <section className="py-10 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           <div className="container max-w-7xl mx-auto px-6 md:px-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {currentProduct.image.map((imgUrl, index) => (

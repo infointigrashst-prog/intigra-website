@@ -2,6 +2,7 @@ import Testimonials from "@/components/comman/Testimonials";
 import CustomLayout from "@/components/layout/layout";
 import { ServicesJsonLd } from "@/components/seo/json-ld";
 import PageHeader from "@/components/page-header";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Layers,
@@ -112,6 +113,8 @@ export default function ServicesPage() {
           className="py-10 relative overflow-hidden border-b border-slate-100"
           style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
         >
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           {/* Decorative Soft Backgrounds */}
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"></div>
@@ -181,6 +184,8 @@ export default function ServicesPage() {
         </section>
 
         <section className="py-10 relative overflow-hidden reveal" style={{ background: "#0d0d15" }}>
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.6} theme="dark" />
           {/* Subtle glow orb */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
 
@@ -214,6 +219,8 @@ export default function ServicesPage() {
         </section>
 
         <section className="py-10 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           <div className="container max-w-screen-xl mx-auto px-6 relative z-10">
             <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase text-center mb-4">
               Common Applications
@@ -241,6 +248,8 @@ export default function ServicesPage() {
         <Testimonials />
 
         <section className="py-10 relative overflow-hidden reveal" style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}>
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.65} theme="light" />
           <div className="container max-w-screen-xl mx-auto px-6 text-center">
             <h2 className="font-display text-4xl sm:text-5xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
               Why Choose <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">INTIGRA Coatings</span>?

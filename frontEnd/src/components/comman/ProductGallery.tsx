@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, Thumbs } from "swiper/modules";
 import Link from "next/link";
 import { Product, PRODUCTS_DATA as products } from "@/lib/staticData";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 export default function ProductGallery() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -94,6 +95,8 @@ export default function ProductGallery() {
 
   return (
     <section className="relative py-5 overflow-hidden border-b border-white/5" style={{ background: "#0a0a0f" }}>
+      {/* Reusable Background bubbles canvas */}
+      <BubbleBackground opacity={0.6} theme="dark" />
       {/* Geometric blueprints grid overlay */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"

@@ -2,6 +2,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 const PROCESS_STEPS = [
   {
@@ -87,6 +88,8 @@ export default function ProcessSection() {
       className="py-10 relative overflow-hidden border-b border-white/5"
       style={{ background: "#0d0d15" }}
     >
+      {/* Reusable Background bubbles canvas */}
+      <BubbleBackground opacity={0.6} theme="dark" />
       {/* Decorative diagonal blueprints lines */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.015]"

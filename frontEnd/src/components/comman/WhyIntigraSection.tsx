@@ -2,6 +2,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 const WHY_ITEMS = [
   {
@@ -88,6 +89,8 @@ export default function WhyIntigraSection() {
       className="py-10 relative overflow-hidden border-b border-slate-100"
       style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
     >
+      {/* Reusable Background bubbles canvas */}
+      <BubbleBackground opacity={0.65} theme="light" />
       {/* Background mesh */}
       <div
         className="absolute inset-0 pointer-events-none opacity-30"

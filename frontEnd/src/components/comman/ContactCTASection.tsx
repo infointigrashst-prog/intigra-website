@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 export default function ContactCTASection() {
   return (
@@ -9,6 +10,8 @@ export default function ContactCTASection() {
       className="py-16 md:py-28 relative overflow-hidden border-t border-white/5"
       style={{ background: "#0d0d15" }}
     >
+      {/* Reusable Background bubbles canvas */}
+      <BubbleBackground opacity={0.6} theme="dark" />
       {/* Subtle blurred glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[800px] h-[400px] rounded-full bg-orange-500 opacity-[0.03] blur-[120px]" />
