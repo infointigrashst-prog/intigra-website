@@ -56,42 +56,40 @@ export default function IndustriesSection() {
   const IndustryCard = ({ industry }: { industry: typeof INDUSTRIES[0] }) => (
     <Link
       href={`/industries/${industry.slug}`}
-      className="industry-card group relative p-8 border border-slate-200 bg-white hover:border-orange-500/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/5 transition-all duration-300 rounded-none cursor-pointer overflow-hidden block text-left h-full"
+      className="industry-card group relative p-8 border border-slate-200/80 bg-white hover:border-orange-500/40 hover:-translate-y-2 shadow-[0_12px_30px_rgba(30,41,59,0.04)] hover:shadow-[0_20px_45px_rgba(30,41,59,0.08)] transition-all duration-500 rounded-3xl cursor-pointer overflow-hidden block text-left h-full"
     >
-      {/* Hover animated background */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{
-          background: `linear-gradient(135deg, ${industry.accent}10, transparent)`,
-        }}
+      {/* Corner Brackets for visual differentiation */}
+      <div 
+        className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-slate-300 transition-colors duration-300 z-10" 
+        style={{ ["--tw-border-opacity" as any]: "1" } as React.CSSProperties}
       />
-      {/* Top accent line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ background: industry.accent }}
+      <div 
+        className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-slate-300 transition-colors duration-300 z-10" 
+        style={{ ["--tw-border-opacity" as any]: "1" } as React.CSSProperties}
       />
 
       <div className="relative z-10">
-        <div className="text-4xl mb-5 transition-transform duration-300 group-hover:scale-110 inline-block">
+        <div 
+          className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center text-3xl mb-6 transition-all duration-500 group-hover:scale-110"
+        >
           {industry.icon}
         </div>
         <h3
-          className="font-display text-2xl text-[#1E3A8A] tracking-[1px] uppercase mb-3 transition-colors duration-300"
-          style={{ "--accent": industry.accent } as React.CSSProperties}
+          className="font-display text-2xl text-[#1E3A8A] group-hover:text-orange-500 tracking-[1.0px] uppercase mb-3 transition-colors duration-300"
         >
           {industry.title}
         </h3>
-        <p className="text-slate-500 text-sm leading-relaxed group-hover:text-slate-600 transition-colors duration-300">
+        <p className="text-slate-500 text-sm leading-relaxed mb-4">
           {industry.desc}
         </p>
 
-        {/* Link arrow - Always visible on mobile, animated on desktop */}
+        {/* Link arrow */}
         <div
-          className="mt-6 flex items-center gap-2 text-xs tracking-[2px] uppercase transition-all duration-300 md:opacity-0 md:-translate-x-2 md:group-hover:opacity-100 md:group-hover:translate-x-0 font-bold"
+          className="mt-6 flex items-center gap-2 text-xs tracking-[2px] uppercase font-bold transition-all duration-300 group-hover:translate-x-2"
           style={{ color: industry.accent }}
         >
-          <span>Learn More</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <span>Explore Verticals</span>
+          <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
         </div>

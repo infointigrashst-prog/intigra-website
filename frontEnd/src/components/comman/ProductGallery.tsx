@@ -198,6 +198,8 @@ export default function ProductGallery() {
             className="relative w-full max-w-5xl bg-white border border-slate-200 shadow-2xl flex flex-col md:flex-row max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Reusable Background bubbles canvas */}
+            <BubbleBackground opacity={0.65} theme="light" />
             {/* Close Button */}
             <button
               onClick={() => {

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CustomLayout from "@/components/layout/layout";
 import { INDUSTRIES_DATA, COMPANY_DETAILS } from "@/lib/staticData";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -51,9 +52,12 @@ export default async function IndustryDetailPage({ params }: PageProps) {
     <CustomLayout>
       {/* Dynamic Industry Hero Section */}
       <section 
-        className="relative py-10 md:py-32 overflow-hidden border-b border-slate-100"
+        className="relative py-10 md:py-10 overflow-hidden border-b border-slate-100"
         style={{ background: "linear-gradient(180deg, #F0FDF4 0%, #ecfdf5 100%)" }}
       >
+        {/* Reusable Background bubbles canvas */}
+        <BubbleBackground opacity={0.65} theme="light" />
+
         {/* Geometric Grid Overlay */}
         <div
           className="absolute inset-0 pointer-events-none opacity-40"
@@ -96,6 +100,9 @@ export default async function IndustryDetailPage({ params }: PageProps) {
 
       {/* Detail Content Section */}
       <section className="py-20 relative overflow-hidden" style={{ background: "#0d0d15" }}>
+        {/* Reusable Background bubbles canvas */}
+        <BubbleBackground opacity={0.6} theme="dark" />
+
         {/* Subtle glow orb */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-orange-500 opacity-[0.03] blur-[100px] pointer-events-none" />
 
