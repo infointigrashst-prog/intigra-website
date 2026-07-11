@@ -21,17 +21,19 @@ export default function Footer() {
 
       {/* Main Footer Container */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-12 pt-12 md:pt-16 pb-10 relative z-10">
-        
         {/* ============================================================== */}
         {/* 1. DESKTOP & TABLET VIEW: Full detailed grid (Visible on md up) */}
         {/* ============================================================== */}
         <div className="hidden md:grid grid-cols-12 gap-8 pb-12 border-b border-white/5">
           {/* Column 1: Brand & Logo (Spans 5 cols) */}
           <div className="col-span-5 flex flex-col items-start">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="inline-flex bg-white px-5 py-2 items-center transition-opacity hover:opacity-90 shadow-md mb-6"
-              style={{ clipPath: "polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)" }}
+              style={{
+                clipPath:
+                  "polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%)",
+              }}
             >
               <Image
                 src="/images/header_logo.png"
@@ -42,8 +44,9 @@ export default function Footer() {
               />
             </Link>
             <p className="text-zinc-400 text-sm leading-relaxed mb-6 max-w-sm">
-              World-class automated powder coating plant in Rajkot, Gujarat. 
-              Engineering colour and protecting excellence with advanced electrostatic systems.
+              World-class automated powder coating plant in Rajkot, Gujarat.
+              Engineering colour and protecting excellence with advanced
+              electrostatic systems.
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
@@ -103,8 +106,10 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="text-orange-500 w-5 h-5 flex-shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  Plot 2, Veraval Shapar,<br />
-                  Rajkot, Gujarat 360024, India
+                  Aanand liner gate, Dhwani Industrial area 5, Shree Hari
+                  Surface Technology
+                  <br />
+                  Veraval (Shapar),Rajkot, Gujarat 360024, India
                 </span>
               </li>
               <li>
@@ -139,10 +144,13 @@ export default function Footer() {
         <div className="md:hidden flex flex-col gap-8 pb-8 border-b border-white/5">
           {/* Top row: Brand Logo & Social links aligned side-by-side */}
           <div className="flex justify-between items-center w-full">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="bg-white px-4 py-1.5 flex items-center transition-opacity hover:opacity-90 shadow-sm"
-              style={{ clipPath: "polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)" }}
+              style={{
+                clipPath:
+                  "polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%)",
+              }}
             >
               <Image
                 src="/images/header_logo.png"
@@ -152,7 +160,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </Link>
-            
+
             {/* Highly compact socials */}
             <div className="flex gap-2">
               <a
@@ -212,16 +220,25 @@ export default function Footer() {
               <ul className="space-y-2 text-xs text-zinc-400">
                 <li className="flex items-start gap-1.5 leading-relaxed">
                   <MapPin className="text-orange-500 w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
-                  <span>Plot 2, Shapar, Rajkot</span>
+                  <span>
+                    Aanand liner gate, Dhwani Industrial area 5,
+                    Veraval(Shapar), Rajkot-360024
+                  </span>
                 </li>
                 <li>
-                  <a href="tel:+918128228778" className="flex items-center gap-1.5">
+                  <a
+                    href="tel:+918128228778"
+                    className="flex items-center gap-1.5"
+                  >
                     <Phone className="text-orange-500 w-3.5 h-3.5" />
                     <span>+91 81282 28778</span>
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info.intigra.shst@gmail.com" className="flex items-center gap-1.5 truncate">
+                  <a
+                    href="mailto:info.intigra.shst@gmail.com"
+                    className="flex items-center gap-1.5 truncate"
+                  >
                     <Mail className="text-orange-500 w-3.5 h-3.5" />
                     <span>info.intigra.shst</span>
                   </a>

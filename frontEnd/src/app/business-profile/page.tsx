@@ -15,6 +15,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import ShareCardModal from "@/components/comman/shareCardModal";
+import BubbleBackground from "@/components/comman/BubbleBackground";
 
 export default function BusinessProfile() {
   const [activeInfo, setActiveInfo] = useState<"tax" | "bank" | null>(null);
@@ -36,12 +37,12 @@ export default function BusinessProfile() {
     const vCardData = `
 BEGIN:VCARD
 VERSION:3.0
-FN:Shree Hari Yogi
-ORG:Surface Technology
-TEL;TYPE=CELL:+917984528778
-EMAIL:info@shreehariyogi.com
-ADR:;;Plot 2, Veraval Shapar, Rajkot, Gujarat, 360024;India
-URL:https://shree-hari-yogi.vercel.app/
+FN:Yash Kapadiya
+ORG:INTIGRA Coatings
+TEL;TYPE=CELL:+918128228778
+EMAIL:info.intigra.shst@gmail.com
+ADR:;;Aanand liner gate, Dhwani Industrial area 5, Shree Hari Surface Technology, Veraval (Shapar), Rajkot-360024;India
+URL:https://intigracoatings.com
 END:VCARD
   `.trim();
 
@@ -50,20 +51,26 @@ END:VCARD
 
     const link = document.createElement("a");
     link.href = url;
-    link.download = "ShreeHariYogi.vcf"; // File name
+    link.download = "YashKapadiya_Intigra.vcf"; // File name
     link.click();
 
     URL.revokeObjectURL(url);
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50 flex flex-col items-center py-3 px-2">
+    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-orange-50 flex flex-col items-center py-8 px-4 relative overflow-hidden">
+      {/* Background watercolor bubbles */}
+      <BubbleBackground opacity={0.5} theme="light" />
+
       {/* Card Container */}
-      <div className="bg-white shadow-2xl rounded-3xl w-full max-w-md overflow-hidden border border-gray-100 transform hover:scale-[1.01] transition-transform duration-300 ease-in-out">
+      <div className="bg-white shadow-2xl rounded-3xl w-full max-w-md overflow-hidden border border-gray-100 transform hover:scale-[1.01] transition-transform duration-300 ease-in-out relative z-10">
         {/* Banner & Logo */}
-        <div className="relative h-60 bg-gradient-to-tr from-orange-600 via-yellow-500 to-pink-400 flex items-center justify-center overflow-visible">
+        <div className="relative h-60 bg-gradient-to-tr from-[#1E3A8A] via-[#0d0d15] to-[#ff6b2b] flex items-center justify-center overflow-visible">
+          {/* Reusable Background bubbles canvas */}
+          <BubbleBackground opacity={0.4} theme="dark" />
+
           {/* Decorative Wave Shape */}
-          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
             <svg
               viewBox="0 0 500 150"
               preserveAspectRatio="none"
@@ -77,43 +84,42 @@ END:VCARD
           </div>
 
           {/* Glow Logo */}
-          <div className="absolute -bottom-20 flex justify-center w-full">
-            <div className="relative">
+          <div className="absolute -bottom-20 flex justify-center w-full z-20">
+            <div className="relative bg-white rounded-full p-1.5 shadow-2xl">
               <div className="absolute inset-0 bg-orange-400 blur-3xl opacity-60 rounded-full animate-pulse"></div>
-              <Image
-                src="/images/shree-hari-yogi-logo.png"
-                alt="Shree Hari Yogi Logo"
-                width={140}
-                height={140}
-                className="relative rounded-full border-[6px] border-white shadow-2xl ring-4 ring-orange-300 ring-opacity-70 transform hover:scale-110 transition"
-              />
+              <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-slate-100 flex items-center justify-center bg-white">
+                <Image
+                  src="/images/header_logo.png"
+                  alt="INTIGRA Coatings Logo"
+                  width={110}
+                  height={110}
+                  className="object-contain transform hover:scale-110 transition duration-500"
+                />
+              </div>
             </div>
           </div>
 
           {/* Title Overlay */}
-          <div className="absolute top-6 left-6 bg-white/20 backdrop-blur-lg px-6 py-3 rounded-2xl shadow-lg">
-            <h1 className="text-3xl font-extrabold text-white drop-shadow-md tracking-wide">
-              Shree Hari Yogi
+          <div className="absolute top-6 left-6 bg-black/40 backdrop-blur-lg px-5 py-2.5 rounded-2xl shadow-lg border border-white/10">
+            <h1 className="text-xl font-extrabold text-white tracking-wider uppercase font-display">
+              INTIGRA Coatings
             </h1>
-            <p className="text-sm text-white/90 mt-1">
-              Powder Coating & Surface Finishing
+            <p className="text-[10px] text-zinc-300 uppercase tracking-widest mt-0.5 font-ui">
+              Powder Coating Excellence
             </p>
           </div>
-
-          {/* Animated Circle Accent */}
-          <div className="absolute top-10 right-10 w-16 h-16 bg-white/20 rounded-full blur-2xl animate-ping"></div>
         </div>
 
         {/* Info Section */}
-        <div className="mt-10 text-center px-6 pb-8">
-          {/* <h2 className="text-3xl font-extrabold text-gray-900 leading-tight">
+        <div className="mt-24 text-center px-6 pb-8 relative">
+          <h2 className="text-2xl font-extrabold text-gray-900 leading-tight mb-1 font-display uppercase tracking-wide">
             Yash Kapadiya
-          </h2> */}
-          <p className="text-orange-600 font-semibold text-lg mb-2">
-            Yash Kapadiya
+          </h2>
+          <p className="text-orange-600 font-semibold text-xs uppercase tracking-widest font-ui mb-3">
+            Managing Director
           </p>
-          <p className="text-gray-500 text-sm mb-6 max-w-xs mx-auto">
-            Plot 2, Veraval Shapar, Rajkot, Gujarat, 360024
+          <p className="text-gray-500 text-xs mb-6 max-w-[280px] mx-auto leading-relaxed">
+            Aanand liner gate, Dhwani Industrial area 5, Shree Hari Surface Technology, Veraval (Shapar), Rajkot-360024
           </p>
 
           {/* Main Action Buttons */}
@@ -157,30 +163,35 @@ END:VCARD
 
           {/* Conditional Info Display */}
           {activeInfo === "tax" && (
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-5 rounded-xl text-sm text-gray-700 mb-8 shadow-inner border border-gray-200 text-left">
-              <p className="font-bold text-gray-800 mb-2">
-                GSTIN: <span className="font-normal">24AAJFT123XXXXX</span>
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl text-xs text-gray-700 mb-8 shadow-inner border border-gray-200 text-left reveal">
+              <p className="font-bold text-gray-800">
+                GSTIN: <span className="font-mono text-orange-600 font-semibold ml-1">24AAJFI8128R1Z1</span>
               </p>
             </div>
           )}
           {activeInfo === "bank" && (
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 p-5 rounded-xl text-sm text-gray-700 mb-8 shadow-inner border border-gray-200 text-left">
-              <p className="font-bold text-gray-800 mb-2">Bank Details:</p>
-              <ul className="list-disc list-inside ml-2 space-y-1 text-gray-600">
-                <li>
-                  A/C Name: <span className="font-normal">SHREE HARI YOGI</span>
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-5 rounded-2xl text-xs text-gray-700 mb-8 shadow-inner border border-gray-200 text-left reveal">
+              <p className="font-bold text-gray-800 mb-3 border-b border-gray-200/80 pb-1.5 uppercase tracking-wide">Bank details:</p>
+              <ul className="space-y-1.5 text-gray-600">
+                <li className="flex justify-between">
+                  <span className="font-semibold text-gray-500">A/C Name:</span>
+                  <span className="font-bold text-gray-800">INTIGRA COATINGS</span>
                 </li>
-                <li>
-                  A/C No: <span className="font-normal">1234XXXXXX</span>
+                <li className="flex justify-between">
+                  <span className="font-semibold text-gray-500">A/C No:</span>
+                  <span className="font-mono font-bold text-gray-800">50200062481282</span>
                 </li>
-                <li>
-                  IFSC Code: <span className="font-normal">HDFC000XXXXX</span>
+                <li className="flex justify-between">
+                  <span className="font-semibold text-gray-500">IFSC Code:</span>
+                  <span className="font-mono font-bold text-orange-600">HDFC0000213</span>
                 </li>
-                <li>
-                  Bank Name: <span className="font-normal">HDFC BANK</span>
+                <li className="flex justify-between">
+                  <span className="font-semibold text-gray-500">Bank Name:</span>
+                  <span className="font-bold text-gray-800">HDFC BANK</span>
                 </li>
-                <li>
-                  Branch: <span className="font-normal">Rajkot</span>
+                <li className="flex justify-between">
+                  <span className="font-semibold text-gray-500">Branch:</span>
+                  <span className="font-bold text-gray-800">Veraval Shapar</span>
                 </li>
               </ul>
             </div>
@@ -192,7 +203,7 @@ END:VCARD
               icon={<AiOutlineWhatsApp size={22} />}
               text="WhatsApp"
               color="whatsapp"
-              href="https://wa.me/7984528778?text=Hello%20Shree%20Hari%20Yogi,%20I%20am%20interested%20in%20your%20powder%20coating%20services."
+              href="https://wa.me/918128228778?text=Hello%20INTIGRA%20Coatings,%20I%20am%20interested%20in%20your%20powder%20coating%20services."
             />
             <ContactButton
               icon={<FileText size={20} />}
@@ -210,13 +221,13 @@ END:VCARD
               icon={<Mail size={20} />}
               text="Send Mail"
               color="red"
-              href="mailto:info@shreehariyogi.com"
+              href="mailto:info.intigra.shst@gmail.com"
             />
             <ContactButton
               icon={<Phone size={20} />}
               text="Call Now"
               color="yellow"
-              href="tel:+917984528778"
+              href="tel:+918128228778"
             />
           </div>
         </div>

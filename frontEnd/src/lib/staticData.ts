@@ -97,12 +97,12 @@ export const COMPANY_DETAILS: CompanyDetails = {
   email: "info.intigra.shst@gmail.com",
   alternateEmail: "info@shreehariyogi.com",
   address: {
-    streetAddress: "Plot 2, Veraval Shapar",
+    streetAddress: "Aanand liner gate, Dhwani Industrial area 5",
     addressLocality: "Rajkot",
     addressRegion: "Gujarat",
     postalCode: "360024",
     addressCountry: "IN",
-    formatted: "Plot 2, Veraval Shapar, Rajkot, Gujarat, India - 360024",
+    formatted: "Aanand liner gate, Dhwani Industrial area 5, Shree Hari Surface Technology, Veraval (Shapar), Rajkot-360024",
   },
   geo: {
     latitude: 22.1691199,
