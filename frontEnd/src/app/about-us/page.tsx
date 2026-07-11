@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: "profile",
     images: [
       {
-        url: `${siteUrl}/images/plant/about.jpeg`, // Replaced placeholder with your actual plant image path
+        url: `${siteUrl}/images/plant/plant_4.jpeg`, // Replaced placeholder with your actual plant image path
         width: 1200,
         height: 630,
         alt: "Inside the INTIGRA Automated Powder Coating Plant Facilities",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "About INTIGRA | Modern Surface Finishing Plants",
     description:
       "Meet the team delivering eco-friendly, corrosion-resistant, and impact-tolerant industrial powder coatings.",
-    images: [`${siteUrl}/images/plant/about.jpeg`],
+    images: [`${siteUrl}/images/plant/plant_4.jpeg`],
   },
 };
 
@@ -101,7 +101,7 @@ export default function AboutPage() {
                 <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-orange-500" />
                 <div className="overflow-hidden">
                   <Image
-                    src="/images/plant/about.jpeg"
+                    src="/images/plant/plant_4.jpeg"
                     alt="INTIGRA automated powder coating plant and conveyor machinery in Rajkot, Gujarat"
                     width={600}
                     height={400}

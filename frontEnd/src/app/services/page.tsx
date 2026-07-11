@@ -32,7 +32,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 export const metadata: Metadata = {
   title: "Industrial Powder Coating Services | INTIGRA Rajkot",
   description:
-    "Discover INTIGRA's high-performance powder coating solutions in Gujarat. Precision electrostatic application, meticulous 7-tank surface preparation, and custom texturing for automotive, industrial machinery, and architectural metal.",
+    "Discover INTIGRA's high-performance powder coating solutions in Gujarat. Precision electrostatic application, meticulous 9-tank hot process surface preparation, and custom texturing for automotive, industrial machinery, and architectural metal.",
   keywords: [
     "industrial powder coating services",
     "surface preparation sandblasting rajkot",
@@ -116,20 +116,29 @@ export default function ServicesPage() {
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-yellow-200/20 rounded-full blur-3xl animate-pulse"></div>
 
-          <div className="container max-w-screen-xl mx-auto px-6 relative z-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 reveal">
-              Our Industrial Capabilities
-            </h2>
+          <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
+            <div className="text-center mb-16 reveal">
+              <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
+                What We Do
+              </div>
+              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-[#1E3A8A] tracking-[2px] uppercase mb-4">
+                Our Industrial{" "}
+                <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
+                  Capabilities
+                </span>
+              </h2>
+              <div className="w-16 h-[3px] bg-gradient-to-r from-orange-500 to-amber-400 mx-auto" />
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {servicesList.map((service, index) => (
-                <Card
+                <div
                   key={index}
-                  className="overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.03] flex flex-col border-t-4 border-orange-500 rounded-2xl bg-white reveal"
+                  className="group relative bg-white border border-slate-200/80 rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2 cursor-pointer flex flex-col h-full text-left shadow-[0_10px_30px_rgba(30,41,59,0.03)] hover:shadow-[0_20px_40px_rgba(249,115,22,0.08)] reveal"
                   style={{ transitionDelay: `${index * 100}ms` }}
                   data-ai-hint={service.dataAiHint}
                 >
-                  <div className="relative w-full h-60 md:h-56 bg-zinc-100">
+                  <div className="relative w-full aspect-video bg-slate-50 overflow-hidden border-b border-slate-100">
                     <Image
                       src={service.image}
                       alt={`${service.title} line setup by INTIGRA Coatings`}
@@ -140,29 +149,32 @@ export default function ServicesPage() {
                     />
                   </div>
 
-                  <CardHeader className="px-6 pt-6">
-                    <div className="flex items-center gap-3">
-                      {service.icon}
-                      <CardTitle className="text-xl font-bold text-gray-900">
-                        {service.title}
-                      </CardTitle>
-                    </div>
-                  </CardHeader>
+                  <div className="p-8 flex flex-col flex-grow justify-between">
+                    <div>
+                      <div className="flex items-center gap-3.5 mb-5">
+                        <div className="p-2.5 bg-orange-50 rounded-xl text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+                          {service.icon}
+                        </div>
+                        <h3 className="font-display text-2xl text-[#1E3A8A] tracking-[0.5px] uppercase group-hover:text-orange-500 transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                      </div>
 
-                  <CardContent className="px-6 pb-6 flex flex-col flex-grow">
-                    <p className="text-gray-600 mb-4 leading-relaxed text-sm">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-2 text-sm text-gray-700 mt-auto">
-                      {service.details.map((detail, i) => (
-                        <li key={i} className="flex items-start">
-                          <CheckSquare className="h-4 w-4 mr-2 text-orange-500 flex-shrink-0 mt-0.5" />
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                      <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                        {service.description}
+                      </p>
+
+                      <ul className="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-5">
+                        {service.details.map((detail, i) => (
+                          <li key={i} className="flex items-start">
+                            <span className="w-1.5 h-1.5 bg-orange-500 rounded-full flex-shrink-0 mt-2 mr-3" />
+                            <span>{detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
           </div>

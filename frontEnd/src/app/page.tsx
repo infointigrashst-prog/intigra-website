@@ -114,7 +114,7 @@ export default function PremiumHomePage() {
                 INTIGRA is Rajkot&apos;s premier automated powder coating plant, built around a fully conveyor-driven production line that delivers exceptional consistency and throughput. Our advanced automated facility handles everything from precision automotive parts to large architectural steel components.
               </p>
               <p className="text-zinc-400 text-sm leading-relaxed mb-8">
-                Backed by a rigorous 7-stage phosphating pre-treatment system, precision electrostatic application, and thermally-optimised curing ovens — every component that leaves our plant carries a finish designed to last decades.
+                Backed by a rigorous 9-stage phosphating pre-treatment system, precision electrostatic application, and thermally-optimised curing ovens — every component that leaves our plant carries a finish designed to last decades.
               </p>
               <Link
                 href="/about-us"
@@ -125,14 +125,11 @@ export default function PremiumHomePage() {
               </Link>
             </div>
 
-            {/* Image with framing */}
-            <div className="relative reveal" style={{ transitionDelay: "150ms" }}>
-              <div className="absolute -inset-4 border border-white/10 rounded-none pointer-events-none" />
-              <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-orange-500" />
-              <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-orange-500" />
-              <div className="relative overflow-hidden">
+            {/* Plant Image */}
+            <div className="reveal">
+              <div className="relative group overflow-hidden border border-white/5 shadow-2xl">
                 <Image
-                  src="/images/plant/about.jpeg"
+                  src="/images/plant/plant_4.jpeg"
                   alt="INTIGRA automated powder coating conveyor plant in Rajkot, Gujarat"
                   width={600}
                   height={420}
@@ -142,8 +139,7 @@ export default function PremiumHomePage() {
                 />
                 {/* Overlay badge */}
                 <div className="absolute bottom-6 left-6 bg-black/70 backdrop-blur-md border border-white/10 px-5 py-3">
-                  <div className="font-display text-2xl text-orange-500 tracking-wider">EST. 2020</div>
-                  <div className="font-ui text-[9px] text-zinc-400 tracking-[3px] uppercase">Rajkot, Gujarat</div>
+                  <div className="font-ui text-[11px] text-orange-500 tracking-[3px] uppercase font-bold">Rajkot, Gujarat</div>
                 </div>
               </div>
             </div>

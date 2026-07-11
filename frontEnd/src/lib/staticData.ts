@@ -329,7 +329,8 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Multi-stage chemical pre-treatment",
       "Clean, profile-ready surface preparation",
     ],
-    image: "/images/plant/automatic-powder-coating-plant-2.jpg",
+    image: "/images/plant/plant_1.jpeg",
+    // image: "/images/plant/automatic-powder-coating-plant-2.jpg",
     dataAiHint: "surface preparation and cleaning",
   },
   {
@@ -342,7 +343,8 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Consistent film thickness and coverage",
       "Controlled environment for quality output",
     ],
-    image: "/images/plant/automatic-powder-coating-plant-1.jpg",
+    image: "/images/plant/plant_2.jpeg",
+    // image: "/images/plant/automatic-powder-coating-plant-1.jpg",
     dataAiHint: "powder coating application",
   },
   {
@@ -355,7 +357,7 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Uniform curing for all components",
       "Ensures strong, chip-resistant finish",
     ],
-    image: "/images/plant/about.jpeg",
+    image: "/images/plant/plant_4.jpeg",
     dataAiHint: "curing process coating strength",
   },
   {
@@ -368,7 +370,8 @@ export const SERVICES_DATA: ServiceItem[] = [
       "Gloss, matt, texture & metallic finishes",
       "Special effect & bespoke options",
     ],
-    image: "/images/plant/automatic-powder-coating-plant-1.jpg",
+    image: "/images/plant/plant_3.jpeg",
+    // image: "/images/plant/automatic-powder-coating-plant-1.jpg",
     dataAiHint: "color texture and finish options",
   },
 ];

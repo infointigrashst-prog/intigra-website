@@ -7,7 +7,7 @@ const PROCESS_STEPS = [
   {
     num: "01",
     title: "Surface Preparation",
-    desc: "Comprehensive 7-tank phosphating & degreasing process removes all contaminants, rust, and mill scale — creating a chemically-clean, profiled surface for maximum adhesion.",
+    desc: "Comprehensive 9 Tank Hot process (phosphating & degreasing) removes all contaminants, rust, and mill scale — creating a chemically-clean, profiled surface for maximum adhesion.",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/>

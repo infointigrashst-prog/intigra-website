@@ -5,14 +5,6 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 const WHY_ITEMS = [
   {
-    icon: "⚡",
-    title: "Automated Production Line",
-    desc: "State-of-the-art conveyor system with 100% automated powder application ensures consistent film thickness across every component — eliminating human variance.",
-    metric: "100%",
-    metricLabel: "Automated",
-    accent: "#ff6b2b",
-  },
-  {
     icon: "🌿",
     title: "Zero Waste Eco Process",
     desc: "Solvent-free powder formulations combined with closed-loop powder recovery systems achieve near-zero waste output — dramatically reducing environmental impact.",
@@ -22,7 +14,7 @@ const WHY_ITEMS = [
   },
   {
     icon: "🛡️",
-    title: "7-Stage Pre-Treatment",
+    title: "9-Stage Pre-Treatment",
     desc: "Multi-tank phosphating and chromate conversion coating system creates a superior bond layer — proven to extend coating life by up to 300% vs. standard priming.",
     metric: "300%",
     metricLabel: "Longer Life",
@@ -46,10 +38,10 @@ const WHY_ITEMS = [
   },
   {
     icon: "🔬",
-    title: "Standardised QC",
+    title: "Inhouse Testing Lab",
     desc: "Every batch undergoes adhesion cross-hatch, impact resistance, salt-spray corrosion, and gloss level testing to exceed industry durability expectations.",
     metric: "100%",
-    metricLabel: "Quality QC",
+    metricLabel: "Testing Lab",
     accent: "#ff6b2b",
   },
 ];
