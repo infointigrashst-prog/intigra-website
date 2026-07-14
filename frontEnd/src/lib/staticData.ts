@@ -110,8 +110,8 @@ export const COMPANY_DETAILS: CompanyDetails = {
   },
   mapEmbedUrl:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2288.964458162869!2d70.80483645311745!3d22.1691199272777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3958356a0e8a57ef%3A0x9524add0ba5f6cb6!2sIntigra%20Coatings!5e0!3m2!1sen!2sin!4v1765630632650!5m2!1sen!2sin",
-  businessHours: "Thursday - Thursday: 8:30 AM - 7 PM",
-  businessHoursShort: "Thu - Thu: 8:30 AM - 7:00 PM",
+  businessHours: "Mon - Sun: 8:30 AM - 7:00 PM (Closed on Wednesday)",
+  businessHoursShort: "Mon - Sun: 8:30 AM - 7:00 PM (Wed Closed)",
   sameAs: [
     "https://www.facebook.com/share/1JGgtxVfMZ/",
     "https://www.instagram.com/intigra_coatings?igsh=dmw4OHk2dThvcTB5",
@@ -396,6 +396,10 @@ export const COATING_TYPES_DATA: CoatingType[] = [
   {
     title: "High-Heat Formulations",
     desc: "Specifically engineered to withstand extreme thermal fluctuations without peeling. Ideal for exhaust system configurations, manifolds, and processing equipment.",
+  },
+  {
+    title: "Super Durable Polyesters",
+    desc: "Specially formulated for extreme exterior exposures, meeting Qualicoat Class 2 specifications. Ideal for critical architectural profiles requiring 10+ years of weatherability.",
   },
 ];
 

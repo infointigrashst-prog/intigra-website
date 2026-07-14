@@ -10,7 +10,7 @@ interface BubbleBackgroundProps {
 }
 
 export default function BubbleBackground({
-  opacity = 0.8,
+  opacity = 1,
   particleCount,
   speed = 0.35,
   className = "absolute inset-0 w-full h-full pointer-events-none z-0",
@@ -39,18 +39,18 @@ export default function BubbleBackground({
     const colors =
       theme === "dark"
         ? [
-            "rgba(255, 107, 43, 0.22)",  // Orange
-            "rgba(0, 229, 255, 0.18)",   // Cyan
-            "rgba(255, 200, 55, 0.18)",   // Yellow
-            "rgba(16, 185, 129, 0.15)",   // Green
-            "rgba(168, 85, 247, 0.18)",   // Purple
+            "rgba(255, 107, 43, 0.45)",  // Orange
+            "rgba(0, 229, 255, 0.40)",   // Cyan
+            "rgba(255, 200, 55, 0.40)",   // Yellow
+            "rgba(16, 185, 129, 0.35)",   // Green
+            "rgba(168, 85, 247, 0.40)",   // Purple
           ]
         : [
-            "rgba(255, 107, 43, 0.18)",  // Orange
-            "rgba(30, 58, 138, 0.12)",   // Blue
-            "rgba(16, 185, 129, 0.15)",  // Green
-            "rgba(239, 68, 68, 0.12)",   // Red
-            "rgba(168, 85, 247, 0.15)",  // Purple
+            "rgba(255, 107, 43, 0.40)",  // Orange
+            "rgba(30, 58, 138, 0.35)",   // Blue
+            "rgba(16, 185, 129, 0.35)",  // Green
+            "rgba(239, 68, 68, 0.30)",   // Red
+            "rgba(168, 85, 247, 0.35)",  // Purple
           ];
 
     const resizeCanvas = () => {
@@ -63,14 +63,14 @@ export default function BubbleBackground({
     const initParticles = () => {
       particles = [];
       const count =
-        particleCount || Math.min(Math.floor(canvas.width / 35), 25);
+        particleCount || Math.min(Math.floor(canvas.width / 40), 20);
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * speed,
           vy: (Math.random() - 0.5) * speed,
-          radius: Math.random() * 8 + 3, // Sizes between 3px and 11px
+          radius: Math.random() * 7 + 3, // Sizes between 3px and 10px
           color: colors[Math.floor(Math.random() * colors.length)],
         });
       }

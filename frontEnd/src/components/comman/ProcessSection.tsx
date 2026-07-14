@@ -130,10 +130,10 @@ export default function ProcessSection() {
         {/* Steps */}
         <div className="relative">
           {/* Connecting line (desktop) */}
-          <div className="hidden lg:block absolute top-[52px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-orange-500/30 via-orange-500/60 to-orange-500/30" />
+          <div className="hidden lg:block absolute top-[68px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-orange-500/30 via-orange-500/60 to-orange-500/30 z-0" />
 
           {/* Mobile Swiper View */}
-          <div className="block sm:hidden pb-10">
+          <div className="block sm:hidden pb-10 relative z-10">
             <Swiper
               modules={[Pagination, Autoplay]}
               spaceBetween={16}
@@ -151,7 +151,7 @@ export default function ProcessSection() {
           </div>
 
           {/* Desktop Grid View */}
-          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="hidden sm:grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
             {PROCESS_STEPS.map((step, i) => (
               <div
                 key={i}

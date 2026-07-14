@@ -45,6 +45,14 @@ const WHY_ITEMS = [
     metricLabel: "Testing Lab",
     accent: "#ff6b2b",
   },
+  {
+    icon: "💎",
+    title: "High Durability Shield",
+    desc: "Electrostatic cross-linked thermoset polymers provide unparalleled scratch, chemical, and weather resistance compared to traditional liquid paints.",
+    metric: "10x",
+    metricLabel: "Impact Strength",
+    accent: "#ff3366",
+  },
 ];
 
 export default function WhyIntigraSection() {
