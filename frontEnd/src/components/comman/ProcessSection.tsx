@@ -59,7 +59,7 @@ export default function ProcessSection() {
       {/* Step circle */}
       <div className="relative mb-8">
         <div
-          className="w-[104px] h-[104px] rounded-full border-2 border-white/10 bg-white/[0.02] shadow-lg flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-orange-500 group-hover:shadow-orange-500/20 group-hover:shadow-xl"
+          className="w-[104px] h-[104px] rounded-full border-2 border-white/10 bg-[#0d0d15] shadow-lg flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-orange-500 group-hover:shadow-orange-500/20 group-hover:shadow-xl"
         >
           <div
             className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
