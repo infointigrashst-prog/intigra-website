@@ -1,15 +1,16 @@
 
 import type { MetadataRoute } from 'next';
+import { PRODUCTS_DATA, INDUSTRIES_DATA, COMPANY_DETAILS } from '@/lib/staticData';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com'; // Replace with your actual domain
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || COMPANY_DETAILS.siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages:any = [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: siteUrl,
       lastModified: new Date().toISOString(),
       changeFrequency: 'yearly',
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: `${siteUrl}/about-us`,
@@ -27,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteUrl}/products`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${siteUrl}/contact-us`,
@@ -35,19 +36,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    {
+      url: `${siteUrl}/business-profile`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
   ];
 
-  // If you have dynamic routes (e.g., blog posts, products), 
-  // you would fetch them here and add them to the sitemap.
-  // Example:
-  // const posts = await fetch('https://.../api/posts').then((res) => res.json())
-  // const postEntries = posts.map((post) => ({
-  //   url: `${siteUrl}/blog/${post.slug}`,
-  //   lastModified: new Date(post.updatedAt).toISOString(),
-  //   changeFrequency: 'weekly',
-  //   priority: 0.6,
-  // }))
-  // return [...staticPages, ...postEntries];
+  // Dynamic Product Category Routes
+  const productEntries = PRODUCTS_DATA.map((product) => {
+    const slug = product.category.toLowerCase().replace(/\s+/g, "-");
+    return {
+      url: `${siteUrl}/products/${slug}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    };
+  });
 
-  return staticPages;
+  // Dynamic Industry Routes
+  const industryEntries = INDUSTRIES_DATA.map((industry) => {
+    return {
+      url: `${siteUrl}/industries/${industry.slug}`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    };
+  });
+
+  return [...staticPages, ...productEntries, ...industryEntries];
 }
