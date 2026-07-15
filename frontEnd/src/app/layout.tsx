@@ -15,6 +15,7 @@ import WhatsappButton from "@/components/comman/Whatsapp";
 import { Analytics } from '@vercel/analytics/next';
 import { LocalBusinessJsonLd } from "@/components/seo/json-ld";
 import MockupEffects from "@/components/comman/MockupEffects";
+import GoogleAnalytics from "@/components/comman/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas-neue" });
@@ -117,6 +118,7 @@ export default function RootLayout({
       >
         <MockupEffects />
         <Analytics/>
+        <GoogleAnalytics/>
         <div className="flex flex-col min-h-screen">{children}</div>
         <WhatsappButton />
         <ScrollToTopButton />
