@@ -11,6 +11,7 @@ async function bootstrap() {
   app.enableCors({
     origin: [
       'https://intigracoatings.vercel.app',
+      'https://www.intigracoatings.com',
       'http://localhost:3000',
       'http://localhost:3001',
       'https://www.intigracoatings.com',

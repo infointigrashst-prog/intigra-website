@@ -89,7 +89,7 @@ export const COMPANY_DETAILS: CompanyDetails = {
   description:
     "INTIGRA Coatings offers the best powder coating services in Rajkot, Gujarat. Durable, corrosion-resistant, eco-friendly finishes for industrial and automotive applications.",
   logoUrl: "/images/header_logo.png",
-  siteUrl: "https://intigracoatings.vercel.app",
+  siteUrl: "https://www.intigracoatings.com",
   telephone: "+918128228778",
   telephoneFormatted: "+91 81282 28778",
   alternateTelephone: "+917984528778",

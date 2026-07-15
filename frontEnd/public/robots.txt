@@ -26,4 +26,4 @@ User-agent: Applebot-Extended
 Disallow: /admin
 Allow: /
 
-Sitemap: https://intigracoatings.vercel.app/sitemap.xml
+Sitemap: https://www.intigracoatings.com/sitemap.xml
