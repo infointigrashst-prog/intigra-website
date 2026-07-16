@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     "industrial coatings",
     "automotive coating",
     "INTIGRA",
+    "Intigra Coatings",
+    "Intigra Powder Coating",
+    "Intigra Coatings Rajkot",
     "powder coating in Rajkot",
     "powder coating Rajkot Gujarat",
     "best powder coating plant in Rajkot",
@@ -55,7 +58,6 @@ export const metadata: Metadata = {
     "industrial coating services Gujarat",
   ],
   alternates: {
-    // Add alternates for the root page as well
     canonical: "/",
   },
   openGraph: {
@@ -68,7 +70,7 @@ export const metadata: Metadata = {
       "Top-rated powder coating plant in Rajkot providing high-quality industrial, automotive, and custom metal coating solutions.",
     images: [
       {
-        url: "https://intigracoatings.vercel.app/images/header_logo.png",
+        url: "https://www.intigracoatings.com/images/header_logo.png",
         width: 1200,
         height: 630,
         alt: "INTIGRA Powder Coating Plant in Rajkot",
@@ -82,7 +84,7 @@ export const metadata: Metadata = {
     title: "Best Powder Coating in Rajkot | INTIGRA Coatings",
     description:
       "Looking for reliable powder coating in Rajkot? INTIGRA delivers durable, premium-finish industrial coatings.",
-    images: "https://intigracoatings.vercel.app/images/header_logo.png",
+    images: "https://www.intigracoatings.com/images/header_logo.png",
   },
   robots: {
     index: true,
