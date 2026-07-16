@@ -94,13 +94,13 @@ export default function PremiumHomePage() {
               <div className="font-ui text-[11px] tracking-[6px] uppercase text-orange-500 mb-4">
                 About INTIGRA
               </div>
-              <h2 className="font-display text-4xl sm:text-5xl text-white tracking-[2px] uppercase leading-tight mb-6">
+              <h1 className="font-display text-4xl sm:text-5xl text-white tracking-[2px] uppercase leading-tight mb-6">
                 Precision Coating.{" "}
                 <span className="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">
                   Engineered
                 </span>{" "}
                 Excellence.
-              </h2>
+              </h1>
               <p className="text-zinc-300 text-base leading-relaxed mb-6">
                 INTIGRA is Rajkot&apos;s premier automated powder coating plant, built around a fully conveyor-driven production line that delivers exceptional consistency and throughput. Our advanced automated facility handles everything from precision automotive parts to large architectural steel components.
               </p>
