@@ -2,30 +2,69 @@
 
 import CustomLayout from "@/components/layout/layout";
 import axios from "axios";
-import type { Metadata } from "next";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Admin() {
+  const router = useRouter();
   const [contacts, setContacts] = useState<any>([]);
-  const [loading, setLoading] = useState(true); // ✅ Loading state added
+  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const fetchContacts = async () => {
     try {
-      setLoading(true); // Start loading
+      setLoading(true);
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/api/user/contact-us`
       );
-      setContacts(response.data.Data); // Assuming response.data contains an array of contacts
+      setContacts(response.data.Data);
     } catch (error) {
       console.error("Error fetching contacts:", error);
     } finally {
-      setLoading(false); // Stop loading after API call
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchContacts();
+    const password = window.prompt("Enter Admin Password:");
+    if (password === "intigra@4321") {
+      setIsAuthenticated(true);
+      fetchContacts();
+    } else {
+      window.alert("Access Denied.");
+      router.push("/");
+    }
   }, []);
+
+  if (!isAuthenticated) {
+    return (
+      <CustomLayout>
+        <div className="flex flex-col items-center justify-center min-h-[60vh] text-gray-500 font-medium">
+          <svg
+            className="animate-spin h-8 w-8 text-orange-500 mb-4"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v8H4z"
+            ></path>
+          </svg>
+          <p>Verifying authorization...</p>
+        </div>
+      </CustomLayout>
+    );
+  }
 
   return (
     <CustomLayout>
