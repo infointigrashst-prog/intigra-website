@@ -7,7 +7,7 @@ export default function ShareCardModal({ isOpen, onClose }: { isOpen: boolean; o
   if (!isOpen) return null;
 
   const shareMessage =
-    "Shree Hari Yogi - Digital Business Card @ https://shree-hari-yogi.vercel.app/business-profile Click the above link & connect with us";
+    "Shree Hari Yogi - Digital Business Card @ https://www.integracoatings.com/business-profile Click the above link & connect with us";
 
   const icons = [
     {
@@ -17,7 +17,7 @@ export default function ShareCardModal({ isOpen, onClose }: { isOpen: boolean; o
     {
       icon: <Facebook size={22} />,
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-        "https://shree-hari-yogi.vercel.app/business-profile"
+        "https://www.integracoatings.com/business-profile"
       )}`,
     },
     {
@@ -27,7 +27,7 @@ export default function ShareCardModal({ isOpen, onClose }: { isOpen: boolean; o
     {
       icon: <Linkedin size={22} />,
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-        "https://shree-hari-yogi.vercel.app/business-profile"
+        "https://www.integracoatings.com/business-profile"
       )}`,
     },
     {
