@@ -21,7 +21,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const bebasNeue = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-bebas-neue" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.intigracoatings.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.intigracoatings.com";
   const canonicalPath = `/products/${getSlug(currentProduct.category)}`;
 
   return {

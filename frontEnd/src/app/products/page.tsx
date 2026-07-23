@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Industrial Powder Coating Product Catalog | INTIGRA",
     description: "Explore our full industrial application catalog gallery in Rajkot, Gujarat. Precision finishes engineered for maximum structural performance.",
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"}/products`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.intigracoatings.com"}/products`,
     type: "website",
   },
 };

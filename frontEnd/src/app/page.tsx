@@ -15,7 +15,7 @@ import StatsBar from "@/components/home/StatsBar";
 import BubbleBackground from "@/components/comman/BubbleBackground";
 import AboutBenefits from "@/components/home/AboutBenefits";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.intigracoatings.com";
 
 /* --- Production-Grade Search Engine Optimization Metadata --- */
 export const metadata: Metadata = {
