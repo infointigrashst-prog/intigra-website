@@ -19,7 +19,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.intigracoatings
 
 /* --- Production-Grade Search Engine Optimization Metadata --- */
 export const metadata: Metadata = {
-  title: "Premium Industrial Powder Coating Services in Rajkot | INTIGRA",
+  title: "Best Powder Coating in Rajkot, Gujarat | INTIGRA Coatings",
   description:
     "Partner with INTIGRA, India's leading automated powder coating plant in Rajkot, Gujarat. Specializing in highly durable, eco-friendly surface finishing for automotive parts, industrial valves, castings, and architectural frameworks.",
   keywords: [
